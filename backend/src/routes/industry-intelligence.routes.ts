@@ -5,12 +5,12 @@ import { buildIndustryIntelligence } from '../services/industry.intelligence';
 
 const router = Router();
 
-router.get('/overview', authenticateJwt, requireRoles([
+router.get('/overview', authenticateJwt, requireRoles(
   ROLES.STUDENT,
   ROLES.ACADEMICIAN,
   ROLES.INDUSTRY,
   ROLES.INSTITUTION_ADMIN,
-]), async (_req: AuthRequest, res: Response) => {
+), async (_req: AuthRequest, res: Response) => {
   try {
     res.json(await buildIndustryIntelligence());
   } catch (error) {
