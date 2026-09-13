@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 import './index.css';
 
-document.title = 'EduBridge | Academia–Industry Skill & Placement Platform';
+document.title = 'Setu | Academia–Industry Skill & Placement Platform';
 
 const queryClient = new QueryClient({
   defaultOptions: {

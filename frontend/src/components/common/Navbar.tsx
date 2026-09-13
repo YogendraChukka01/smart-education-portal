@@ -158,15 +158,15 @@ export const Navbar: React.FC = () => {
           {/* Left Brand */}
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center font-black text-xl shadow-xs group-hover:bg-blue-800 transition-colors">
-                EB
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200 shadow-xs group-hover:border-blue-300 transition-colors">
+                <img src="/setu-logo.png" alt="Setu logo" className="w-full h-full object-cover object-top" />
               </div>
               <div>
                 <div className="font-extrabold text-base tracking-tight text-slate-900 leading-tight">
-                  EduBridge
+                  Setu
                 </div>
                 <div className="text-[10px] font-semibold text-slate-500 tracking-wider">
-                  Academia–Industry Skill & Placement
+                  Connect • Learn • Grow
                 </div>
               </div>
             </Link>

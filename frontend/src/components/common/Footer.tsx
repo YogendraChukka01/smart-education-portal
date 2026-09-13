@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
               <div className="w-7 h-7 rounded-lg bg-blue-700 flex items-center justify-center">
                 <GraduationCap className="w-4 h-4 text-white" />
               </div>
-              <span>EduBridge Portal</span>
+              <span>Setu Portal</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Portal for Academia - Industry Collaboration for Skill Mapping, Internships, and Placement.
