@@ -3,48 +3,100 @@
 @tailwind utilities;
 
 @layer base {
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-slate-50 text-slate-900 font-sans antialiased;
     font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
   }
+  *, *::before, *::after { box-sizing: border-box; }
+  button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-/* Glassmorphism utilities */
 .glass-card {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
-
 .glass-nav {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
-
 .hero-gradient {
   background: radial-gradient(circle at 50% 20%, rgba(20, 184, 166, 0.15) 0%, rgba(15, 118, 110, 0.05) 40%, rgba(255, 255, 255, 0) 70%);
 }
-
 .gradient-border {
   position: relative;
   border-radius: 0.75rem;
   background: linear-gradient(135deg, #0d9488, #0f766e, #0284c7);
   padding: 1px;
+}
+
+/* Motion + layout polish */
+.page-main { min-width: 0; isolation: isolate; }
+.page-main > * { min-width: 0; max-width: 100%; }
+.page-main > * { animation: page-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Stagger dashboard grids without adding a motion dependency. */
+.page-main .grid > * { animation: card-enter 480ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.page-main .grid > *:nth-child(2) { animation-delay: 45ms; }
+.page-main .grid > *:nth-child(3) { animation-delay: 90ms; }
+.page-main .grid > *:nth-child(4) { animation-delay: 135ms; }
+.page-main .grid > *:nth-child(5) { animation-delay: 180ms; }
+.page-main .grid > *:nth-child(6) { animation-delay: 225ms; }
+
+.page-main a, .page-main button {
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms ease,
+    background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.page-main a:hover, .page-main button:hover { transform: translateY(-1px); }
+.page-main a:active, .page-main button:active { transform: translateY(0) scale(0.985); }
+
+.page-main .rounded-2xl.border {
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease, border-color 220ms ease;
+}
+.page-main .rounded-2xl.border:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07);
+}
+
+/* Prevent the long role-specific navbar from pushing dashboard content sideways. */
+header nav {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+header nav::-webkit-scrollbar { display: none; }
+header nav a { flex: 0 0 auto; white-space: nowrap; }
+
+img, svg, canvas { max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
