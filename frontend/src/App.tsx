@@ -55,7 +55,7 @@ export function App() {
       <Router>
         <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-600 selection:text-white">
           <Navbar />
-          <main className="flex-1">
+          <main className="flex-1 page-main">
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<LandingPage />} />
