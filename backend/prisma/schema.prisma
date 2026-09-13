@@ -1,0 +1,549 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                 String              @id @default(uuid())
+  email              String              @unique
+  passwordHash       String
+  role               String              // 'student' | 'academician' | 'industry' | 'institution_admin' | 'alumni' | 'alumni_admin' | 'admin'
+  institutionId      String?
+  companyId          String?
+  avatarUrl          String?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+
+  // Relations
+  institution        Institution?        @relation(fields: [institutionId], references: [id])
+  company            Company?            @relation(fields: [companyId], references: [id])
+  studentProfile     StudentProfile?
+  academicianProfile AcademicianProfile?
+  alumniProfile      AlumniProfile?
+  applications       Application[]
+  sentMessages       Message[]           @relation("SentMessages")
+  receivedMessages   Message[]           @relation("ReceivedMessages")
+  notifications      Notification[]
+  eventRegistrations EventRegistration[]
+  alumniPosts        AlumniPost[]
+  alumniPostComments AlumniPostComment[]
+  alumniPostLikes    AlumniPostLike[]
+  studentMentorshipRequests MentorshipRequest[] @relation("StudentMentorshipRequests")
+  mentorMentorshipRequests  MentorshipRequest[] @relation("MentorMentorshipRequests")
+}
+
+model Institution {
+  id                    String              @id @default(uuid())
+  name                  String
+  type                  String              // e.g. 'Technological University', 'Autonomous Engineering College'
+  location              String?
+  code                  String?             @unique
+  logoUrl               String?
+  address               String?
+  website               String?
+  placementOfficerName  String?
+  placementOfficerEmail String?
+  placementOfficerPhone String?
+  createdAt             DateTime            @default(now())
+  
+  departments           Department[]
+  users                 User[]
+  opportunities         Opportunity[]
+  placedStudents        PlacedStudent[]
+}
+
+model Department {
+  id            String       @id @default(uuid())
+  institutionId String
+  name          String       // e.g. 'Computer Science & Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Electronics & Telecommunication'
+  code          String       // e.g. 'CSE', 'MECH', 'CIVIL', 'ENTC', 'IT', 'EE'
+  createdAt     DateTime     @default(now())
+
+  institution   Institution  @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  branches      Branch[]
+}
+
+model Branch {
+  id            String       @id @default(uuid())
+  departmentId  String
+  name          String       // e.g. 'Computer Science & Engineering', 'Artificial Intelligence & Data Science', 'Robotics & Automation'
+  code          String       // e.g. 'CSE', 'AI-DS', 'CYBER', 'ROBO', 'ENTC', 'MECH', 'CIVIL'
+  createdAt     DateTime     @default(now())
+
+  department    Department   @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+}
+
+model Company {
+  id            String         @id @default(uuid())
+  name          String
+  industryType  String         // e.g. 'Software & Cloud Solutions', 'Automotive & Manufacturing', 'Infrastructure & Construction', 'FinTech'
+  description   String
+  website       String?
+  logoUrl       String?
+  location      String?
+  companySize   String?        // e.g. '10,000+ employees', '1,000-5,000'
+  recruiterName String?
+  recruiterEmail String?
+  hiringDomains String?        // JSON string array e.g. '["Cloud", "Full Stack", "Embedded", "AI/ML"]'
+  createdAt     DateTime       @default(now())
+  users         User[]
+  opportunities Opportunity[]
+}
+
+model StudentProfile {
+  id                String              @id @default(uuid())
+  userId            String              @unique
+  name              String
+  degree            String              // e.g. 'B.Tech', 'B.E.', 'M.Tech'
+  departmentName    String              @default("Computer Science & Engineering")
+  branchName        String              @default("Computer Science & Engineering")
+  year              Int                 // e.g. 1, 2, 3, 4
+  semester          Int                 @default(6) // e.g. 1 to 8
+  rollNumber        String?
+  enrollmentNumber  String?
+  cgpa              Float               @default(8.2)
+  academicRank      Int?
+  departmentRank    Int?
+  branchRank        Int?
+  batchRank         Int?
+  graduationYear    Int                 @default(2026)
+  phone             String?
+  location          String?
+  targetRoleId      String?
+  portfolioSlug     String              @unique
+  bio               String?
+  careerGoal        String?
+  avatarUrl         String?
+  resumeUrl         String?
+  githubUrl         String?
+  linkedinUrl       String?
+  profileCompletedPct Int               @default(75)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skillScores       StudentSkillScore[]
+  portfolioItems    PortfolioItem[]
+  codingSubmissions CodingSubmission[]
+  resumeDrafts      ResumeDraft[]
+}
+
+model AcademicianProfile {
+  id                 String             @id @default(uuid())
+  userId             String             @unique
+  name               String
+  department         String             // e.g. 'Computer Science & Engineering', 'Mechanical Engineering'
+  branch             String?
+  designation        String?            // e.g. 'Professor & HOD', 'Associate Professor', 'Training & Placement Officer'
+  experienceYears    Int                @default(12)
+  specialization     String?
+  researchInterests  String?            // JSON string array
+  publications       String?            // JSON string array
+  labExpertise       String?            // JSON string array
+  expertiseTags      String             // JSON string array e.g. '["Cloud Computing", "Embedded Systems", "Robotics"]'
+  bio                String?
+  avatarUrl          String?
+  phone              String?
+  linkedinUrl        String?
+  orcidUrl           String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  user               User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mentorshipEvents   MentorshipEvent[]
+}
+
+model AlumniProfile {
+  id                 String             @id @default(uuid())
+  userId             String             @unique
+  name               String
+  graduationYear     Int                // e.g. 2022
+  departmentName     String             @default("Computer Science & Engineering")
+  branchName         String             @default("Computer Science & Engineering")
+  company            String             // e.g. 'Microsoft', 'Google', 'TCS'
+  role               String             // e.g. 'Senior SDE', 'System Architect'
+  experienceYears    Int                @default(3)
+  location           String?
+  skills             String             // JSON string array
+  linkedinUrl        String?
+  githubUrl          String?
+  bio                String?
+  avatarUrl          String?
+  isAvailableForMentorship Boolean      @default(true)
+  careerStoryQuote   String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  user               User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Skill {
+  id                   String              @id @default(uuid())
+  name                 String              @unique
+  category             String              // 'Programming', 'Frameworks', 'Databases', 'Cloud & DevOps', 'AI / ML', 'Core Engineering', 'Tools', 'Aptitude & Soft Skills'
+  departmentName       String?             // e.g. 'Computer Science & Engineering', 'Mechanical Engineering', or 'Common'
+  description          String
+  industryDemandWeight Float               @default(1.0)
+  createdAt            DateTime            @default(now())
+
+  studentScores        StudentSkillScore[]
+  questions            AssessmentQuestion[]
+}
+
+model CareerRole {
+  id                   String   @id @default(uuid())
+  title                String   // e.g. 'Java Backend Developer', 'Data Analyst', 'CAD Design Engineer', 'Embedded Systems Engineer'
+  departmentName       String   // e.g. 'Computer Science & Engineering', 'Mechanical Engineering', 'Civil Engineering', 'ENTC'
+  branchName           String?
+  description          String
+  requiredSkillsJson   String   // JSON string of [{ skillName: string, minLevel: number, weight: number, isMandatory: boolean }]
+  preferredSkillsJson  String?  // JSON string array of skill names
+  recommendedProjectsJson String? // JSON string array of project titles/descriptions
+  minCgpa              Float    @default(6.5)
+  createdAt            DateTime @default(now())
+}
+
+model AssessmentQuestion {
+  id                 String   @id @default(uuid())
+  skillId            String
+  questionType       String   @default("technical") // 'technical' | 'aptitude' | 'soft_skills' | 'coding'
+  questionText       String
+  scenarioText       String?
+  optionsJson        String   // JSON string of [{ label: string, score: number }]
+  difficulty         String   @default("medium") // 'easy' | 'medium' | 'hard'
+  departmentName     String?
+  branchName         String?
+  targetCareer       String?
+  marks              Int      @default(10)
+  correctAnswer      String?
+  explanation        String?
+  constraints        String?
+  examplesJson       String?  // JSON string of [{ input: string, output: string, explanation: string }]
+  isActive           Boolean  @default(true)
+  recruiterCompanyId String?  // If created for a specific company assessment
+  createdAt          DateTime @default(now())
+
+  skill              Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  submissions        CodingSubmission[]
+}
+
+model CodingSubmission {
+  id           String             @id @default(uuid())
+  studentId    String
+  questionId   String
+  fileName     String
+  fileLanguage String             // 'java' | 'python' | 'cpp' | 'javascript' | 'txt'
+  fileContent  String
+  status       String             @default("submitted") // 'submitted' | 'reviewed'
+  score        Float?
+  reviewerNotes String?
+  uploadedAt   DateTime           @default(now())
+
+  student      StudentProfile     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  question     AssessmentQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
+
+model StudentSkillScore {
+  id        String         @id @default(uuid())
+  studentId String
+  skillId   String
+  score     Float          // 0 to 100
+  source    String         @default("self-assessed") // 'self-assessed' | 'assessed' | 'verified'
+  updatedAt DateTime       @updatedAt
+
+  student   StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  skill     Skill          @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, skillId])
+}
+
+model Opportunity {
+  id                     String        @id @default(uuid())
+  type                   String        // 'internship' | 'job' | 'program' | 'fdp' | 'consultancy' | 'research'
+  postedByCompanyId      String?
+  postedByInstitutionId  String?
+  title                  String
+  description            String
+  location               String
+  workMode               String        @default("Hybrid") // 'Onsite' | 'Hybrid' | 'Remote'
+  stipendOrSalary        String
+  durationWeeks          Int
+  requiredSkillsJson     String        // JSON string of [{ skillId: string, level: number, weight: number }]
+  eligibleDepartmentsJson String       @default("[]") // JSON string array of department names
+  eligibleBranchesJson   String        @default("[]") // JSON string array of branch names
+  minCgpa                Float         @default(6.0)
+  eligibleGradYearsJson  String        @default("[2025, 2026, 2027]") // JSON string array
+  audience               String        @default("student") // 'student' | 'academician' | 'both'
+  status                 String        @default("active") // 'active' | 'closed' | 'draft'
+  openings               Int           @default(5)
+  deadline               DateTime?
+  createdAt              DateTime      @default(now())
+  updatedAt              DateTime      @updatedAt
+
+  company                Company?      @relation(fields: [postedByCompanyId], references: [id])
+  institution            Institution?  @relation(fields: [postedByInstitutionId], references: [id])
+  applications           Application[]
+}
+
+model Application {
+  id                String                     @id @default(uuid())
+  opportunityId     String
+  applicantUserId   String
+  status            String                     @default("applied") // 'applied' | 'under_review' | 'shortlisted' | 'assessment' | 'interview' | 'selected' | 'rejected'
+  matchScorePct     Float                      @default(0.0)
+  matchDetailsJson  String?                    // Breakdown of skill scores & contributions
+  coverNote         String?
+  appliedAt         DateTime                   @default(now())
+  updatedAt         DateTime                   @updatedAt
+
+  opportunity       Opportunity                @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  applicant         User                       @relation(fields: [applicantUserId], references: [id], onDelete: Cascade)
+  statusHistory     ApplicationStatusHistory[]
+}
+
+model ApplicationStatusHistory {
+  id              String      @id @default(uuid())
+  applicationId   String
+  status          String
+  notes           String?
+  changedAt       DateTime    @default(now())
+  changedByUserId String?
+
+  application     Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model PortfolioItem {
+  id               String         @id @default(uuid())
+  studentId        String
+  type             String         // 'certificate' | 'project' | 'internship-completion' | 'achievement'
+  title            String
+  issuer           String
+  description      String?
+  fileUrl          String?
+  projectUrl       String?
+  githubUrl        String?
+  technologies     String?        // JSON array or comma separated string
+  role             String?
+  startDate        String?
+  endDate          String?
+  teamMembers      String?
+  verified         Boolean        @default(false)
+  date             DateTime       @default(now())
+  skillsTaggedJson String?        // JSON string array of skill names
+
+  student          StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model MentorshipEvent {
+  id                  String              @id @default(uuid())
+  hostAcademicianId   String
+  title               String
+  type                String              // 'workshop' | 'guest-lecture' | 'mentorship' | 'fdp' | 'alumni-talk'
+  description         String
+  dateTime            DateTime
+  startTime           String?             // e.g. '10:00 AM'
+  endTime             String?             // e.g. '12:00 PM'
+  mode                String              @default("Online") // 'Online' | 'Offline' | 'Hybrid'
+  locationOrLink      String
+  relevantBranch      String?
+  relevantSkillsJson  String?             // JSON string array
+  maxAttendees        Int?                @default(50)
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+
+  hostAcademician     AcademicianProfile  @relation(fields: [hostAcademicianId], references: [id], onDelete: Cascade)
+  registrations       EventRegistration[]
+}
+
+model EventRegistration {
+  id           String          @id @default(uuid())
+  eventId      String
+  userId       String
+  registeredAt DateTime        @default(now())
+  attended     Boolean         @default(false)
+  feedback     String?
+
+  event        MentorshipEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user         User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+}
+
+model PlacedStudent {
+  id             String      @id @default(uuid())
+  institutionId  String
+  studentName    String
+  branchName     String
+  cgpa           Float
+  companyName    String
+  role           String
+  packageLpa     Float
+  placementType  String      @default("On-Campus") // 'On-Campus' | 'Off-Campus' | 'PPO'
+  academicYear   String      @default("2025-2026")
+  placedAt       DateTime    @default(now())
+  skillsJson     String?     // JSON string array
+  isPublicStory  Boolean     @default(true)
+  storyQuote     String?
+  avatarUrl      String?
+
+  institution    Institution @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+}
+
+model InternshipOutcomeStory {
+  id             String   @id @default(uuid())
+  studentName    String
+  branchName     String
+  companyName    String
+  role           String
+  skillsGained   String   // JSON string array
+  durationWeeks  Int
+  outcome        String   // 'Offered PPO' | 'Completed with Distinction' | 'Research Paper Published'
+  year           Int      @default(2025)
+  storyText      String?
+  avatarUrl      String?
+  createdAt      DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  message   String
+  type      String   // 'application' | 'assessment' | 'mentorship' | 'event' | 'opportunity' | 'placement' | 'system'
+  linkUrl   String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Message {
+  id             String   @id @default(uuid())
+  senderUserId   String
+  receiverUserId String
+  content        String
+  read           Boolean  @default(false)
+  createdAt      DateTime @default(now())
+
+  sender         User     @relation("SentMessages", fields: [senderUserId], references: [id], onDelete: Cascade)
+  receiver       User     @relation("ReceivedMessages", fields: [receiverUserId], references: [id], onDelete: Cascade)
+}
+
+model ResumeDraft {
+  id                         String         @id @default(uuid())
+  studentId                  String
+  title                      String         @default("Placement Resume")
+  targetRole                 String         @default("Software Developer")
+  templateId                 String         @default("ats") // 'ats' | 'modern' | 'professional'
+  summary                    String?
+  careerObjective            String?
+  selectedSkillIdsJson       String?        // JSON string array
+  customSkillsJson           String?        // JSON string array
+  selectedProjectIdsJson     String?        // JSON string array
+  selectedInternshipIdsJson  String?        // JSON string array
+  selectedCertIdsJson        String?        // JSON string array
+  selectedAchievementIdsJson String?        // JSON string array
+  additionalSectionsJson     String?        // JSON string
+  customSectionsDataJson     String?        // JSON string
+  sectionOrderJson           String?        // JSON string array
+  isPrimary                  Boolean        @default(true)
+  createdAt                  DateTime       @default(now())
+  updatedAt                  DateTime       @updatedAt
+
+  student                    StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model AlumniPost {
+  id             String              @id @default(uuid())
+  authorUserId   String
+  title          String
+  content        String
+  postType       String              @default("Career Advice")
+  company        String?
+  role           String?
+  branchName     String?
+  graduationYear Int?
+  tagsJson       String?             // JSON string array
+  status         String              @default("published") // 'draft' | 'published' | 'archived'
+  isFeatured     Boolean             @default(false)
+  likesCount     Int                 @default(0)
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  author         User                @relation(fields: [authorUserId], references: [id], onDelete: Cascade)
+  comments       AlumniPostComment[]
+  likes          AlumniPostLike[]
+}
+
+model AlumniPostComment {
+  id        String     @id @default(uuid())
+  postId    String
+  userId    String
+  content   String
+  createdAt DateTime   @default(now())
+
+  post      AlumniPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AlumniPostLike {
+  id        String     @id @default(uuid())
+  postId    String
+  userId    String
+  createdAt DateTime   @default(now())
+
+  post      AlumniPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+}
+
+model CompanyPlacementStat {
+  id               String   @id @default(uuid())
+  institutionId    String
+  companyName      String
+  academicYear     String   @default("2025-2026")
+  departmentName   String?
+  eligibleStudents Int      @default(0)
+  appeared         Int      @default(0)
+  shortlisted      Int      @default(0)
+  interviewed      Int      @default(0)
+  offersCount      Int      @default(0)
+  acceptedCount    Int      @default(0)
+  highestPackage   Float    @default(0.0)
+  averagePackage   Float    @default(0.0)
+  medianPackage    Float    @default(0.0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  actorId    String
+  actorEmail String?
+  actorRole  String?
+  action     String
+  entity     String
+  entityId   String?
+  details    String?  // JSON string
+  createdAt  DateTime @default(now())
+}
+
+model MentorshipRequest {
+  id            String   @id @default(uuid())
+  studentUserId String
+  mentorUserId  String
+  topic         String
+  message       String
+  status        String   @default("pending") // 'pending' | 'accepted' | 'rejected' | 'completed'
+  responseNotes String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  studentUser   User     @relation("StudentMentorshipRequests", fields: [studentUserId], references: [id], onDelete: Cascade)
+  mentorUser    User     @relation("MentorMentorshipRequests", fields: [mentorUserId], references: [id], onDelete: Cascade)
+}
