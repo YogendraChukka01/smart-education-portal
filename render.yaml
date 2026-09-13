@@ -3,7 +3,7 @@ services:
     name: setu-api
     runtime: node
     plan: free
-    buildCommand: npm install --include=dev && npm run build --workspace=backend
+    buildCommand: npm install --include=dev && npm run build --workspace=shared && npm run build --workspace=backend
     preDeployCommand: npm run db:push --workspace=backend
     startCommand: npm run start --workspace=backend
     healthCheckPath: /api/health
@@ -22,7 +22,7 @@ services:
   - type: web
     name: setu-web
     runtime: static
-    buildCommand: npm install --include=dev && npm run build --workspace=frontend
+    buildCommand: npm install --include=dev && npm run build --workspace=shared && npm run build --workspace=frontend
     staticPublishPath: frontend/dist
     envVars:
       - key: VITE_API_URL
