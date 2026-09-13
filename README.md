@@ -66,6 +66,20 @@ Where:
 
 ## 🚀 Quickstart & Setup Guide
 
+### Deploying to Render
+
+The repository includes a `render.yaml` Blueprint for deploying the Setu API, frontend, and a persistent PostgreSQL database.
+
+1. In Render, choose **New → Blueprint** and select this GitHub repository.
+2. Review and apply the services defined in `render.yaml`.
+3. After the first deployment, open the backend service Shell and run:
+
+```bash
+npm run db:seed --workspace=backend
+```
+
+The seed command creates the demo accounts and sample opportunities. Run it only once because it resets seeded application data.
+
 ### Prerequisites
 - Node.js (v18 or v20+)
 - npm or yarn
