@@ -805,6 +805,8 @@ async function main() {
       startDate: 'Aug 2025',
       endDate: 'Dec 2025',
       githubUrl: 'https://github.com/YogendraChukka01',
+      projectUrl: 'https://github.com/YogendraChukka01',
+      skillsTaggedJson: JSON.stringify(['Python & FastApi Architecture', 'Docker & Containerization', 'SQL & Relational Database Design']),
       verified: true,
     },
   });
@@ -821,6 +823,78 @@ async function main() {
       startDate: 'Jan 2026',
       endDate: 'Feb 2026',
       githubUrl: 'https://github.com/YogendraChukka01',
+      projectUrl: 'https://github.com/YogendraChukka01',
+      skillsTaggedJson: JSON.stringify(['Machine Learning & Python Analytics', 'Deep Learning & Neural Networks', 'Python & FastApi Architecture']),
+      verified: true,
+    },
+  });
+
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.PROJECT,
+      title: 'NexusAI — Unified AI Workspace (Chat, Vision, RAG, Agents)',
+      issuer: 'Independent AI Engineering Project',
+      description: 'Unified AI workspace with multi-model chat, document RAG over PDFs, image understanding and agent-style task runs. FastAPI + JWT backend, React + Tailwind frontend, Dockerized.',
+      technologies: 'Python, FastAPI, React, Tailwind CSS, Docker, PostgreSQL, FAISS',
+      role: 'Full-Stack AI Engineer',
+      startDate: 'Oct 2025',
+      endDate: 'Jan 2026',
+      githubUrl: 'https://github.com/YogendraChukka01',
+      projectUrl: 'https://github.com/YogendraChukka01',
+      skillsTaggedJson: JSON.stringify(['Python & FastApi Architecture', 'React & Modern Frontend', 'Machine Learning & Python Analytics']),
+      verified: true,
+    },
+  });
+
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.PROJECT,
+      title: 'Mawa AI — Multilingual Voice + Chat Assistant (Telugu, Hindi, English)',
+      issuer: 'Independent AI Engineering Project',
+      description: 'Voice-first multilingual assistant with speech-to-text, LLM reasoning and text-to-speech for Telugu/Hindi/English. Conversation memory, streaming responses, mobile-friendly UI.',
+      technologies: 'Python, FastAPI, React, Whisper, LLMs, Web Speech API',
+      role: 'AI Engineer & Builder',
+      startDate: 'Nov 2025',
+      endDate: 'Feb 2026',
+      githubUrl: 'https://github.com/YogendraChukka01',
+      projectUrl: 'https://github.com/YogendraChukka01',
+      skillsTaggedJson: JSON.stringify(['Machine Learning & Python Analytics', 'React & Modern Frontend', 'Technical Communication & Leadership']),
+      verified: true,
+    },
+  });
+
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.PROJECT,
+      title: 'ML Experiment Tracker + Model Registry (MLOps Mini-Platform)',
+      issuer: 'Academic Applied Project (JNTUA R23)',
+      description: 'Experiment tracker with dataset versioning, metric logging, model registry and one-command FastAPI deployment. Compared LR, RF and MLPs with cross-validation.',
+      technologies: 'Python, scikit-learn, FastAPI, SQLite, Docker',
+      role: 'ML Engineer',
+      startDate: 'Jun 2025',
+      endDate: 'Aug 2025',
+      githubUrl: 'https://github.com/YogendraChukka01',
+      projectUrl: 'https://github.com/YogendraChukka01',
+      skillsTaggedJson: JSON.stringify(['Machine Learning & Python Analytics', 'MLOps & Model Deployment', 'Python & FastApi Architecture']),
+      verified: true,
+    },
+  });
+
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.ACHIEVEMENT,
+      title: 'Smart India Hackathon 2025 — Grand Finalist (Top 5%)',
+      issuer: 'Smart India Hackathon / MoE Innovation Cell',
+      description: 'Led 6-member team building an AI-powered student career platform; national grand finalist with working prototype and live demo.',
+      technologies: 'React, FastAPI, PostgreSQL, AI/RAG, Git',
+      role: 'Team Lead & AI Engineer',
+      startDate: 'Dec 2025',
+      endDate: 'Dec 2025',
+      skillsTaggedJson: JSON.stringify(['Technical Communication & Leadership', 'React & Modern Frontend', 'Python & FastApi Architecture']),
       verified: true,
     },
   });
@@ -847,7 +921,46 @@ async function main() {
       title: 'Machine Learning & Deep Learning Specialization Work',
       issuer: 'University Coursework + Applied Projects (JNTUA R23)',
       description: 'Demonstrated ML fundamentals, probability/statistics, neural networks, model evaluation and applied Python ML/DL projects.',
+      skillsTaggedJson: JSON.stringify(['Machine Learning & Python Analytics', 'Deep Learning & Neural Networks', 'Quantitative & Logical Aptitude']),
       verified: true,
+    },
+  });
+
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.CERTIFICATE,
+      title: 'Python for Data Science & AI — Applied Certification',
+      issuer: 'Applied Online Coursework + Project Evaluation',
+      description: 'Covered NumPy, pandas, visualization, REST APIs with FastAPI and testing. Final project: deployable ML inference service with Docker.',
+      skillsTaggedJson: JSON.stringify(['Python & FastApi Architecture', 'Machine Learning & Python Analytics', 'Docker & Containerization']),
+      verified: true,
+    },
+  });
+
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.ACHIEVEMENT,
+      title: '300+ DSA Problems Solved (LeetCode / GFG)',
+      issuer: 'Self-Driven Coding Practice',
+      description: 'Solved 300+ problems across arrays, strings, hash maps, two pointers, sliding window, stacks, trees, graphs and DP in Python.',
+      technologies: 'Python, Data Structures & Algorithms',
+      role: 'Problem Solver',
+      startDate: 'Jan 2024',
+      endDate: 'Present',
+      skillsTaggedJson: JSON.stringify(['Data Structures & Algorithms', 'Quantitative & Logical Aptitude']),
+      verified: false,
+    },
+  });
+
+  // Enrich Yogendra profile contact + completion
+  await prisma.studentProfile.update({
+    where: { id: student1Profile.id },
+    data: {
+      phone: '+91 90000 12345',
+      location: 'Andhra Pradesh, India',
+      profileCompletedPct: 92,
     },
   });
 
@@ -868,7 +981,29 @@ async function main() {
         skillRecords['SQL & Relational Database Design']?.id,
       ].filter(Boolean)),
       selectedProjectIdsJson: JSON.stringify([proj1.id]),
+      customSkillsJson: JSON.stringify(['LLM App Engineering', 'RAG Evaluation', 'Prompt Engineering', 'Vector Databases']),
       isPrimary: true,
+    },
+  });
+
+  await prisma.resumeDraft.create({
+    data: {
+      studentId: student1Profile.id,
+      title: 'Yogendra Chukka — AI Engineer Resume',
+      targetRole: 'AI Engineer (LLMs, RAG & Agentic AI)',
+      templateId: 'modern',
+      summary: 'AI-focused engineer with hands-on LLM systems: FlowMind gateway (failover/routing), agentic RAG with memory, NexusAI workspace and multilingual voice assistant Mawa AI. Python + FastAPI + React + Docker.',
+      careerObjective: 'Seeking AI Engineer internships to ship reliable RAG, agent and evaluation pipelines in production.',
+      selectedSkillIdsJson: JSON.stringify([
+        skillRecords['Python & FastApi Architecture']?.id,
+        skillRecords['Machine Learning & Python Analytics']?.id,
+        skillRecords['Deep Learning & Neural Networks']?.id,
+        skillRecords['MLOps & Model Deployment']?.id,
+        skillRecords['React & Modern Frontend']?.id,
+        skillRecords['Docker & Containerization']?.id,
+      ].filter(Boolean)),
+      selectedProjectIdsJson: JSON.stringify([proj1.id]),
+      isPrimary: false,
     },
   });
 
@@ -1269,6 +1404,29 @@ Use the EduBridge Resume Builder to ensure your resume is ATS-friendly and backe
     },
   });
 
+  const oppAI = await prisma.opportunity.create({
+    data: {
+      type: OPPORTUNITY_TYPES.INTERNSHIP,
+      postedByCompanyId: tcs.id,
+      title: 'AI Engineering Intern — LLM Apps & RAG (Summer 2026)',
+      description: 'Join the AI platform team building production LLM apps: RAG pipelines, eval harnesses, agent tooling and FastAPI inference services. Ideal for Yogendra-style builders with Python + RAG projects.',
+      location: 'Hyderabad / Hybrid',
+      workMode: 'Hybrid',
+      stipendOrSalary: '₹40,000 / month',
+      durationWeeks: 12,
+      minCgpa: 7.0,
+      eligibleDepartmentsJson: JSON.stringify(['Computer Science & Engineering', 'Information Technology']),
+      eligibleBranchesJson: JSON.stringify(['Artificial Intelligence & Machine Learning', 'Computer Science & Engineering', 'Data Science', 'Information Technology']),
+      requiredSkillsJson: JSON.stringify([
+        { skillId: skillRecords['Machine Learning & Python Analytics']?.id, level: 80, weight: 5 },
+        { skillId: skillRecords['Python & FastApi Architecture']?.id, level: 80, weight: 5 },
+        { skillId: skillRecords['Data Structures & Algorithms']?.id, level: 70, weight: 3 },
+      ]),
+      status: 'active',
+      openings: 6,
+    },
+  });
+
   // 10. Seed Applications & Status History
   const app1 = await prisma.application.create({
     data: {
@@ -1295,6 +1453,26 @@ Use the EduBridge Resume Builder to ensure your resume is ATS-friendly and backe
       status: APPLICATION_STATUS.SHORTLISTED,
       notes: 'Candidate meets 8.2 CGPA requirement and possesses verified Java & SQL proficiencies.',
       changedAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
+    },
+  });
+
+  const appAI = await prisma.application.create({
+    data: {
+      opportunityId: oppAI.id,
+      applicantUserId: student1User.id,
+      status: APPLICATION_STATUS.APPLIED,
+      matchScorePct: 94.2,
+      coverNote: 'Applied with FlowMind (AI gateway), agentic RAG assistant and NexusAI workspace. Strong fit for LLM + RAG intern track.',
+      matchDetailsJson: JSON.stringify({ topSkills: ['Machine Learning & Python Analytics:84', 'Python & FastApi Architecture:86', 'Data Structures & Algorithms:82'], projects: 5, cgpa: 8.2 }),
+    },
+  });
+
+  await prisma.applicationStatusHistory.create({
+    data: {
+      applicationId: appAI.id,
+      status: APPLICATION_STATUS.APPLIED,
+      notes: 'Application received via portal; auto-matched 94.2% on AI/ML skills.',
+      changedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
     },
   });
 
@@ -1476,14 +1654,52 @@ Use the EduBridge Resume Builder to ensure your resume is ATS-friendly and backe
     },
   });
 
+  const eventAI = await prisma.mentorshipEvent.create({
+    data: {
+      hostAcademicianId: academicianProfile.id,
+      title: 'Workshop: Building Production RAG — Chunking, Eval & Guardrails',
+      type: MENTORSHIP_EVENT_TYPES.WORKSHOP,
+      description: 'Hands-on RAG lab: chunking strategies, hybrid retrieval, eval harnesses, hallucination controls and FastAPI deployment. Bring your FlowMind/NexusAI repos.',
+      dateTime: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+      startTime: '05:00 PM',
+      endTime: '07:00 PM',
+      mode: 'Hybrid (Lab + Google Meet)',
+      locationOrLink: 'https://meet.google.com/ascet-rag-lab',
+      relevantBranch: 'Artificial Intelligence & Machine Learning, Computer Science & Engineering, IT',
+      relevantSkillsJson: JSON.stringify(['Machine Learning & Python Analytics', 'Deep Learning & Neural Networks', 'Python & FastApi Architecture']),
+      maxAttendees: 120,
+    },
+  });
+
+  await prisma.eventRegistration.create({
+    data: {
+      eventId: eventAI.id,
+      userId: student1User.id,
+      registeredAt: new Date(),
+      attended: false,
+      feedback: null,
+    },
+  });
+
   // 14. Seed Notifications & Messages
   await prisma.notification.create({
     data: {
       userId: student1User.id,
-      title: 'Application Shortlisted!',
-      message: 'TCS Digital Labs has shortlisted your profile for Java Backend Engineering Intern.',
+      title: 'AI Intern Application Received!',
+      message: 'Your application for AI Engineering Intern — LLM Apps & RAG matched 94.2% on Python, ML and DSA.',
       type: 'application',
       linkUrl: '/student/applications',
+      read: false,
+    },
+  });
+
+  await prisma.notification.create({
+    data: {
+      userId: student1User.id,
+      title: 'RAG Workshop Seat Confirmed',
+      message: 'You are registered for "Building Production RAG — Chunking, Eval & Guardrails" this week.',
+      type: 'event',
+      linkUrl: '/student/events',
       read: false,
     },
   });
@@ -1499,14 +1715,44 @@ Use the EduBridge Resume Builder to ensure your resume is ATS-friendly and backe
     },
   });
 
+  await prisma.notification.create({
+    data: {
+      userId: student1User.id,
+      title: 'Skill Milestone: ML Score 84 Verified',
+      message: 'Your Machine Learning & Python Analytics score (84) was verified via project review. MLOps is your next growth area.',
+      type: 'assessment',
+      linkUrl: '/student/skills',
+      read: false,
+    },
+  });
+
+  await prisma.message.create({
+    data: {
+      senderUserId: alumniUser.id,
+      receiverUserId: student1User.id,
+      content: 'Hi Yogendra! Loved your FlowMind gateway write-up. For the AI intern loop, tighten RAG evals (faithfulness + citation precision) and add a latency/cost table. Happy to mock-review Thursday.',
+      read: false,
+    },
+  });
+
+  await prisma.message.create({
+    data: {
+      senderUserId: student1User.id,
+      receiverUserId: alumniUser.id,
+      content: 'Thank you Rahul sir! I will add faithfulness + hit-rate evals and a provider cost comparison to FlowMind before Thursday. Also bringing my agentic RAG memory design.',
+      read: false,
+    },
+  });
+
   // 15. Seed Sample Mentorship Requests
   await prisma.mentorshipRequest.create({
     data: {
       studentUserId: student1User.id,
       mentorUserId: alumniUser.id,
-      topic: 'Microsoft Azure Backend Interview & System Design Preparation',
-      message: 'Hi Rahul Sir, I am preparing for product company campus drives. Would love your feedback on my Spring Boot capstone project and system design preparation strategy.',
-      status: 'pending',
+      topic: 'AI Engineer Track: RAG Evals + Agentic Memory Review',
+      message: 'Hi Rahul Sir, I am targeting AI Engineer internships. Could you review my FlowMind gateway and agentic RAG memory design, plus suggest what to tighten for production RAG interviews?',
+      status: 'accepted',
+      responseNotes: 'Impressive builds! Let us deep-dive evals (faithfulness, citation precision) and provider failover Thursday 5 PM.',
     },
   });
 
@@ -1518,6 +1764,51 @@ Use the EduBridge Resume Builder to ensure your resume is ATS-friendly and backe
       message: 'Hello Rohan Sir, I am in 3rd year Mechanical focusing on ROS2 and autonomous robots. Seeking your advice on core automotive hardware-software roles at Bosch.',
       status: 'accepted',
       responseNotes: 'Happy to connect! Let us review your ROS simulation repos on GitHub this Saturday at 5 PM.',
+    },
+  });
+
+  // 15b. Yogendra coding submissions (Two Sum + DSA practice)
+  const twoSumQ = await prisma.assessmentQuestion.findFirst({
+    where: { questionText: { contains: 'Two Sum Problem' } },
+  });
+  if (twoSumQ) {
+    await prisma.codingSubmission.create({
+      data: {
+        studentId: student1Profile.id,
+        questionId: twoSumQ.id,
+        fileName: 'two_sum_optimized.py',
+        fileLanguage: 'python',
+        fileContent: 'def two_sum(nums, target):\n    seen = {}\n    for i, n in enumerate(nums):\n        if target - n in seen:\n            return [seen[target - n], i]\n        seen[n] = i\n    return []',
+        status: 'reviewed',
+        score: 95,
+        reviewerNotes: 'Clean O(N) hash-map solution with correct edge handling. Verified for Yogendra.',
+      },
+    });
+    await prisma.codingSubmission.create({
+      data: {
+        studentId: student1Profile.id,
+        questionId: twoSumQ.id,
+        fileName: 'two_sum_bruteforce_vs_hashmap.txt',
+        fileLanguage: 'txt',
+        fileContent: 'Compared O(N^2) brute force vs O(N) hash map on 10k inputs; hash map ~120x faster. Notes + complexity table attached.',
+        status: 'submitted',
+        score: 88,
+      },
+    });
+  }
+
+  // 15c. Yogendra internship outcome story
+  await prisma.internshipOutcomeStory.create({
+    data: {
+      studentName: 'Yogendra Chukka',
+      branchName: 'Artificial Intelligence & Machine Learning',
+      companyName: 'Audisankara Innovation Ecosystem / ACIC',
+      role: 'AI Engineering Intern',
+      skillsGained: JSON.stringify(['Python', 'RAG Evaluation', 'FastAPI', 'SQL Retrieval', 'Docker CI']),
+      durationWeeks: 8,
+      outcome: 'Completed with Distinction',
+      year: 2025,
+      storyText: 'Shipped a RAG eval harness (faithfulness + hit-rate), tuned chunking/hybrid retrieval and automated Python + SQL checks in CI. Demoed FlowMind gateway routing to mentors.',
     },
   });
 
