@@ -3,14 +3,29 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --setu-brand: #2563eb;
+    --setu-brand-strong: #1d4ed8;
+    --setu-ink: #0f172a;
+    --setu-muted: #64748b;
+    --setu-border: #e2e8f0;
+    --setu-surface: #ffffff;
+    --setu-radius: 0.75rem;
+    --setu-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   html { scroll-behavior: smooth; }
   body {
-    @apply bg-slate-50 text-slate-900 font-sans antialiased;
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     overflow-x: hidden;
   }
   *, *::before, *::after { box-sizing: border-box; }
   button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+  :focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.35);
+    outline-offset: 2px;
+  }
 }
 
 ::-webkit-scrollbar { width: 8px; height: 8px; }
@@ -30,6 +45,12 @@
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
+.app-card {
+  background: var(--setu-surface);
+  border: 1px solid var(--setu-border);
+  border-radius: var(--setu-radius);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
 .hero-gradient {
   background: radial-gradient(circle at 50% 20%, rgba(20, 184, 166, 0.15) 0%, rgba(15, 118, 110, 0.05) 40%, rgba(255, 255, 255, 0) 70%);
 }
@@ -40,13 +61,13 @@
   padding: 1px;
 }
 
-/* Motion + layout polish */
+/* Shared motion and layout primitives. */
 .page-main { min-width: 0; isolation: isolate; }
 .page-main > * { min-width: 0; max-width: 100%; }
-.page-main > * { animation: page-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.page-main > * { animation: page-enter 420ms var(--setu-ease) both; }
 
 /* Stagger dashboard grids without adding a motion dependency. */
-.page-main .grid > * { animation: card-enter 480ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.page-main .grid > * { animation: card-enter 480ms var(--setu-ease) both; }
 .page-main .grid > *:nth-child(2) { animation-delay: 45ms; }
 .page-main .grid > *:nth-child(3) { animation-delay: 90ms; }
 .page-main .grid > *:nth-child(4) { animation-delay: 135ms; }
@@ -54,11 +75,9 @@
 .page-main .grid > *:nth-child(6) { animation-delay: 225ms; }
 
 .page-main a, .page-main button {
-  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms ease,
+  transition: box-shadow 180ms ease,
     background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
-.page-main a:hover, .page-main button:hover { transform: translateY(-1px); }
-.page-main a:active, .page-main button:active { transform: translateY(0) scale(0.985); }
 
 .page-main .rounded-2xl.border {
   transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease, border-color 220ms ease;
@@ -99,4 +118,10 @@ img, svg, canvas { max-width: 100%; }
 @keyframes card-enter {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1023px) {
+  header nav {
+    overscroll-behavior-inline: contain;
+  }
 }

@@ -154,10 +154,10 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between gap-3 h-16">
           {/* Left Brand */}
-          <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center gap-3 group">
+          <div className="flex items-center gap-8 min-w-0 flex-1">
+            <Link to="/" className="flex items-center gap-3 group shrink-0">
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200 shadow-xs group-hover:border-blue-300 transition-colors">
                 <img src="/setu-logo.png" alt="Setu logo" className="w-full h-full object-cover object-top" />
               </div>
@@ -173,7 +173,7 @@ export const Navbar: React.FC = () => {
 
             {/* Desktop Navigation Links */}
             {user && (
-              <nav className="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+              <nav className="hidden xl:flex items-center gap-1 text-xs font-bold text-slate-700 min-w-0">
                 {user.role === ROLES.STUDENT && (
                   <>
                     <Link
@@ -442,7 +442,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Right Header Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 shrink-0">
             {user ? (
               <>
                 {/* Notifications Bell */}
@@ -515,7 +515,7 @@ export const Navbar: React.FC = () => {
                     setNotificationsOpen(false);
                     setProfileDropdownOpen(false);
                   }}
-                  className="lg:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors"
+                  className="xl:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors"
                   aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
                   aria-expanded={mobileMenuOpen}
                 >
@@ -713,7 +713,7 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
         {user && mobileMenuOpen && (
-          <nav className="lg:hidden border-t border-slate-100 py-3 pb-4" aria-label="Mobile navigation">
+          <nav className="xl:hidden border-t border-slate-100 py-3 pb-4" aria-label="Mobile navigation">
             <div className="grid grid-cols-2 gap-1.5">
               {mobileLinks.map(([path, label]) => (
                 <Link
