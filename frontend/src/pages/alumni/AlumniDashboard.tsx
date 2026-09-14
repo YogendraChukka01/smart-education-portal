@@ -323,7 +323,7 @@ export const AlumniDashboard: React.FC = () => {
           onClick={() => setActiveTab('profile')}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
             activeTab === 'profile'
-              ? 'bg-blue-700 text-white shadow-xs'
+              ? 'btn-brand shadow-xs'
               : 'text-slate-600 hover:bg-slate-100'
           }`}
         >
@@ -335,7 +335,7 @@ export const AlumniDashboard: React.FC = () => {
           onClick={() => setActiveTab('posts')}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
             activeTab === 'posts'
-              ? 'bg-blue-700 text-white shadow-xs'
+              ? 'btn-brand shadow-xs'
               : 'text-slate-600 hover:bg-slate-100'
           }`}
         >
@@ -347,7 +347,7 @@ export const AlumniDashboard: React.FC = () => {
           onClick={() => setActiveTab('mentorship')}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
             activeTab === 'mentorship'
-              ? 'bg-blue-700 text-white shadow-xs'
+              ? 'btn-brand shadow-xs'
               : 'text-slate-600 hover:bg-slate-100'
           }`}
         >
@@ -364,7 +364,7 @@ export const AlumniDashboard: React.FC = () => {
           onClick={() => setActiveTab('network')}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
             activeTab === 'network'
-              ? 'bg-blue-700 text-white shadow-xs'
+              ? 'btn-brand shadow-xs'
               : 'text-slate-600 hover:bg-slate-100'
           }`}
         >
@@ -376,7 +376,7 @@ export const AlumniDashboard: React.FC = () => {
           onClick={() => setActiveTab('events')}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
             activeTab === 'events'
-              ? 'bg-blue-700 text-white shadow-xs'
+              ? 'btn-brand shadow-xs'
               : 'text-slate-600 hover:bg-slate-100'
           }`}
         >
@@ -740,7 +740,7 @@ export const AlumniDashboard: React.FC = () => {
                 <div key={req.id} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-blue-700 text-white flex items-center justify-center text-xs font-bold">
+                      <div className="w-9 h-9 rounded-xl btn-brand flex items-center justify-center text-xs font-bold">
                         {req.studentUser?.studentProfile?.name?.slice(0, 2).toUpperCase() || 'ST'}
                       </div>
                       <div>
@@ -848,7 +848,7 @@ export const AlumniDashboard: React.FC = () => {
             {allAlumni.map((alum) => (
               <div key={alum.id} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl overflow-hidden bg-blue-700 text-white flex items-center justify-center font-bold text-sm">
+                  <div className="w-11 h-11 rounded-xl overflow-hidden btn-brand flex items-center justify-center font-bold text-sm">
                     {alum.avatarUrl ? (
                       <img src={getMediaUrl(alum.avatarUrl)} alt="Avatar" className="w-full h-full object-cover" />
                     ) : (

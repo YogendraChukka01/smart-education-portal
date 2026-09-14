@@ -104,7 +104,7 @@ export const SkillAssessmentPage: React.FC = () => {
               onClick={() => setAssessmentType('technical')}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 assessmentType === 'technical'
-                  ? 'bg-blue-700 text-white shadow-2xs'
+                  ? 'btn-brand shadow-2xs'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -115,7 +115,7 @@ export const SkillAssessmentPage: React.FC = () => {
               onClick={() => setAssessmentType('aptitude')}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 assessmentType === 'aptitude'
-                  ? 'bg-blue-700 text-white shadow-2xs'
+                  ? 'btn-brand shadow-2xs'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >

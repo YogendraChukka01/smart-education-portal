@@ -540,7 +540,7 @@ export const Navbar: React.FC = () => {
                     }}
                     className="flex items-center gap-2.5 p-1.5 pl-2 rounded-xl hover:bg-slate-100 transition-colors border border-slate-200"
                   >
-                    <div className="w-7 h-7 rounded-lg overflow-hidden bg-blue-700 text-white flex items-center justify-center text-xs font-black shadow-2xs">
+                    <div className="w-7 h-7 rounded-lg overflow-hidden btn-brand flex items-center justify-center text-xs font-black shadow-2xs">
                       {(user?.avatarUrl || student?.avatarUrl || faculty?.avatarUrl || alumni?.avatarUrl || company?.logoUrl || institution?.logoUrl) ? (
                         <img
                           src={getMediaUrl(user?.avatarUrl || student?.avatarUrl || faculty?.avatarUrl || alumni?.avatarUrl || company?.logoUrl || institution?.logoUrl)}

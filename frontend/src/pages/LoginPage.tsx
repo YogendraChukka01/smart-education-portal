@@ -62,15 +62,15 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <div className="min-h-[85vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-indigo-50/70 via-violet-50/40 to-slate-50">
       <div className="max-w-md w-full space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
-          <div className="inline-flex p-3 rounded-2xl bg-blue-700 text-white shadow-xs mb-1">
+          <div className="inline-flex p-3 rounded-2xl btn-brand shadow-xs mb-1">
             <GraduationCap className="w-6 h-6" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Sign In to Setu
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            Sign In to <span className="brand-text">Setu</span>
           </h2>
           <p className="text-xs text-slate-500">
             Engineering Academia–Industry Skill Mapping & Placement Portal

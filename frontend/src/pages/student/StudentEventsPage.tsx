@@ -139,7 +139,7 @@ export const StudentEventsPage: React.FC = () => {
 
                   {/* Speaker Details */}
                   <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80 text-xs">
-                    <div className="w-9 h-9 rounded-lg bg-blue-700 text-white flex items-center justify-center font-bold text-xs shrink-0 overflow-hidden">
+                    <div className="w-9 h-9 rounded-lg btn-brand flex items-center justify-center font-bold text-xs shrink-0 overflow-hidden">
                       {ev.hostAcademician?.avatarUrl ? (
                         <img src={ev.hostAcademician.avatarUrl} alt={ev.hostAcademician.name} className="w-full h-full object-cover" />
                       ) : (

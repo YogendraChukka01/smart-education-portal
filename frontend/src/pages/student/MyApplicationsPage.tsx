@@ -112,7 +112,7 @@ export const MyApplicationsPage: React.FC = () => {
           </p>
           <Link
             to="/student/opportunities"
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-blue-700 text-white rounded-xl font-bold text-xs shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-4 py-2 btn-brand rounded-xl font-bold text-xs shadow-2xs"
           >
             <span>Explore Opportunities</span>
             <ArrowRight className="w-3.5 h-3.5" />

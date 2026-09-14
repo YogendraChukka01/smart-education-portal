@@ -116,7 +116,7 @@ export const StudentDashboard: React.FC = () => {
       {/* Profile Completion Prompt Bar (POD.ai Practical Style) */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 sm:p-5 rounded-2xl border border-indigo-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
+          <div className="w-10 h-10 rounded-xl btn-brand flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
             {profileCompletionPct}%
           </div>
           <div>
@@ -132,7 +132,7 @@ export const StudentDashboard: React.FC = () => {
         <div className="flex items-center gap-2">
           <Link
             to="/student/coding"
-            className="px-3.5 py-1.5 bg-blue-700 text-white hover:bg-blue-800 text-xs font-bold rounded-xl shadow-2xs flex items-center gap-1 shrink-0"
+            className="px-3.5 py-1.5 btn-brand hover:bg-blue-800 text-xs font-bold rounded-xl shadow-2xs flex items-center gap-1 shrink-0"
           >
             <Code2 className="w-3.5 h-3.5" />
             <span>Coding Arena</span>
@@ -332,7 +332,7 @@ export const StudentDashboard: React.FC = () => {
                 <Briefcase className="w-6 h-6 text-indigo-600 mx-auto mb-2" />
                 <p className="text-xs font-bold text-slate-800">No matched opportunities yet</p>
                 <p className="text-[11px] text-slate-500 mt-1">Complete your profile and skills assessment to unlock personalized roles.</p>
-                <Link to="/student/opportunities" className="inline-flex mt-3 px-3 py-2 rounded-lg bg-blue-700 text-white text-[11px] font-bold">Browse all opportunities</Link>
+                <Link to="/student/opportunities" className="inline-flex mt-3 px-3 py-2 rounded-lg btn-brand text-[11px] font-bold">Browse all opportunities</Link>
               </div>
             ) : recommendedOpportunities.map((opp: any) => (
               <div

@@ -192,7 +192,7 @@ export const AlumniDirectoryPage: React.FC = () => {
           onClick={() => setViewTab('directory')}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${
             viewTab === 'directory'
-              ? 'bg-blue-700 text-white shadow-xs'
+              ? 'btn-brand shadow-xs'
               : 'text-slate-600 hover:bg-slate-100'
           }`}
         >
@@ -204,7 +204,7 @@ export const AlumniDirectoryPage: React.FC = () => {
           onClick={() => setViewTab('feed')}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${
             viewTab === 'feed'
-              ? 'bg-blue-700 text-white shadow-xs'
+              ? 'btn-brand shadow-xs'
               : 'text-slate-600 hover:bg-slate-100'
           }`}
         >
@@ -292,7 +292,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                   <div className="space-y-3">
                     {/* Alum Header */}
                     <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-blue-700 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-2xs overflow-hidden">
+                      <div className="w-12 h-12 rounded-xl btn-brand flex items-center justify-center font-black text-sm shrink-0 shadow-2xs overflow-hidden">
                         {a.avatarUrl ? (
                           <img
                             src={getMediaUrl(a.avatarUrl)}
@@ -404,7 +404,7 @@ export const AlumniDirectoryPage: React.FC = () => {
               onClick={() => setSelectedCategory('all')}
               className={`px-3 py-1.5 rounded-lg font-semibold transition ${
                 selectedCategory === 'all'
-                  ? 'bg-blue-700 text-white'
+                  ? 'btn-brand'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -416,7 +416,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 py-1.5 rounded-lg font-semibold transition ${
                   selectedCategory === cat
-                    ? 'bg-blue-700 text-white'
+                    ? 'btn-brand'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
@@ -441,7 +441,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                   {/* Post Header */}
                   <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl overflow-hidden bg-blue-700 text-white flex items-center justify-center font-bold text-xs">
+                      <div className="w-10 h-10 rounded-xl overflow-hidden btn-brand flex items-center justify-center font-bold text-xs">
                         {post.authorAvatarUrl ? (
                           <img
                             src={getMediaUrl(post.authorAvatarUrl)}

@@ -123,7 +123,7 @@ export const MessagesPage: React.FC = () => {
                         isSelected ? 'bg-indigo-50 border border-indigo-200' : 'hover:bg-slate-50'
                       }`}
                     >
-                      <div className="w-9 h-9 rounded-lg bg-blue-700 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-2xs">
+                      <div className="w-9 h-9 rounded-lg btn-brand flex items-center justify-center text-xs font-bold shrink-0 shadow-2xs">
                         {c.name.slice(0, 2).toUpperCase()}
                       </div>
                       <div className="overflow-hidden flex-1">
@@ -149,7 +149,7 @@ export const MessagesPage: React.FC = () => {
               <>
                 {/* Active Chat Header */}
                 <div className="pb-3 border-b border-slate-100 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center font-bold text-sm shadow-2xs">
+                  <div className="w-10 h-10 rounded-xl btn-brand flex items-center justify-center font-bold text-sm shadow-2xs">
                     {contactsMap.get(selectedConversationUser)?.name.slice(0, 2).toUpperCase() || 'U'}
                   </div>
                   <div>
@@ -174,7 +174,7 @@ export const MessagesPage: React.FC = () => {
                         <div
                           className={`max-w-md p-3.5 rounded-2xl text-xs font-medium leading-relaxed ${
                             isMe
-                              ? 'bg-blue-700 text-white rounded-br-none shadow-2xs'
+                              ? 'btn-brand rounded-br-none shadow-2xs'
                               : 'bg-slate-100 text-slate-800 rounded-bl-none'
                           }`}
                         >

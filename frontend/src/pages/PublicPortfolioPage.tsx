@@ -56,7 +56,7 @@ export const PublicPortfolioPage: React.FC = () => {
         <p className="text-xs text-slate-500 max-w-sm">
           The requested public digital portfolio identifier "{slug}" could not be verified on the portal.
         </p>
-        <Link to="/" className="px-4 py-2 bg-blue-700 text-white rounded-xl text-xs font-bold">
+        <Link to="/" className="px-4 py-2 btn-brand rounded-xl text-xs font-bold">
           Return to Home
         </Link>
       </div>
@@ -91,7 +91,7 @@ export const PublicPortfolioPage: React.FC = () => {
           <div className="bg-slate-900 p-8 text-white relative">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div className="flex items-center gap-5">
-                <div className="w-20 h-20 rounded-2xl bg-blue-700 border-2 border-blue-400/40 flex items-center justify-center text-2xl font-black shadow-lg">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 border-2 border-violet-400/40 flex items-center justify-center text-2xl font-black shadow-lg text-white">
                   {student.name.slice(0, 2).toUpperCase()}
                 </div>
                 <div className="space-y-1">
