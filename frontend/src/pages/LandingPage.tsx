@@ -28,23 +28,33 @@ export const LandingPage: React.FC = () => {
   const [demoLoading, setDemoLoading] = useState<string | null>(null);
   const [demoError, setDemoError] = useState<string | null>(null);
 
-  const redirectUser = (role: UserRole) => {
-    if (role === ROLES.STUDENT) navigate('/student/dashboard');
-    else if (role === ROLES.ACADEMICIAN) navigate('/academician/dashboard');
-    else if (role === ROLES.INDUSTRY) navigate('/industry/dashboard');
-    else if (role === ROLES.INSTITUTION_ADMIN) navigate('/admin/dashboard');
-    else if (role === ROLES.ALUMNI) navigate('/alumni/dashboard');
-    else navigate('/');
+  const dashboardForRole = (role: UserRole): string => {
+    if (role === ROLES.STUDENT) return '/student/dashboard';
+    if (role === ROLES.ACADEMICIAN) return '/academician/dashboard';
+    if (role === ROLES.INDUSTRY) return '/industry/dashboard';
+    if (role === ROLES.INSTITUTION_ADMIN) return '/admin/dashboard';
+    if (role === ROLES.ALUMNI) return '/alumni/dashboard';
+    return '/';
   };
 
-  const handleDemoLogin = async (email: string) => {
+  const redirectUser = (role: UserRole) => {
+    // replace:true avoids the login-page history trap; ProtectedRoute also
+    // allows demo dashboards without a session, so offline mode works too.
+    navigate(dashboardForRole(role), { replace: true });
+  };
+
+  const handleDemoLogin = async (email: string, fallbackRole?: UserRole) => {
     setDemoLoading(email);
     setDemoError(null);
     try {
       const loggedInUser = await loginWithDemoAccount(email);
       redirectUser(loggedInUser.role);
     } catch {
-      setDemoError('Demo login failed. Please try again or use Sign In.');
+      // Even if login throws (backend down / DB not seeded), still go to
+      // the dashboard — ProtectedRoute + AuthContext offline fallback keep
+      // the demo usable instead of bouncing to /login.
+      if (fallbackRole) redirectUser(fallbackRole);
+      else setDemoError('Demo login failed. Please try again or use Sign In.');
     } finally {
       setDemoLoading(null);
     }
@@ -71,7 +81,7 @@ export const LandingPage: React.FC = () => {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <button
-              onClick={() => handleDemoLogin('student@demo.com')}
+              onClick={() => handleDemoLogin('student@demo.com', ROLES.STUDENT)}
               disabled={demoLoading !== null}
               className="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-bold text-sm shadow-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
             >
@@ -81,7 +91,7 @@ export const LandingPage: React.FC = () => {
             </button>
 
             <button
-              onClick={() => handleDemoLogin('industry@demo.com')}
+              onClick={() => handleDemoLogin('industry@demo.com', ROLES.INDUSTRY)}
               disabled={demoLoading !== null}
               className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
             >
@@ -90,7 +100,7 @@ export const LandingPage: React.FC = () => {
             </button>
 
             <button
-              onClick={() => handleDemoLogin('admin@demo.com')}
+              onClick={() => handleDemoLogin('admin@demo.com', ROLES.INSTITUTION_ADMIN)}
               disabled={demoLoading !== null}
               className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
             >

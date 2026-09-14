@@ -18,8 +18,13 @@ export function getMediaUrl(path?: string | null): string {
   return BACKEND_ROOT_URL ? `${BACKEND_ROOT_URL}${cleanPath}` : cleanPath;
 }
 
+export function isDemoOfflineToken(token?: string | null): boolean {
+  return !!token && token.startsWith('demo-');
+}
+
 export const api = axios.create({
   baseURL: API_BASE_URL,
+  timeout: 12000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -38,9 +43,19 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response && error.response.status === 401) {
-      // Don't auto-redirect if checking auth or demo endpoints
-      if (!error.config.url.includes('/auth/me') && !error.config.url.includes('/auth/demo-accounts')) {
+    const status = error?.response?.status;
+    const url: string = error?.config?.url || '';
+    if (status === 401) {
+      // Never wipe an offline demo session — dashboards render with fallback data.
+      const storedToken = localStorage.getItem('ayush_token');
+      if (isDemoOfflineToken(storedToken)) {
+        return Promise.reject(error);
+      }
+      // Auth bootstrap / demo endpoints must never wipe the stored session —
+      // a transient backend failure would otherwise bounce every
+      // protected route back to /login.
+      const isBootstrapCall = url.includes('/auth/me') || url.includes('/auth/demo-accounts');
+      if (!isBootstrapCall) {
         localStorage.removeItem('ayush_token');
         localStorage.removeItem('ayush_user');
       }
