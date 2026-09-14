@@ -634,11 +634,11 @@ router.get('/demo-accounts', async (_req, res) => {
     const demoAccounts = [
       {
         role: ROLES.STUDENT,
-        roleLabel: 'Student (CSE • 3rd Year)',
+        roleLabel: 'Student (CSE-AI&ML • 3rd Year)',
         email: 'student.demo@edubridge.local',
         altEmail: 'student@demo.com',
         password: 'password123',
-        description: 'Roshan Shinde (MITAOE) • Java, DSA, SQL • Target: Java Backend Developer.',
+        description: 'Yogendra Chukka (ASCET) • Python, ML, LLMs/RAG • Target: AI Engineer.',
       },
       {
         role: ROLES.STUDENT,

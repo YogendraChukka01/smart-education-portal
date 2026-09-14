@@ -60,11 +60,11 @@ export const StudentDashboard: React.FC = () => {
   const {
     placementReadinessPct = 78,
     profileCompletionPct = 90,
-    targetRoleTitle = 'Java Backend Developer',
+    targetRoleTitle = 'AI Engineer (LLMs, RAG & Agentic AI)',
     topSkillGaps = [],
     nextBestAction = {
-      title: 'Upload Two Sum or Spring Boot Solution Code',
-      description: 'Submit your solution code file in the Coding Arena to verify DSA and microservices proficiency.',
+      title: 'Upload Two Sum or RAG Pipeline Solution Code',
+      description: 'Submit your solution code file in the Coding Arena to verify DSA and AI/ML proficiency.',
       actionLink: '/student/coding',
       buttonLabel: 'Go to Coding Arena',
     },
@@ -85,7 +85,7 @@ export const StudentDashboard: React.FC = () => {
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Welcome back, {studentProfile?.name || 'Roshan Shinde'}
+              Welcome back, {studentProfile?.name || 'Yogendra Chukka'}
             </h1>
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">
               {studentProfile?.branchName || 'Computer Science & Engineering'}

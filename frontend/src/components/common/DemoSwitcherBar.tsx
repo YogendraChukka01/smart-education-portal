@@ -12,8 +12,8 @@ export const DemoSwitcherBar: React.FC = () => {
     {
       role: ROLES.STUDENT,
       email: 'student@demo.com',
-      label: 'Student (CSE)',
-      sub: 'Roshan • Sem 6 • Java/DSA',
+      label: 'Student (CSE-AI&ML)',
+      sub: 'Yogi • Sem 5 • Python/ML/RAG',
       icon: GraduationCap,
       path: '/student/dashboard',
       color: 'bg-indigo-600 hover:bg-indigo-700 text-white',

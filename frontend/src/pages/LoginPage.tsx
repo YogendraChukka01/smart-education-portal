@@ -97,8 +97,8 @@ export const LoginPage: React.FC = () => {
             >
               <GraduationCap className="w-4 h-4 text-indigo-700 shrink-0" />
               <div className="truncate">
-                <div className="text-xs font-bold text-slate-900">Student (CSE)</div>
-                <div className="text-[10px] text-slate-500 truncate">Roshan • Java/DSA</div>
+                <div className="text-xs font-bold text-slate-900">Student (CSE-AI&ML)</div>
+                <div className="text-[10px] text-slate-500 truncate">Yogi • Python/ML/RAG</div>
               </div>
             </button>
 

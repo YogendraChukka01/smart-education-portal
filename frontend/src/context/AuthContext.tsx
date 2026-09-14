@@ -57,13 +57,13 @@ function buildOfflineDemoUser(email: string): User | null {
       createdAt: now,
       studentProfile: {
         id: 'demo-student-profile',
-        name: isMech ? 'Aman Verma' : 'Roshan Shinde',
+        name: isMech ? 'Aman Verma' : 'Yogendra Chukka',
         degree: 'B.Tech',
         departmentName: isMech ? 'Mechanical Engineering' : 'Computer Science & Engineering',
-        branchName: isMech ? 'Mechanical Engineering' : 'Computer Science & Engineering',
-        year: 3, semester: 6, cgpa: 8.2, graduationYear: 2026,
+        branchName: isMech ? 'Mechanical Engineering' : 'Artificial Intelligence & Machine Learning',
+        year: 3, semester: 5, cgpa: 8.2, graduationYear: 2027,
         portfolioSlug: 'demo-portfolio',
-        careerGoal: isMech ? 'CAD Design Engineer' : 'Java Backend Developer',
+        careerGoal: isMech ? 'CAD Design Engineer' : 'AI Engineer (LLMs, RAG & Agentic AI)',
       },
     } as unknown as User;
   }

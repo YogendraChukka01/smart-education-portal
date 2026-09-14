@@ -49,10 +49,10 @@ async function ensureDemoAccount(email: string, role: string, password: string) 
   if (role === ROLES.STUDENT) {
     await prisma.studentProfile.create({
       data: {
-        userId: created.id, name: 'Roshan Shinde', degree: 'B.Tech',
-        departmentName: 'Computer Science & Engineering', branchName: 'Computer Science & Engineering',
-        year: 3, semester: 6, cgpa: 8.2, graduationYear: 2026,
-        portfolioSlug: `demo-${Date.now()}`, careerGoal: 'Java Backend Developer',
+        userId: created.id, name: 'Yogendra Chukka', degree: 'B.Tech',
+        departmentName: 'Computer Science & Engineering', branchName: 'Artificial Intelligence & Machine Learning',
+        year: 3, semester: 5, cgpa: 8.2, graduationYear: 2027,
+        portfolioSlug: `demo-${Date.now()}`, careerGoal: 'AI Engineer (LLMs, RAG & Agentic AI)',
       },
     });
   }
@@ -647,7 +647,7 @@ async function main() {
       marks: 30,
       constraints: 'Java 17+, Spring Boot 3.x, Include Swagger annotations if applicable.',
       examples: [
-        { input: 'POST /api/students with body: {"name": "Roshan", "email": "roshan@mitaoe.ac.in", "cgpa": 8.2}', output: 'HTTP 201 Created with JSON representation' },
+        { input: 'POST /api/students with body: {"name": "Yogendra", "email": "yogendra@ascet.ac.in", "cgpa": 8.2}', output: 'HTTP 201 Created with JSON representation' },
       ],
     },
     {
@@ -688,7 +688,7 @@ async function main() {
 
   // 7. Seed Core Users & Profiles (All 6 Demo Accounts)
 
-  // Student 1: Roshan Shinde (CSE)
+  // Student 1: Yogendra Chukka (CSE - AI & ML)
   const student1User = await prisma.user.create({
     data: {
       email: 'student.demo@edubridge.local',
@@ -713,12 +713,12 @@ async function main() {
   const student1Profile = await prisma.studentProfile.create({
     data: {
       userId: student1User.id,
-      name: 'Roshan Shinde',
+      name: 'Yogendra Chukka',
       degree: 'B.Tech',
       departmentName: 'Computer Science & Engineering',
-      branchName: 'Computer Science & Engineering',
+      branchName: 'Artificial Intelligence & Machine Learning',
       year: 3,
-      semester: 6,
+      semester: 5,
       rollNumber: '112103045',
       enrollmentNumber: 'EN2103045',
       cgpa: 8.2,
@@ -726,13 +726,13 @@ async function main() {
       departmentRank: 3,
       branchRank: 2,
       batchRank: 5,
-      graduationYear: 2026,
-      portfolioSlug: 'roshan-shinde-mitaoe',
-      bio: 'Pre-final year Computer Engineering student at Audisankara University. Passionate about scalable distributed systems, Spring Boot microservices, and database optimization.',
-      careerGoal: 'Java Backend Engineer / Cloud Systems Architect at leading technology firms.',
-      githubUrl: 'https://github.com/roshanshinde',
-      linkedinUrl: 'https://linkedin.com/in/roshanshinde-mitaoe',
-      resumeUrl: '/uploads/resumes/Roshan_Shinde_Resume.pdf',
+      graduationYear: 2027,
+      portfolioSlug: 'yogendra-chukka-ascet',
+      bio: '3rd-year B.Tech CSE (AI & ML) student at Audisankara University (JNTUA R23). Focused on Python, DSA, Machine Learning, LLMs, RAG and AI agents; building FlowMind, NexusAI and Mawa AI.',
+      careerGoal: 'AI Engineer / AI/ML Engineer — LLMs, RAG, agentic AI and production AI systems.',
+      githubUrl: 'https://github.com/YogendraChukka01',
+      linkedinUrl: 'https://linkedin.com/in/yogendra-chukka',
+      resumeUrl: '/uploads/resumes/Yogendra_Chukka_Resume.pdf',
       profileCompletedPct: 85,
     },
   });
@@ -740,12 +740,12 @@ async function main() {
   await prisma.studentProfile.create({
     data: {
       userId: student1Alias.id,
-      name: 'Roshan Shinde',
+      name: 'Yogendra Chukka',
       degree: 'B.Tech',
       departmentName: 'Computer Science & Engineering',
-      branchName: 'Computer Science & Engineering',
+      branchName: 'Artificial Intelligence & Machine Learning',
       year: 3,
-      semester: 6,
+      semester: 5,
       rollNumber: '112103045',
       enrollmentNumber: 'EN2103045',
       cgpa: 8.2,
@@ -753,26 +753,28 @@ async function main() {
       departmentRank: 3,
       branchRank: 2,
       batchRank: 5,
-      graduationYear: 2026,
-      portfolioSlug: 'roshan-shinde-mitaoe-demo',
-      bio: 'Pre-final year Computer Engineering student at Audisankara University. Passionate about scalable distributed systems, Spring Boot microservices, and database optimization.',
-      careerGoal: 'Java Backend Engineer / Cloud Systems Architect at leading technology firms.',
-      githubUrl: 'https://github.com/roshanshinde',
-      linkedinUrl: 'https://linkedin.com/in/roshanshinde-mitaoe',
-      resumeUrl: '/uploads/resumes/Roshan_Shinde_Resume.pdf',
+      graduationYear: 2027,
+      portfolioSlug: 'yogendra-chukka-ascet-demo',
+      bio: '3rd-year B.Tech CSE (AI & ML) student at Audisankara University (JNTUA R23). Focused on Python, DSA, Machine Learning, LLMs, RAG and AI agents; building FlowMind, NexusAI and Mawa AI.',
+      careerGoal: 'AI Engineer / AI/ML Engineer — LLMs, RAG, agentic AI and production AI systems.',
+      githubUrl: 'https://github.com/YogendraChukka01',
+      linkedinUrl: 'https://linkedin.com/in/yogendra-chukka',
+      resumeUrl: '/uploads/resumes/Yogendra_Chukka_Resume.pdf',
       profileCompletedPct: 85,
     },
   });
 
-  // Assign Skill Scores for Student 1
+  // Assign Skill Scores for Student 1 (CSE AI&ML: Yogi)
   const student1Skills = [
-    { name: 'Java & Object-Oriented Programming', score: 85 },
+    { name: 'Python & FastApi Architecture', score: 86 },
     { name: 'Data Structures & Algorithms', score: 82 },
-    { name: 'SQL & Relational Database Design', score: 78 },
+    { name: 'Machine Learning & Python Analytics', score: 84 },
+    { name: 'Deep Learning & Neural Networks', score: 78 },
+    { name: 'SQL & Relational Database Design', score: 76 },
     { name: 'React & Modern Frontend', score: 74 },
-    { name: 'Spring Boot & Microservices', score: 52 }, // Deficit for role
-    { name: 'Docker & Containerization', score: 40 },   // Deficit for role
-    { name: 'AWS Cloud Architecture', score: 35 },
+    { name: 'MLOps & Model Deployment', score: 58 }, // Growth area for AI Engineer role
+    { name: 'Data Engineering & Apache Spark', score: 52 }, // Growth area for AI Engineer role
+    { name: 'Docker & Containerization', score: 62 },
     { name: 'Quantitative & Logical Aptitude', score: 88 },
     { name: 'Technical Communication & Leadership', score: 80 },
   ];
@@ -790,19 +792,19 @@ async function main() {
     }
   }
 
-  // Student 1 Projects & Certifications
+  // Student 1 Projects & Certifications (CSE AI&ML)
   const proj1 = await prisma.portfolioItem.create({
     data: {
       studentId: student1Profile.id,
       type: PORTFOLIO_ITEM_TYPES.PROJECT,
-      title: 'High-Throughput E-Commerce Microservices Engine',
-      issuer: 'MITAOE Computer Engineering Capstone',
-      description: 'Architected distributed backend with Spring Boot, Redis caching, and PostgreSQL. Implemented JWT authentication and Kafka event-driven order queues handling 5,000 req/sec.',
-      technologies: 'Java, Spring Boot, PostgreSQL, Redis, Kafka, Docker',
-      role: 'Lead Backend Architect',
+      title: 'FlowMind — Multi-Provider AI Gateway & Orchestration Layer',
+      issuer: 'Independent AI Engineering Project',
+      description: 'Built an AI gateway with model routing, provider failover, API key rotation and OpenAI/Anthropic-compatible APIs using FastAPI, Docker and Redis. Supports Gemini, OpenRouter and NVIDIA providers.',
+      technologies: 'Python, FastAPI, Docker, Redis, LangChain, PostgreSQL',
+      role: 'AI Engineer & Builder',
       startDate: 'Aug 2025',
       endDate: 'Dec 2025',
-      githubUrl: 'https://github.com/roshanshinde/ecommerce-microservices',
+      githubUrl: 'https://github.com/YogendraChukka01',
       verified: true,
     },
   });
@@ -811,14 +813,14 @@ async function main() {
     data: {
       studentId: student1Profile.id,
       type: PORTFOLIO_ITEM_TYPES.PROJECT,
-      title: 'Real-Time Telemetry IoT Dashboard',
-      issuer: 'MITAOE Hackathon 2025',
-      description: 'Built a responsive analytics dashboard with React, WebSockets, and Node.js for industrial IoT telemetry with automated alerting.',
-      technologies: 'React, Node.js, WebSockets, Chart.js, Tailwind CSS',
-      role: 'Full Stack Developer',
+      title: 'Agentic RAG + Long-Term Memory Assistant',
+      issuer: 'Independent AI Engineering Project',
+      description: 'Built an agentic RAG assistant with LangGraph, ChromaDB/Qdrant, short-term + persistent memory, tool calling and hallucination controls for grounded answers.',
+      technologies: 'Python, LangGraph, ChromaDB, Qdrant, FastAPI, React',
+      role: 'AI Engineer & Builder',
       startDate: 'Jan 2026',
       endDate: 'Feb 2026',
-      githubUrl: 'https://github.com/roshanshinde/iot-telemetry',
+      githubUrl: 'https://github.com/YogendraChukka01',
       verified: true,
     },
   });
@@ -827,11 +829,11 @@ async function main() {
     data: {
       studentId: student1Profile.id,
       type: PORTFOLIO_ITEM_TYPES.INTERNSHIP_COMPLETION,
-      title: 'Software Engineering Intern — Cloud Systems',
-      issuer: 'Persistent Systems, Pune',
-      description: 'Implemented automated REST test suites, enhanced SQL indexing queries, and contributed to CI/CD pipeline automation.',
-      technologies: 'Java, Spring Boot, MySQL, Git, Jenkins',
-      role: 'Backend Engineering Intern',
+      title: 'AI Engineering Intern — LLM Systems',
+      issuer: 'Audisankara Innovation Ecosystem / ACIC',
+      description: 'Built RAG evaluation harnesses, automated Python test suites, optimized SQL retrieval queries and contributed to AI service CI automation.',
+      technologies: 'Python, LLMs, RAG, SQL, Git, Docker',
+      role: 'AI Engineering Intern',
       startDate: 'May 2025',
       endDate: 'Jul 2025',
       verified: true,
@@ -842,28 +844,28 @@ async function main() {
     data: {
       studentId: student1Profile.id,
       type: PORTFOLIO_ITEM_TYPES.CERTIFICATE,
-      title: 'Oracle Certified Professional: Java SE 17 Developer',
-      issuer: 'Oracle University',
-      description: 'Demonstrated mastery of Java language features, concurrency APIs, functional programming, and memory architecture.',
+      title: 'Machine Learning & Deep Learning Specialization Work',
+      issuer: 'University Coursework + Applied Projects (JNTUA R23)',
+      description: 'Demonstrated ML fundamentals, probability/statistics, neural networks, model evaluation and applied Python ML/DL projects.',
       verified: true,
     },
   });
 
-  // Seed Pre-saved Resume Draft for Roshan Shinde
+  // Seed Pre-saved Resume Draft for Yogendra Chukka
   await prisma.resumeDraft.create({
     data: {
       studentId: student1Profile.id,
-      title: 'Roshan Shinde — Placement Resume',
-      targetRole: 'Java Backend Developer',
+      title: 'Yogendra Chukka — Placement Resume',
+      targetRole: 'Data Scientist & ML Engineer',
       templateId: 'ats',
-      summary: 'Pre-final year Computer Engineering student at Audisankara University with strong expertise in Java, DSA, Spring Boot microservices, and database architecture. Proven track record in building high-concurrency distributed applications and securing top ranks in technical assessments.',
-      careerObjective: 'Aspiring to join an innovative technology organization as a Software Engineer / Java Backend Developer where I can leverage my distributed systems and cloud skills to engineer robust enterprise systems.',
+      summary: '3rd-year B.Tech CSE (AI & ML) student at Audisankara University with strong Python, DSA, Machine Learning and LLM/RAG fundamentals. Built multi-provider AI gateways, agentic RAG systems and full-stack AI apps with React, FastAPI and Docker.',
+      careerObjective: 'Aspiring to join an innovative technology organization as an AI Engineer / AI-ML Engineer where I can build production LLM, RAG and agentic AI systems.',
       selectedSkillIdsJson: JSON.stringify([
-        skillRecords['Java & Object-Oriented Programming']?.id,
+        skillRecords['Python & FastApi Architecture']?.id,
         skillRecords['Data Structures & Algorithms']?.id,
-        skillRecords['Spring Boot & Microservices']?.id,
+        skillRecords['Machine Learning & Python Analytics']?.id,
+        skillRecords['Deep Learning & Neural Networks']?.id,
         skillRecords['SQL & Relational Database Design']?.id,
-        skillRecords['Docker & Containerization']?.id,
       ].filter(Boolean)),
       selectedProjectIdsJson: JSON.stringify([proj1.id]),
       isPrimary: true,

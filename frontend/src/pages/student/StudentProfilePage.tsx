@@ -120,7 +120,7 @@ export const StudentProfilePage: React.FC = () => {
             <div className="space-y-1">
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  {student?.name || 'Roshan Shinde'}
+                  {student?.name || 'Yogendra Chukka'}
                 </h1>
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">
                   <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
