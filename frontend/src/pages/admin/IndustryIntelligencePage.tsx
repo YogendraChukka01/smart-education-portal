@@ -24,7 +24,7 @@ export const IndustryIntelligencePage: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-[11px] font-bold text-indigo-700"><BrainCircuit className="w-3.5 h-3.5" /> INDUSTRY SKILL INTELLIGENCE</div>
             <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-950">What industry demands vs. what students have</h1>
-            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">Setu converts opportunity requirements into an explainable skill-demand signal and compares it with observed student proficiency. Use it to prioritize curriculum, assessments and placement preparation.</p>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">Sethu converts opportunity requirements into an explainable skill-demand signal and compares it with observed student proficiency. Use it to prioritize curriculum, assessments and placement preparation.</p>
           </div>
           <div className="text-xs text-slate-400">Prototype signal • {new Date(data.generatedAt).toLocaleString()}</div>
         </div>

@@ -70,7 +70,7 @@ export const LoginPage: React.FC = () => {
             <GraduationCap className="w-6 h-6" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Sign In to <span className="brand-text">Setu</span>
+            Sign In to <span className="brand-text">Sethu</span>
           </h2>
           <p className="text-xs text-slate-500">
             Engineering Academia–Industry Skill Mapping & Placement Portal

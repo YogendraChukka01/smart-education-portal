@@ -1,10 +1,10 @@
-# Setu
+# Sethu
 
-![Setu logo](./frontend/public/setu-logo.png)
+![Sethu logo](./frontend/public/sethu-logo.png)
 
 ## Connect - Learn - Grow
 
-**Setu** is an academia-industry skill mapping, internship, mentorship, and placement portal customized for **Audisankara University**. It connects students, academicians, recruiters, placement teams, and alumni through one shared platform.
+**Sethu** is an academia-industry skill mapping, internship, mentorship, and placement portal customized for **Audisankara University**. It connects students, academicians, recruiters, placement teams, and alumni through one shared platform.
 
 **Smart India Hackathon 2026 - Problem Statement 26044**
 **Portal for Academia-Industry Collaboration for Skill Mapping, Internships and Placement**
@@ -30,7 +30,7 @@ The portal uses Audisankara University as its primary institution profile.
 - **Innovation ecosystem:** Atal Community Innovation Center (ACIC)
 - **Official website:** [audisankarauniversity.edu.in](https://audisankarauniversity.edu.in/)
 
-## What Setu provides
+## What Sethu provides
 
 ### Students
 
@@ -74,7 +74,7 @@ The portal uses Audisankara University as its primary institution profile.
 
 ## Explainable matching engine
 
-Setu uses a deterministic, explainable compatibility score rather than an opaque ranking:
+Sethu uses a deterministic, explainable compatibility score rather than an opaque ranking:
 
 ```text
 Composite Match Score =

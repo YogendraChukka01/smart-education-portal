@@ -4,16 +4,16 @@
 
 @layer base {
   :root {
-    --setu-brand: #4f46e5;
-    --setu-brand-strong: #4338ca;
-    --setu-accent: #7c3aed;
-    --setu-ink: #1e1b4b;
-    --setu-muted: #64748b;
-    --setu-border: #e0e7ff;
-    --setu-surface: #ffffff;
-    --setu-bg: #f5f3ff;
-    --setu-radius: 0.9rem;
-    --setu-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --sethu-brand: #4f46e5;
+    --sethu-brand-strong: #4338ca;
+    --sethu-accent: #7c3aed;
+    --sethu-ink: #1e1b4b;
+    --sethu-muted: #64748b;
+    --sethu-border: #e0e7ff;
+    --sethu-surface: #ffffff;
+    --sethu-bg: #f5f3ff;
+    --sethu-radius: 0.9rem;
+    --sethu-ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   html { scroll-behavior: smooth; }
@@ -52,9 +52,9 @@
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 .app-card {
-  background: var(--setu-surface);
-  border: 1px solid var(--setu-border);
-  border-radius: var(--setu-radius);
+  background: var(--sethu-surface);
+  border: 1px solid var(--sethu-border);
+  border-radius: var(--sethu-radius);
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 .hero-gradient {
@@ -72,7 +72,7 @@
   background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: #fff;
   box-shadow: 0 10px 30px -8px rgba(79, 70, 229, 0.45);
-  transition: transform 180ms var(--setu-ease), box-shadow 180ms ease, filter 180ms ease;
+  transition: transform 180ms var(--sethu-ease), box-shadow 180ms ease, filter 180ms ease;
 }
 .btn-brand:hover { filter: brightness(1.06); transform: translateY(-1px); }
 .btn-brand:active { transform: translateY(0); }
@@ -86,10 +86,10 @@
 /* Shared motion and layout primitives. */
 .page-main { min-width: 0; isolation: isolate; }
 .page-main > * { min-width: 0; max-width: 100%; }
-.page-main > * { animation: page-enter 420ms var(--setu-ease) both; }
+.page-main > * { animation: page-enter 420ms var(--sethu-ease) both; }
 
 /* Stagger dashboard grids without adding a motion dependency. */
-.page-main .grid > * { animation: card-enter 480ms var(--setu-ease) both; }
+.page-main .grid > * { animation: card-enter 480ms var(--sethu-ease) both; }
 .page-main .grid > *:nth-child(2) { animation-delay: 45ms; }
 .page-main .grid > *:nth-child(3) { animation-delay: 90ms; }
 .page-main .grid > *:nth-child(4) { animation-delay: 135ms; }
