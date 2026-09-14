@@ -954,14 +954,67 @@ async function main() {
     },
   });
 
-  // Enrich Yogendra profile contact + completion
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.ACHIEVEMENT,
+      title: 'Winner — AI Project Expo 2026 (Best LLM Application)',
+      issuer: 'ASCET Innovation Cell / Audisankara Tech Fest',
+      description: 'Won Best LLM Application for demoing the FlowMind gateway and Mawa AI voice assistant with agentic RAG to 200+ visitors, followed by live judge Q&A on model routing and evaluation design.',
+      technologies: 'Python, FastAPI, RAG, LLMs, React',
+      role: 'Team Lead & Presenter',
+      startDate: 'Feb 2026',
+      endDate: 'Feb 2026',
+      skillsTaggedJson: JSON.stringify(['Technical Communication & Leadership', 'Machine Learning & Python Analytics', 'React & Modern Frontend']),
+      verified: true,
+    },
+  });
+
+  await prisma.portfolioItem.create({
+    data: {
+      studentId: student1Profile.id,
+      type: PORTFOLIO_ITEM_TYPES.CERTIFICATE,
+      title: 'NPTEL — Introduction to Machine Learning (Elite Grade)',
+      issuer: 'NPTEL / SWAYAM (IITs)',
+      description: '12-week NPTEL course with online proctored exam — Elite grade (top 5% of cohort). Covered regression, classification, clustering, ensembles and model evaluation with Python.',
+      technologies: 'Python, scikit-learn, Statistics',
+      role: 'Learner',
+      startDate: 'Jan 2025',
+      endDate: 'Apr 2025',
+      skillsTaggedJson: JSON.stringify(['Machine Learning & Python Analytics', 'Quantitative & Logical Aptitude', 'Data Structures & Algorithms']),
+      verified: true,
+    },
+  });
+
+  // Enrich Yogendra profile — contact, personal details, social links & completion
+  const yogendraContactDetails = {
+    phone: '+91 90000 12345',
+    location: 'Andhra Pradesh, India',
+    alternateEmail: 'yogendra.chukka@gmail.com',
+    address: 'Nellore, Andhra Pradesh, India',
+    dateOfBirth: '15 Apr 2005',
+    gender: 'Male',
+    nationality: 'Indian',
+    fatherName: 'Chukka Surya Prakash',
+    motherName: 'Chukka Padmavathi',
+    leetcodeUrl: 'https://leetcode.com/u/YogendraChukka01',
+    kaggleUrl: 'https://www.kaggle.com/yogendrachukka',
+    hackerrankUrl: 'https://www.hackerrank.com/yogendrachukka',
+    portfolioWebsiteUrl: 'https://yogendrachukka01.github.io',
+    languages: JSON.stringify(['Telugu', 'Hindi', 'English']),
+    interests: JSON.stringify(['AI & LLM Engineering', 'Open Source Software', 'Competitive Coding', 'Tech Blogging', 'Chess']),
+    profileCompletedPct: 96,
+  };
+
   await prisma.studentProfile.update({
     where: { id: student1Profile.id },
-    data: {
-      phone: '+91 90000 12345',
-      location: 'Andhra Pradesh, India',
-      profileCompletedPct: 92,
-    },
+    data: yogendraContactDetails,
+  });
+
+  // Keep the student@demo.com alias profile identical for demo parity
+  await prisma.studentProfile.update({
+    where: { userId: student1Alias.id },
+    data: yogendraContactDetails,
   });
 
   // Seed Pre-saved Resume Draft for Yogendra Chukka

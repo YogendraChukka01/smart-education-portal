@@ -113,6 +113,19 @@ model StudentProfile {
   graduationYear    Int                 @default(2026)
   phone             String?
   location          String?
+  dateOfBirth       String?           // e.g. '15 Apr 2005'
+  gender            String?           // e.g. 'Male', 'Female', 'Other'
+  nationality       String?           // e.g. 'Indian'
+  alternateEmail    String?
+  address           String?           // current / permanent address
+  fatherName        String?
+  motherName        String?
+  leetcodeUrl       String?
+  kaggleUrl         String?
+  hackerrankUrl     String?
+  portfolioWebsiteUrl String?
+  languages         String?           // JSON string array e.g. '["Telugu","Hindi","English"]'
+  interests         String?           // JSON string array e.g. '["AI","Chess"]'
   targetRoleId      String?
   portfolioSlug     String              @unique
   bio               String?

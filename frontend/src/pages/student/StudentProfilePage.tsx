@@ -18,6 +18,13 @@ import {
   Loader2,
   Save,
   X,
+  UserRound,
+  Trophy,
+  MapPin,
+  Link2,
+  Fingerprint,
+  Globe2,
+  HeartPulse,
 } from 'lucide-react';
 import { ProfilePhotoUpload } from '../../components/common/ProfilePhotoUpload';
 import { ENGINEERING_DEPARTMENTS, ENGINEERING_BRANCHES } from '@ayush-portal/shared';
@@ -43,6 +50,23 @@ export const StudentProfilePage: React.FC = () => {
     githubUrl: '',
     linkedinUrl: '',
     resumeUrl: '',
+    rollNumber: '',
+    enrollmentNumber: '',
+    phone: '',
+    location: '',
+    alternateEmail: '',
+    address: '',
+    dateOfBirth: '',
+    gender: 'Male',
+    nationality: 'Indian',
+    fatherName: '',
+    motherName: '',
+    leetcodeUrl: '',
+    kaggleUrl: '',
+    hackerrankUrl: '',
+    portfolioWebsiteUrl: '',
+    languagesText: '',
+    interestsText: '',
   });
 
   useEffect(() => {
@@ -67,6 +91,23 @@ export const StudentProfilePage: React.FC = () => {
           githubUrl: res.data.student.githubUrl || '',
           linkedinUrl: res.data.student.linkedinUrl || '',
           resumeUrl: res.data.student.resumeUrl || '',
+          rollNumber: res.data.student.rollNumber || '',
+          enrollmentNumber: res.data.student.enrollmentNumber || '',
+          phone: res.data.student.phone || '',
+          location: res.data.student.location || '',
+          alternateEmail: res.data.student.alternateEmail || '',
+          address: res.data.student.address || '',
+          dateOfBirth: res.data.student.dateOfBirth || '',
+          gender: res.data.student.gender || 'Male',
+          nationality: res.data.student.nationality || 'Indian',
+          fatherName: res.data.student.fatherName || '',
+          motherName: res.data.student.motherName || '',
+          leetcodeUrl: res.data.student.leetcodeUrl || '',
+          kaggleUrl: res.data.student.kaggleUrl || '',
+          hackerrankUrl: res.data.student.hackerrankUrl || '',
+          portfolioWebsiteUrl: res.data.student.portfolioWebsiteUrl || '',
+          languagesText: (res.data.student.languages || []).join(', '),
+          interestsText: (res.data.student.interests || []).join(', '),
         });
       }
     } catch (err) {
@@ -80,7 +121,14 @@ export const StudentProfilePage: React.FC = () => {
     e.preventDefault();
     setSaving(true);
     try {
-      await api.put('/auth/profile', formData);
+      const payload = {
+        ...formData,
+        languages: (formData.languagesText || '').split(',').map((s: string) => s.trim()).filter(Boolean),
+        interests: (formData.interestsText || '').split(',').map((s: string) => s.trim()).filter(Boolean),
+      };
+      delete (payload as any).languagesText;
+      delete (payload as any).interestsText;
+      await api.put('/auth/profile', payload);
       await refreshUserProfile();
       await fetchProfile();
       setIsEditing(false);
@@ -162,6 +210,13 @@ export const StudentProfilePage: React.FC = () => {
             {student?.bio}
           </p>
         )}
+        {student?.careerGoal && (
+          <p className="mt-3 text-xs text-slate-600 flex items-center gap-1.5">
+            <Trophy className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+            <span className="font-bold text-slate-700">Career Goal:</span>
+            <span className="min-w-0 flex-1">{student?.careerGoal}</span>
+          </p>
+        )}
       </div>
 
       {/* Grid: Academic Info & Social Links */}
@@ -197,6 +252,16 @@ export const StudentProfilePage: React.FC = () => {
             </div>
 
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Roll Number</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.rollNumber || '—'}</div>
+            </div>
+
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Enrollment Number</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.enrollmentNumber || '—'}</div>
+            </div>
+
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
               <span className="text-slate-500 font-medium">Graduation Year</span>
               <div className="font-bold text-slate-900 mt-0.5">{student?.graduationYear || 2026}</div>
             </div>
@@ -204,6 +269,106 @@ export const StudentProfilePage: React.FC = () => {
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
               <span className="text-slate-500 font-medium">Email</span>
               <div className="font-bold text-slate-900 mt-0.5 truncate">{student?.email}</div>
+            </div>
+          </div>
+
+          {(student?.academicRank || student?.departmentRank || student?.branchRank || student?.batchRank) ? (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide">Class Ranks</span>
+              {student?.academicRank && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                  <Trophy className="w-3 h-3 text-amber-600" /> Academic #{student.academicRank}
+                </span>
+              )}
+              {student?.departmentRank && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-teal-50 text-teal-800 border border-teal-200">
+                  <Trophy className="w-3 h-3 text-teal-600" /> Dept #{student.departmentRank}
+                </span>
+              )}
+              {student?.branchRank && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">
+                  <Trophy className="w-3 h-3 text-indigo-600" /> Branch #{student.branchRank}
+                </span>
+              )}
+              {student?.batchRank && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-50 text-violet-800 border border-violet-200">
+                  <Trophy className="w-3 h-3 text-violet-600" /> Batch #{student.batchRank}
+                </span>
+              )}
+            </div>
+          ) : null}
+        </div>
+
+        {/* Personal Details */}
+        <div className="md:col-span-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
+          <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <UserRound className="w-4 h-4 text-indigo-700" />
+            <span>Personal Details</span>
+          </h2>
+
+          <div className="grid grid-cols-2 gap-4 text-xs">
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Date of Birth</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.dateOfBirth || '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Gender</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.gender || '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Nationality</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.nationality || '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Languages</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.languages?.length ? student.languages.join(', ') : '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Father&apos;s Name</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.fatherName || '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Mother&apos;s Name</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.motherName || '—'}</div>
+            </div>
+          </div>
+
+          {student?.interests?.length ? (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide">Interests</span>
+              {student.interests.map((it: string) => (
+                <span key={it} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">
+                  <HeartPulse className="w-3 h-3 text-indigo-600" />
+                  {it}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
+        {/* Identity & Contact */}
+        <div className="md:col-span-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
+          <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-indigo-700" />
+            <span>Identity & Contact</span>
+          </h2>
+
+          <div className="grid grid-cols-2 gap-4 text-xs">
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Phone</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.phone || '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <span className="text-slate-500 font-medium">Alt. Email</span>
+              <div className="font-bold text-slate-900 mt-0.5 truncate">{student?.alternateEmail || '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 col-span-2">
+              <span className="text-slate-500 font-medium">Location</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.location || '—'}</div>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 col-span-2">
+              <span className="text-slate-500 font-medium">Address</span>
+              <div className="font-bold text-slate-900 mt-0.5">{student?.address || '—'}</div>
             </div>
           </div>
         </div>
@@ -260,6 +425,82 @@ export const StudentProfilePage: React.FC = () => {
                 <span className="font-bold text-slate-800">Uploaded Resume</span>
               </div>
               <span className="text-emerald-700 font-semibold">Resume_Verified.pdf</span>
+            </div>
+
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <Link2 className="w-4 h-4 text-indigo-600" />
+                <span className="font-bold text-slate-800">LeetCode Profile</span>
+              </div>
+              {student?.leetcodeUrl ? (
+                <a
+                  href={student.leetcodeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-indigo-700 font-semibold hover:underline flex items-center gap-1"
+                >
+                  {student.leetcodeUrl.replace('https://', '')} <ExternalLink className="w-3 h-3" />
+                </a>
+              ) : (
+                <span className="text-slate-400 italic">Not added</span>
+              )}
+            </div>
+
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <Trophy className="w-4 h-4 text-blue-600" />
+                <span className="font-bold text-slate-800">Kaggle Profile</span>
+              </div>
+              {student?.kaggleUrl ? (
+                <a
+                  href={student.kaggleUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-indigo-700 font-semibold hover:underline flex items-center gap-1"
+                >
+                  {student.kaggleUrl.replace('https://', '')} <ExternalLink className="w-3 h-3" />
+                </a>
+              ) : (
+                <span className="text-slate-400 italic">Not added</span>
+              )}
+            </div>
+
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <Fingerprint className="w-4 h-4 text-emerald-600" />
+                <span className="font-bold text-slate-800">HackerRank Profile</span>
+              </div>
+              {student?.hackerrankUrl ? (
+                <a
+                  href={student.hackerrankUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-indigo-700 font-semibold hover:underline flex items-center gap-1"
+                >
+                  {student.hackerrankUrl.replace('https://', '')} <ExternalLink className="w-3 h-3" />
+                </a>
+              ) : (
+                <span className="text-slate-400 italic">Not added</span>
+              )}
+            </div>
+
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <Globe2 className="w-4 h-4 text-indigo-600" />
+                <span className="font-bold text-slate-800">Portfolio Website</span>
+              </div>
+              {student?.portfolioWebsiteUrl ? (
+                <a
+                  href={student.portfolioWebsiteUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-indigo-700 font-semibold hover:underline flex items-center gap-1"
+                >
+                  {student.portfolioWebsiteUrl.replace('https://', '')} <ExternalLink className="w-3 h-3" />
+                </a>
+              ) : (
+                <span className="text-slate-400 italic">Not added</span>
+              )}
             </div>
           </div>
         </div>
@@ -460,6 +701,202 @@ export const StudentProfilePage: React.FC = () => {
                     placeholder="https://linkedin.com/in/username"
                     className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <h4 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
+                  <UserRound className="w-4 h-4 text-indigo-700" />
+                  <span>Personal &amp; Contact Details</span>
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Date of Birth</label>
+                    <input
+                      type="text"
+                      value={formData.dateOfBirth}
+                      onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
+                      placeholder="e.g. 15 Apr 2005"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Gender</label>
+                    <select
+                      value={formData.gender}
+                      onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white"
+                    >
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                      <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Nationality</label>
+                    <input
+                      type="text"
+                      value={formData.nationality}
+                      onChange={(e) => setFormData({ ...formData, nationality: e.target.value })}
+                      placeholder="e.g. Indian"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Phone</label>
+                    <input
+                      type="text"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+91 90000 12345"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Alternate Email</label>
+                    <input
+                      type="email"
+                      value={formData.alternateEmail}
+                      onChange={(e) => setFormData({ ...formData, alternateEmail: e.target.value })}
+                      placeholder="you@gmail.com"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Roll Number</label>
+                    <input
+                      type="text"
+                      value={formData.rollNumber}
+                      onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
+                      placeholder="e.g. 112103045"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Enrollment Number</label>
+                    <input
+                      type="text"
+                      value={formData.enrollmentNumber}
+                      onChange={(e) => setFormData({ ...formData, enrollmentNumber: e.target.value })}
+                      placeholder="e.g. EN2103045"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Location</label>
+                    <input
+                      type="text"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      placeholder="e.g. Andhra Pradesh, India"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                </div>
+
+              <div>
+                  <label className="block font-bold text-slate-700 mb-1">Address</label>
+                  <textarea
+                    rows={1}
+                    value={formData.address}
+                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                    placeholder="Current / permanent address"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                  ></textarea>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Father&apos;s Name</label>
+                    <input
+                      type="text"
+                      value={formData.fatherName}
+                      onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
+                      placeholder="Guardian / father name"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Mother&apos;s Name</label>
+                    <input
+                      type="text"
+                      value={formData.motherName}
+                      onChange={(e) => setFormData({ ...formData, motherName: e.target.value })}
+                      placeholder="Mother name"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">LeetCode URL</label>
+                    <input
+                      type="text"
+                      value={formData.leetcodeUrl}
+                      onChange={(e) => setFormData({ ...formData, leetcodeUrl: e.target.value })}
+                      placeholder="https://leetcode.com/u/username"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Kaggle URL</label>
+                    <input
+                      type="text"
+                      value={formData.kaggleUrl}
+                      onChange={(e) => setFormData({ ...formData, kaggleUrl: e.target.value })}
+                      placeholder="https://www.kaggle.com/username"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">HackerRank URL</label>
+                    <input
+                      type="text"
+                      value={formData.hackerrankUrl}
+                      onChange={(e) => setFormData({ ...formData, hackerrankUrl: e.target.value })}
+                      placeholder="https://www.hackerrank.com/username"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Portfolio Website URL</label>
+                    <input
+                      type="text"
+                      value={formData.portfolioWebsiteUrl}
+                      onChange={(e) => setFormData({ ...formData, portfolioWebsiteUrl: e.target.value })}
+                      placeholder="https://yourname.github.io"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Languages (comma separated)</label>
+                    <input
+                      type="text"
+                      value={formData.languagesText}
+                      onChange={(e) => setFormData({ ...formData, languagesText: e.target.value })}
+                      placeholder="Telugu, Hindi, English"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Interests (comma separated)</label>
+                    <input
+                      type="text"
+                      value={formData.interestsText}
+                      onChange={(e) => setFormData({ ...formData, interestsText: e.target.value })}
+                      placeholder="AI, Chess, Open Source"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  </div>
                 </div>
               </div>
 
