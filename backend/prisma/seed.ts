@@ -16,8 +16,54 @@ import {
 
 const prisma = new PrismaClient();
 
+async function ensureDemoSeeded() {
+  try {
+    const count = await prisma.user.count();
+    if (count > 0) {
+      console.log(`⏭️  Database already has ${count} user(s), skipping full reseed to preserve data.`);
+      // Still guarantee the 3 demo-login emails used by the landing buttons.
+      await ensureDemoAccount('student@demo.com', ROLES.STUDENT, 'password123');
+      await ensureDemoAccount('industry@demo.com', ROLES.INDUSTRY, 'password123');
+      await ensureDemoAccount('admin@demo.com', ROLES.INSTITUTION_ADMIN, 'password123');
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+async function ensureDemoAccount(email: string, role: string, password: string) {
+  const existing = await prisma.user.findUnique({ where: { email: email.toLowerCase().trim() } });
+  if (existing) return existing;
+  const passwordHash = await bcrypt.hash(password, 10);
+  let institution = await prisma.institution.findFirst();
+  if (!institution) {
+    institution = await prisma.institution.create({
+      data: { name: 'Audisankara University', type: 'University', location: 'Andhra Pradesh, India' },
+    });
+  }
+  const created = await prisma.user.create({
+    data: { email: email.toLowerCase().trim(), passwordHash, role, institutionId: institution.id },
+  });
+  if (role === ROLES.STUDENT) {
+    await prisma.studentProfile.create({
+      data: {
+        userId: created.id, name: 'Roshan Shinde', degree: 'B.Tech',
+        departmentName: 'Computer Science & Engineering', branchName: 'Computer Science & Engineering',
+        year: 3, semester: 6, cgpa: 8.2, graduationYear: 2026,
+        portfolioSlug: `demo-${Date.now()}`, careerGoal: 'Java Backend Developer',
+      },
+    });
+  }
+  console.log(`✅ Auto-created missing demo account: ${email}`);
+  return created;
+}
+
 async function main() {
   console.log('🌱 Starting Engineering Academia-Industry Database Seeding...');
+
+  if (await ensureDemoSeeded()) return;
 
   // Clean existing tables in correct FK dependency order
   await prisma.auditLog.deleteMany();

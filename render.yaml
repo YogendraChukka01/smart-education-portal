@@ -18,6 +18,11 @@ services:
         fromDatabase:
           name: setu-db
           property: connectionString
+      # Seed flag consumed by backend postinstall (prisma.seed.ts).
+      # Set 1 on first deploy so demo accounts (student@demo.com etc.)
+      # exist; set 0 afterwards to avoid wiping real data on redeploys.
+      - key: SEED_DEMO_DATA
+        value: "1"
 
   - type: web
     name: setu-web

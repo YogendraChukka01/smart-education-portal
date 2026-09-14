@@ -26,6 +26,9 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ allowedRoles }) 
   // "Explore Student Flow / Recruiter / Placement Cell" buttons never land
   // on /login (e.g. backend unreachable or production DB not seeded).
   // Child dashboards already render with fallback data when user is null.
+  // NOTE: this fallback intentionally ignores any STALE token in
+  // localStorage — a token issued by a previous backend deploy (different
+  // JWT_SECRET / wiped DB) must not trap the demo on /login.
   const isDemoDashboardPath = (): boolean => {
     const path = window.location.pathname;
     if (!allowedRoles || allowedRoles.length === 0) return false;
@@ -37,7 +40,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ allowedRoles }) 
     return false;
   };
 
-  if (!user && !token && isDemoDashboardPath()) {
+  if (!user && isDemoDashboardPath()) {
     return <Outlet />;
   }
 
