@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
   GraduationCap,
@@ -17,11 +18,37 @@ import {
   CheckCircle2,
   Users,
   ShieldCheck,
+  Loader2,
 } from 'lucide-react';
-import { ROLES } from '@ayush-portal/shared';
+import { ROLES, UserRole } from '@ayush-portal/shared';
 
 export const LandingPage: React.FC = () => {
   const { user, loginWithDemoAccount } = useAuth();
+  const navigate = useNavigate();
+  const [demoLoading, setDemoLoading] = useState<string | null>(null);
+  const [demoError, setDemoError] = useState<string | null>(null);
+
+  const redirectUser = (role: UserRole) => {
+    if (role === ROLES.STUDENT) navigate('/student/dashboard');
+    else if (role === ROLES.ACADEMICIAN) navigate('/academician/dashboard');
+    else if (role === ROLES.INDUSTRY) navigate('/industry/dashboard');
+    else if (role === ROLES.INSTITUTION_ADMIN) navigate('/admin/dashboard');
+    else if (role === ROLES.ALUMNI) navigate('/alumni/dashboard');
+    else navigate('/');
+  };
+
+  const handleDemoLogin = async (email: string) => {
+    setDemoLoading(email);
+    setDemoError(null);
+    try {
+      const loggedInUser = await loginWithDemoAccount(email);
+      redirectUser(loggedInUser.role);
+    } catch {
+      setDemoError('Demo login failed. Please try again or use Sign In.');
+    } finally {
+      setDemoLoading(null);
+    }
+  };
 
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
@@ -44,30 +71,35 @@ export const LandingPage: React.FC = () => {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <button
-              onClick={() => loginWithDemoAccount('student@demo.com')}
-              className="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-bold text-sm shadow-sm transition-all flex items-center gap-2"
+              onClick={() => handleDemoLogin('student@demo.com')}
+              disabled={demoLoading !== null}
+              className="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-bold text-sm shadow-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
             >
-              <GraduationCap className="w-4 h-4" />
+              {demoLoading === 'student@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <GraduationCap className="w-4 h-4" />}
               <span>Explore Student Flow</span>
               <ChevronRight className="w-4 h-4" />
             </button>
 
             <button
-              onClick={() => loginWithDemoAccount('industry@demo.com')}
-              className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2"
+              onClick={() => handleDemoLogin('industry@demo.com')}
+              disabled={demoLoading !== null}
+              className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
             >
-              <Briefcase className="w-4 h-4 text-slate-600" />
+              {demoLoading === 'industry@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Briefcase className="w-4 h-4 text-slate-600" />}
               <span>For Industry Recruiters</span>
             </button>
 
             <button
-              onClick={() => loginWithDemoAccount('admin@demo.com')}
-              className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2"
+              onClick={() => handleDemoLogin('admin@demo.com')}
+              disabled={demoLoading !== null}
+              className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
             >
-              <Building2 className="w-4 h-4 text-slate-600" />
+              {demoLoading === 'admin@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Building2 className="w-4 h-4 text-slate-600" />}
               <span>For Placement Cells</span>
             </button>
           </div>
+
+          {demoError && <p className="text-sm font-semibold text-red-600" role="alert">{demoError}</p>}
 
           {/* Quick Stats Strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10 border-t border-slate-100 mt-10">
