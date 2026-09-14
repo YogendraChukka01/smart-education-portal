@@ -4,13 +4,15 @@
 
 @layer base {
   :root {
-    --setu-brand: #2563eb;
-    --setu-brand-strong: #1d4ed8;
-    --setu-ink: #0f172a;
+    --setu-brand: #4f46e5;
+    --setu-brand-strong: #4338ca;
+    --setu-accent: #7c3aed;
+    --setu-ink: #1e1b4b;
     --setu-muted: #64748b;
-    --setu-border: #e2e8f0;
+    --setu-border: #e0e7ff;
     --setu-surface: #ffffff;
-    --setu-radius: 0.75rem;
+    --setu-bg: #f5f3ff;
+    --setu-radius: 0.9rem;
     --setu-ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
@@ -19,6 +21,10 @@
     @apply bg-slate-50 text-slate-900 antialiased;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     overflow-x: hidden;
+    background-image:
+      radial-gradient(1100px 380px at 12% -80px, rgba(99, 102, 241, 0.14), transparent 60%),
+      radial-gradient(900px 340px at 88% -60px, rgba(139, 92, 246, 0.12), transparent 60%);
+    background-attachment: fixed;
   }
   *, *::before, *::after { box-sizing: border-box; }
   button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
@@ -52,13 +58,29 @@
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 .hero-gradient {
-  background: radial-gradient(circle at 50% 20%, rgba(20, 184, 166, 0.15) 0%, rgba(15, 118, 110, 0.05) 40%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle at 50% 18%, rgba(99, 102, 241, 0.18) 0%, rgba(139, 92, 246, 0.08) 42%, rgba(255, 255, 255, 0) 70%);
 }
 .gradient-border {
   position: relative;
-  border-radius: 0.75rem;
-  background: linear-gradient(135deg, #0d9488, #0f766e, #0284c7);
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed, #a855f7);
   padding: 1px;
+}
+
+/* Brand helpers: indigo -> violet modern SaaS */
+.btn-brand {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: #fff;
+  box-shadow: 0 10px 30px -8px rgba(79, 70, 229, 0.45);
+  transition: transform 180ms var(--setu-ease), box-shadow 180ms ease, filter 180ms ease;
+}
+.btn-brand:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.btn-brand:active { transform: translateY(0); }
+.brand-text {
+  background: linear-gradient(120deg, #4f46e5, #7c3aed 60%, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Shared motion and layout primitives. */

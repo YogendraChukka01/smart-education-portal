@@ -49,7 +49,7 @@ export const IndustryDashboard: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading recruiter dashboard...</p>
       </div>
     );
@@ -71,7 +71,7 @@ export const IndustryDashboard: React.FC = () => {
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-1.5">
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
             <Briefcase className="w-4 h-4" />
             <span>Campus Talent Acquisition Portal</span>
           </div>
@@ -86,7 +86,7 @@ export const IndustryDashboard: React.FC = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/industry/post"
-            className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
+            className="px-4 py-2 btn-brand text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
           >
             <Plus className="w-4 h-4" />
             <span>Post New Opportunity</span>
@@ -111,7 +111,7 @@ export const IndustryDashboard: React.FC = () => {
 
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Applicants</span>
-          <div className="text-3xl font-black text-blue-700 mt-1">{totalApplicantsCount}</div>
+          <div className="text-3xl font-black text-indigo-700 mt-1">{totalApplicantsCount}</div>
           <p className="text-[11px] text-slate-400 mt-1">Verified engineering profiles</p>
         </div>
 
@@ -148,7 +148,7 @@ export const IndustryDashboard: React.FC = () => {
                 </div>
                 <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                   <div
-                    className="bg-blue-600 h-full rounded-full transition-all duration-500"
+                    className="bg-indigo-600 h-full rounded-full transition-all duration-500"
                     style={{ width: `${Math.max(5, stage.percentage)}%` }}
                   ></div>
                 </div>
@@ -198,7 +198,7 @@ export const IndustryDashboard: React.FC = () => {
           </div>
           <Link
             to="/industry/post"
-            className="text-xs font-bold text-blue-700 hover:underline"
+            className="text-xs font-bold text-indigo-700 hover:underline"
           >
             Create New +
           </Link>
@@ -221,7 +221,7 @@ export const IndustryDashboard: React.FC = () => {
                 <tr key={p.id} className="hover:bg-slate-50 transition-colors">
                   <td className="py-3.5 px-4 font-bold text-slate-900">{p.title}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-800 border border-blue-200 uppercase">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-indigo-800 border border-indigo-200 uppercase">
                       {p.type}
                     </span>
                   </td>
@@ -229,7 +229,7 @@ export const IndustryDashboard: React.FC = () => {
                   <td className="py-3.5 px-4 text-slate-600">
                     {p.eligibleBranches?.length > 0 ? p.eligibleBranches.join(', ') : 'All Branches'}
                   </td>
-                  <td className="py-3.5 px-4 text-center font-mono font-bold text-blue-700">
+                  <td className="py-3.5 px-4 text-center font-mono font-bold text-indigo-700">
                     {p.applicantsCount} Candidates
                   </td>
                   <td className="py-3.5 px-4 text-right">

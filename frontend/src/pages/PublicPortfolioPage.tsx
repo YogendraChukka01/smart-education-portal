@@ -42,7 +42,7 @@ export const PublicPortfolioPage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-700 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-700 animate-spin" />
         <p className="text-sm font-medium text-slate-600">Verifying digital portfolio credentials...</p>
       </div>
     );
@@ -97,7 +97,7 @@ export const PublicPortfolioPage: React.FC = () => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2.5">
                     <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">{student.name}</h1>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-[11px] font-bold border border-blue-400/30">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-blue-300 text-[11px] font-bold border border-blue-400/30">
                       <ShieldCheck className="w-3.5 h-3.5 text-blue-400" /> Verified Scholar
                     </span>
                   </div>
@@ -129,7 +129,7 @@ export const PublicPortfolioPage: React.FC = () => {
           {/* Quick Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-slate-50 border-b border-slate-200 text-center">
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl font-black text-blue-700">{stats.verifiedSkillsCount}</div>
+              <div className="text-2xl font-black text-indigo-700">{stats.verifiedSkillsCount}</div>
               <div className="text-[11px] text-slate-500 font-medium">Verified Skills</div>
             </div>
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs">
@@ -150,7 +150,7 @@ export const PublicPortfolioPage: React.FC = () => {
           <div className="p-6 sm:p-8 space-y-6">
             <div>
               <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-blue-700" /> Assessed & Verified Skill Proficiencies
+                <Sparkles className="w-4 h-4 text-indigo-700" /> Assessed & Verified Skill Proficiencies
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
                 Evaluated against the standardized engineering taxonomy.
@@ -168,7 +168,7 @@ export const PublicPortfolioPage: React.FC = () => {
                     <div className="text-[10px] text-slate-400">{sk.category}</div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono font-bold text-blue-800 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">
+                    <span className="text-xs font-mono font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
                       {sk.score}%
                     </span>
                     {sk.score >= 75 && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />}
@@ -182,7 +182,7 @@ export const PublicPortfolioPage: React.FC = () => {
           <div className="p-6 sm:p-8 border-t border-slate-100 space-y-6 bg-slate-50/50">
             <div>
               <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                <Award className="w-4 h-4 text-blue-700" /> Projects & Credentials ({portfolioItems.length})
+                <Award className="w-4 h-4 text-indigo-700" /> Projects & Credentials ({portfolioItems.length})
               </h2>
             </div>
 
@@ -193,7 +193,7 @@ export const PublicPortfolioPage: React.FC = () => {
                   className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-2"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
                       {item.type}
                     </span>
                     <span className="text-[11px] text-slate-400 font-mono">
@@ -203,7 +203,7 @@ export const PublicPortfolioPage: React.FC = () => {
 
                   <div>
                     <h3 className="font-bold text-base text-slate-900">{item.title}</h3>
-                    <p className="text-xs text-blue-700 font-semibold mt-0.5">Issuer: {item.issuer}</p>
+                    <p className="text-xs text-indigo-700 font-semibold mt-0.5">Issuer: {item.issuer}</p>
                   </div>
 
                   {item.description && (

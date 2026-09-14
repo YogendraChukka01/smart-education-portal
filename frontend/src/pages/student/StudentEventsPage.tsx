@@ -74,7 +74,7 @@ export const StudentEventsPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <Calendar className="w-4 h-4" />
           <span>Faculty Mentorship & Masterclasses</span>
         </div>
@@ -88,7 +88,7 @@ export const StudentEventsPage: React.FC = () => {
 
       {loading ? (
         <div className="min-h-[30vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading events calendar...</p>
         </div>
       ) : events.length === 0 ? (
@@ -112,7 +112,7 @@ export const StudentEventsPage: React.FC = () => {
                 <div className="space-y-4">
                   {/* Top Badges */}
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
                       {ev.type?.replace(/_/g, ' ') || 'Workshop'}
                     </span>
 
@@ -157,15 +157,15 @@ export const StudentEventsPage: React.FC = () => {
                   {/* Date, Time, Venue Info */}
                   <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600 pt-1">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                      <Calendar className="w-3.5 h-3.5 text-indigo-700 shrink-0" />
                       <span>{new Date(ev.dateTime).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                      <Clock className="w-3.5 h-3.5 text-indigo-700 shrink-0" />
                       <span>{ev.startTime || '10:00 AM'} - {ev.endTime || '12:00 PM'}</span>
                     </div>
                     <div className="flex items-center gap-1.5 col-span-2">
-                      <Video className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                      <Video className="w-3.5 h-3.5 text-indigo-700 shrink-0" />
                       <span className="truncate">{ev.locationOrLink}</span>
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export const StudentEventsPage: React.FC = () => {
                         href={ev.locationOrLink?.startsWith('http') ? ev.locationOrLink : '#'}
                         target="_blank"
                         rel="noreferrer"
-                        className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-1.5"
+                        className="px-4 py-2 btn-brand text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-1.5"
                       >
                         <Video className="w-3.5 h-3.5" />
                         <span>Join Session</span>
@@ -208,7 +208,7 @@ export const StudentEventsPage: React.FC = () => {
                     <button
                       onClick={() => handleRegister(ev.id)}
                       disabled={isFull || isActionLoading}
-                      className="w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center justify-center gap-2 disabled:opacity-50"
+                      className="w-full py-2.5 btn-brand text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center justify-center gap-2 disabled:opacity-50"
                     >
                       {isActionLoading && <Loader2 className="w-4 h-4 animate-spin" />}
                       <span>{isFull ? 'Session Full' : 'Reserve Free Seat'}</span>

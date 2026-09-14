@@ -61,7 +61,7 @@ export const RosterPage: React.FC = () => {
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-1.5 text-blue-700 text-xs font-bold uppercase tracking-wider">
+          <div className="flex items-center gap-1.5 text-indigo-700 text-xs font-bold uppercase tracking-wider">
             <Users className="w-4 h-4" />
             <span>Institutional Directory</span>
           </div>
@@ -95,7 +95,7 @@ export const RosterPage: React.FC = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name, branch..."
-              className="w-full pl-9 pr-3 py-2 text-xs font-medium border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 focus:bg-white"
+              className="w-full pl-9 pr-3 py-2 text-xs font-medium border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 focus:bg-white"
             />
           </div>
         </div>
@@ -111,7 +111,7 @@ export const RosterPage: React.FC = () => {
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <GraduationCap className="w-4 h-4 text-blue-700" />
+          <GraduationCap className="w-4 h-4 text-indigo-700" />
           <span>Student Scholars ({rosterData.students.length})</span>
         </button>
 
@@ -130,7 +130,7 @@ export const RosterPage: React.FC = () => {
 
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading roster directory...</p>
         </div>
       ) : activeTab === 'students' ? (
@@ -176,7 +176,7 @@ export const RosterPage: React.FC = () => {
                       )}
                     </td>
 
-                    <td className="py-3.5 px-4 text-center font-mono font-bold text-blue-800">
+                    <td className="py-3.5 px-4 text-center font-mono font-bold text-indigo-800">
                       {s.averageSkillScore}%
                     </td>
 
@@ -219,7 +219,7 @@ export const RosterPage: React.FC = () => {
                       <div className="text-[11px] text-slate-400 font-mono">{f.email}</div>
                     </td>
 
-                    <td className="py-3.5 px-4 text-blue-800 font-semibold">{f.department}</td>
+                    <td className="py-3.5 px-4 text-indigo-800 font-semibold">{f.department}</td>
 
                     <td className="py-3.5 px-4 text-slate-600">{f.designation || 'Faculty'}</td>
 

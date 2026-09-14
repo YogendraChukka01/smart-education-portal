@@ -16,8 +16,8 @@ export const DemoSwitcherBar: React.FC = () => {
       sub: 'Roshan • Sem 6 • Java/DSA',
       icon: GraduationCap,
       path: '/student/dashboard',
-      color: 'bg-blue-600 hover:bg-blue-700 text-white',
-      activeColor: 'ring-2 ring-blue-500 bg-blue-700 text-white',
+      color: 'bg-indigo-600 hover:bg-indigo-700 text-white',
+      activeColor: 'ring-2 ring-indigo-500 bg-indigo-700 text-white',
     },
     {
       role: ROLES.STUDENT,

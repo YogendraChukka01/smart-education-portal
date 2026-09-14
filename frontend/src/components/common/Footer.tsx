@@ -3,13 +3,13 @@ import { GraduationCap, ShieldCheck, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800 mt-20 pt-12 pb-8">
+    <footer className="bg-gradient-to-b from-[#1e1b4b] to-[#0f0d2e] text-slate-300 border-t border-indigo-500/20 mt-20 pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           {/* Col 1 */}
           <div className="md:col-span-1 space-y-3">
             <div className="flex items-center gap-2 text-white font-bold text-base">
-              <div className="w-7 h-7 rounded-lg bg-blue-700 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-brand">
                 <GraduationCap className="w-4 h-4 text-white" />
               </div>
               <span>Setu Portal</span>
@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-slate-400 leading-relaxed">
               Portal for Academia - Industry Collaboration for Skill Mapping, Internships, and Placement.
             </p>
-            <div className="flex items-center gap-2 pt-1 text-[11px] text-blue-400 font-semibold">
+            <div className="flex items-center gap-2 pt-1 text-[11px] text-indigo-300 font-semibold">
               <ShieldCheck className="w-4 h-4" />
               <span>Smart India Hackathon 2026 (PS 26044)</span>
             </div>
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200 mb-3">Key Stakeholders</h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li><span className="text-blue-400 font-medium">Students:</span> Skill Radar, Smart Match, Digital Portfolio</li>
+              <li><span className="text-indigo-300 font-medium">Students:</span> Skill Radar, Smart Match, Digital Portfolio</li>
               <li><span className="text-sky-400 font-medium">Faculty:</span> FDPs, Joint Grants, Mentorship</li>
               <li><span className="text-amber-400 font-medium">Industry:</span> Branch Tagging, Ranked Talent Pipeline</li>
               <li><span className="text-emerald-400 font-medium">Placement Cell:</span> Curriculum Gap Radar & Roster</li>

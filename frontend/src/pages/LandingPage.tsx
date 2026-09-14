@@ -63,15 +63,16 @@ export const LandingPage: React.FC = () => {
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-white border-b border-slate-200 py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold">
-            <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+      <section className="relative overflow-hidden border-b border-indigo-100 py-16 sm:py-20 bg-gradient-to-b from-indigo-50 via-violet-50/60 to-white">
+        <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-400/25 via-violet-400/25 to-fuchsia-400/20 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-800 text-xs font-bold">
+            <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
             Smart India Hackathon • Problem Statement ID 26044
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight sm:leading-tight">
-            Connect Skills with Industry Opportunities
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight max-w-4xl mx-auto leading-tight sm:leading-tight">
+            Connect Skills with <span className="brand-text">Industry Opportunities</span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed">
@@ -83,7 +84,7 @@ export const LandingPage: React.FC = () => {
             <button
               onClick={() => handleDemoLogin('student@demo.com', ROLES.STUDENT)}
               disabled={demoLoading !== null}
-              className="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-bold text-sm shadow-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
+              className="px-6 py-3 btn-brand text-white rounded-xl font-bold text-sm shadow-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
             >
               {demoLoading === 'student@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <GraduationCap className="w-4 h-4" />}
               <span>Explore Student Flow</span>
@@ -93,18 +94,18 @@ export const LandingPage: React.FC = () => {
             <button
               onClick={() => handleDemoLogin('industry@demo.com', ROLES.INDUSTRY)}
               disabled={demoLoading !== null}
-              className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
+              className="px-5 py-3 bg-white hover:bg-violet-50 text-indigo-900 border border-indigo-200 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70 shadow-sm"
             >
-              {demoLoading === 'industry@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Briefcase className="w-4 h-4 text-slate-600" />}
+              {demoLoading === 'industry@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Briefcase className="w-4 h-4 text-violet-600" />}
               <span>For Industry Recruiters</span>
             </button>
 
             <button
               onClick={() => handleDemoLogin('admin@demo.com', ROLES.INSTITUTION_ADMIN)}
               disabled={demoLoading !== null}
-              className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70"
+              className="px-5 py-3 bg-white hover:bg-violet-50 text-indigo-900 border border-indigo-200 rounded-xl font-bold text-sm transition-all flex items-center gap-2 disabled:cursor-wait disabled:opacity-70 shadow-sm"
             >
-              {demoLoading === 'admin@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Building2 className="w-4 h-4 text-slate-600" />}
+              {demoLoading === 'admin@demo.com' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Building2 className="w-4 h-4 text-violet-600" />}
               <span>For Placement Cells</span>
             </button>
           </div>
@@ -114,7 +115,7 @@ export const LandingPage: React.FC = () => {
           {/* Quick Stats Strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10 border-t border-slate-100 mt-10">
             <div className="text-left bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <div className="text-2xl font-black text-blue-700">6 Branches</div>
+              <div className="text-2xl font-black text-indigo-700">6 Branches</div>
               <div className="text-xs text-slate-500 font-medium mt-0.5">CSE, AI/DS, Mech, ENTC, Civil, EE</div>
             </div>
             <div className="text-left bg-slate-50 p-4 rounded-xl border border-slate-200">
@@ -146,7 +147,7 @@ export const LandingPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold text-sm">
+            <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold text-sm">
               01
             </div>
             <h3 className="font-bold text-base text-slate-900">Assess Skills</h3>
@@ -202,11 +203,11 @@ export const LandingPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-2.5">
               <div className="flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-blue-700" />
+                <Cpu className="w-5 h-5 text-indigo-700" />
                 <h3 className="font-bold text-sm text-slate-900">Computer Science & IT</h3>
               </div>
               <p className="text-xs text-slate-500">Java, DSA, Spring Boot, React, SQL, Cloud & DevOps</p>
-              <div className="text-[11px] font-semibold text-blue-700">Roles: Java Backend, Full Stack, Cloud Engineer</div>
+              <div className="text-[11px] font-semibold text-indigo-700">Roles: Java Backend, Full Stack, Cloud Engineer</div>
             </div>
 
             <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-2.5">
@@ -267,7 +268,7 @@ export const LandingPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-800 flex items-center justify-center">
               <GraduationCap className="w-5 h-5" />
             </div>
             <h3 className="font-bold text-base text-slate-900">For Engineering Students</h3>

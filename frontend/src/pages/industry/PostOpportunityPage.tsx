@@ -145,7 +145,7 @@ export const PostOpportunityPage: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <Briefcase className="w-4 h-4" />
           <span>Talent Requisition Form</span>
         </div>
@@ -184,7 +184,7 @@ export const PostOpportunityPage: React.FC = () => {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. Java Backend Engineering Intern"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -193,7 +193,7 @@ export const PostOpportunityPage: React.FC = () => {
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   <option value={OPPORTUNITY_TYPES.INTERNSHIP}>Internship</option>
                   <option value={OPPORTUNITY_TYPES.JOB}>Full-Time Job (Campus Placement)</option>
@@ -208,7 +208,7 @@ export const PostOpportunityPage: React.FC = () => {
                 <select
                   value={workMode}
                   onChange={(e) => setWorkMode(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   <option value="Hybrid">Hybrid</option>
                   <option value="Onsite">Onsite</option>
@@ -224,7 +224,7 @@ export const PostOpportunityPage: React.FC = () => {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="e.g. Pune, Maharashtra / Bengaluru"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -236,7 +236,7 @@ export const PostOpportunityPage: React.FC = () => {
                   value={stipendOrSalary}
                   onChange={(e) => setStipendOrSalary(e.target.value)}
                   placeholder="e.g. ₹28,000 / month or ₹9.5 LPA"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -248,7 +248,7 @@ export const PostOpportunityPage: React.FC = () => {
                   max="104"
                   value={durationWeeks}
                   onChange={(e) => setDurationWeeks(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -261,7 +261,7 @@ export const PostOpportunityPage: React.FC = () => {
                   max="10"
                   value={minCgpa}
                   onChange={(e) => setMinCgpa(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -273,7 +273,7 @@ export const PostOpportunityPage: React.FC = () => {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Outline key deliverables, tech stack, and responsibilities..."
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 ></textarea>
               </div>
             </div>
@@ -298,12 +298,12 @@ export const PostOpportunityPage: React.FC = () => {
                     onClick={() => handleToggleBranch(branch)}
                     className={`p-3 rounded-xl text-left text-xs font-semibold transition-all border flex items-center justify-between ${
                       isSelected
-                        ? 'bg-blue-50 border-blue-400 text-blue-900 font-bold shadow-2xs'
+                        ? 'bg-indigo-50 border-blue-400 text-indigo-900 font-bold shadow-2xs'
                         : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
                     }`}
                   >
                     <span>{branch}</span>
-                    {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />}
+                    {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" />}
                   </button>
                 );
               })}
@@ -352,7 +352,7 @@ export const PostOpportunityPage: React.FC = () => {
 
                     <div className="sm:col-span-3">
                       <label className="block text-[11px] font-bold text-slate-600 mb-1">
-                        Min Level: <strong className="text-blue-700">{req.level}%</strong>
+                        Min Level: <strong className="text-indigo-700">{req.level}%</strong>
                       </label>
                       <input
                         type="range"
@@ -414,7 +414,7 @@ export const PostOpportunityPage: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-6 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2"
+              className="px-6 py-2.5 btn-brand text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2"
             >
               {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
               <span>Publish Opportunity Posting</span>

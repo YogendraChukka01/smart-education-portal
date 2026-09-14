@@ -94,7 +94,7 @@ export const StudentProfilePage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading student profile...</p>
       </div>
     );
@@ -122,8 +122,8 @@ export const StudentProfilePage: React.FC = () => {
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                   {student?.name || 'Roshan Shinde'}
                 </h1>
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200">
-                  <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">
+                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
                   <span>{student?.institutionName || 'Verified Scholar'}</span>
                 </span>
               </div>
@@ -140,7 +140,7 @@ export const StudentProfilePage: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsEditing(true)}
-              className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5"
+              className="px-4 py-2 btn-brand text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5"
             >
               <Edit3 className="w-3.5 h-3.5" />
               <span>Edit Academic Details</span>
@@ -169,7 +169,7 @@ export const StudentProfilePage: React.FC = () => {
         {/* Academic Details */}
         <div className="md:col-span-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-blue-700" />
+            <GraduationCap className="w-4 h-4 text-indigo-700" />
             <span>Academic Information</span>
           </h2>
 
@@ -211,7 +211,7 @@ export const StudentProfilePage: React.FC = () => {
         {/* Links & Professional Handles */}
         <div className="md:col-span-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <Award className="w-4 h-4 text-blue-700" />
+            <Award className="w-4 h-4 text-indigo-700" />
             <span>Professional Profiles & Resume</span>
           </h2>
 
@@ -226,7 +226,7 @@ export const StudentProfilePage: React.FC = () => {
                   href={student.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-blue-700 font-semibold hover:underline flex items-center gap-1"
+                  className="text-indigo-700 font-semibold hover:underline flex items-center gap-1"
                 >
                   {student.githubUrl.replace('https://', '')} <ExternalLink className="w-3 h-3" />
                 </a>
@@ -237,7 +237,7 @@ export const StudentProfilePage: React.FC = () => {
 
             <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <Linkedin className="w-4 h-4 text-blue-700" />
+                <Linkedin className="w-4 h-4 text-indigo-700" />
                 <span className="font-bold text-slate-800">LinkedIn Profile</span>
               </div>
               {student?.linkedinUrl ? (
@@ -245,7 +245,7 @@ export const StudentProfilePage: React.FC = () => {
                   href={student.linkedinUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-blue-700 font-semibold hover:underline flex items-center gap-1"
+                  className="text-indigo-700 font-semibold hover:underline flex items-center gap-1"
                 >
                   {student.linkedinUrl.replace('https://', '')} <ExternalLink className="w-3 h-3" />
                 </a>
@@ -276,7 +276,7 @@ export const StudentProfilePage: React.FC = () => {
           </div>
           <Link
             to="/student/assessment"
-            className="px-3 py-1.5 bg-blue-50 text-blue-800 hover:bg-blue-100 text-xs font-bold rounded-lg transition-colors border border-blue-200"
+            className="px-3 py-1.5 bg-indigo-50 text-indigo-800 hover:bg-indigo-100 text-xs font-bold rounded-lg transition-colors border border-indigo-200"
           >
             Take Assessment
           </Link>
@@ -293,7 +293,7 @@ export const StudentProfilePage: React.FC = () => {
                 <div className="text-[10px] text-slate-500">{sk.category}</div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold text-blue-800 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200">
+                <span className="text-xs font-mono font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 rounded-md border border-indigo-200">
                   {sk.score}%
                 </span>
                 {sk.score >= 75 && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />}
@@ -323,7 +323,7 @@ export const StudentProfilePage: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -332,7 +332,7 @@ export const StudentProfilePage: React.FC = () => {
                   <select
                     value={formData.degree}
                     onChange={(e) => setFormData({ ...formData, degree: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white"
                   >
                     <option value="B.Tech">B.Tech (Bachelor of Technology)</option>
                     <option value="B.E.">B.E. (Bachelor of Engineering)</option>
@@ -353,7 +353,7 @@ export const StudentProfilePage: React.FC = () => {
                         branchName: branches[0],
                       });
                     }}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white"
                   >
                     {ENGINEERING_DEPARTMENTS.map((dept) => (
                       <option key={dept} value={dept}>
@@ -368,7 +368,7 @@ export const StudentProfilePage: React.FC = () => {
                   <select
                     value={formData.branchName}
                     onChange={(e) => setFormData({ ...formData, branchName: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white"
                   >
                     {(ENGINEERING_BRANCHES[formData.departmentName] || [formData.departmentName]).map((b) => (
                       <option key={b} value={b}>
@@ -386,7 +386,7 @@ export const StudentProfilePage: React.FC = () => {
                     max="4"
                     value={formData.year}
                     onChange={(e) => setFormData({ ...formData, year: Number(e.target.value) })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -398,7 +398,7 @@ export const StudentProfilePage: React.FC = () => {
                     max="8"
                     value={formData.semester}
                     onChange={(e) => setFormData({ ...formData, semester: Number(e.target.value) })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -411,7 +411,7 @@ export const StudentProfilePage: React.FC = () => {
                     max="10"
                     value={formData.cgpa}
                     onChange={(e) => setFormData({ ...formData, cgpa: Number(e.target.value) })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -423,7 +423,7 @@ export const StudentProfilePage: React.FC = () => {
                     max="2030"
                     value={formData.graduationYear}
                     onChange={(e) => setFormData({ ...formData, graduationYear: Number(e.target.value) })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
               </div>
@@ -435,7 +435,7 @@ export const StudentProfilePage: React.FC = () => {
                   value={formData.bio}
                   onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
                   placeholder="Summarize your engineering interests and career focus..."
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 ></textarea>
               </div>
 
@@ -447,7 +447,7 @@ export const StudentProfilePage: React.FC = () => {
                     value={formData.githubUrl}
                     onChange={(e) => setFormData({ ...formData, githubUrl: e.target.value })}
                     placeholder="https://github.com/username"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -458,7 +458,7 @@ export const StudentProfilePage: React.FC = () => {
                     value={formData.linkedinUrl}
                     onChange={(e) => setFormData({ ...formData, linkedinUrl: e.target.value })}
                     placeholder="https://linkedin.com/in/username"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
               </div>
@@ -474,7 +474,7 @@ export const StudentProfilePage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl transition-colors flex items-center gap-1.5"
+                  className="px-5 py-2 btn-brand text-white font-bold rounded-xl transition-colors flex items-center gap-1.5"
                 >
                   {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                   <span>Save Changes</span>

@@ -78,12 +78,12 @@ export const LoginPage: React.FC = () => {
         </div>
 
         {/* 1-Click Demo Logins */}
-        <div className="bg-white p-4 rounded-2xl border border-blue-200 shadow-2xs space-y-2.5">
+        <div className="bg-white p-4 rounded-2xl border border-indigo-200 shadow-2xs space-y-2.5">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-blue-900 uppercase tracking-wider flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-blue-600" /> Instant Demo Login (1-Click)
+            <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600" /> Instant Demo Login (1-Click)
             </span>
-            <span className="text-[10px] bg-blue-50 text-blue-700 font-mono px-1.5 py-0.5 rounded border border-blue-200">
+            <span className="text-[10px] bg-indigo-50 text-indigo-700 font-mono px-1.5 py-0.5 rounded border border-indigo-200">
               No password needed
             </span>
           </div>
@@ -93,9 +93,9 @@ export const LoginPage: React.FC = () => {
               type="button"
               onClick={() => handleDemoClick('student@demo.com')}
               disabled={loading}
-              className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-300 transition-all text-left"
+              className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-indigo-50 hover:border-indigo-300 transition-all text-left"
             >
-              <GraduationCap className="w-4 h-4 text-blue-700 shrink-0" />
+              <GraduationCap className="w-4 h-4 text-indigo-700 shrink-0" />
               <div className="truncate">
                 <div className="text-xs font-bold text-slate-900">Student (CSE)</div>
                 <div className="text-[10px] text-slate-500 truncate">Roshan • Java/DSA</div>
@@ -198,7 +198,7 @@ export const LoginPage: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="student@demo.com"
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
           </div>
@@ -213,7 +213,7 @@ export const LoginPage: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
           </div>
@@ -221,7 +221,7 @@ export const LoginPage: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 px-4 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs shadow-2xs transition-all flex items-center justify-center gap-2"
+            className="w-full py-2.5 px-4 btn-brand text-white font-bold rounded-xl text-xs shadow-2xs transition-all flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
@@ -236,7 +236,7 @@ export const LoginPage: React.FC = () => {
 
           <p className="text-center text-xs text-slate-500 pt-1">
             Don't have an account?{' '}
-            <Link to="/register" className="font-bold text-blue-700 hover:underline">
+            <Link to="/register" className="font-bold text-indigo-700 hover:underline">
               Register here
             </Link>
           </p>

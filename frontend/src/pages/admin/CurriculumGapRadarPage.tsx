@@ -61,7 +61,7 @@ export const CurriculumGapRadarPage: React.FC = () => {
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">
+            <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider">
               SIH Problem Statement 26044 Core Innovation
             </span>
           </div>
@@ -86,7 +86,7 @@ export const CurriculumGapRadarPage: React.FC = () => {
       {/* Department Filter Pills */}
       <div className="flex flex-wrap items-center gap-2 bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs">
         <span className="text-xs font-bold text-slate-700 px-2 flex items-center gap-1">
-          <Filter className="w-3.5 h-3.5 text-blue-700" /> Filter Department:
+          <Filter className="w-3.5 h-3.5 text-indigo-700" /> Filter Department:
         </span>
         <button
           onClick={() => setDepartmentFilter('all')}
@@ -197,7 +197,7 @@ export const CurriculumGapRadarPage: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200 shadow-2xs overflow-hidden p-6 space-y-4">
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-blue-700" />
+            <TrendingUp className="w-4 h-4 text-indigo-700" />
             <span>Actionable Syllabus Alignment & Faculty FDP Roadmap</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -251,7 +251,7 @@ export const CurriculumGapRadarPage: React.FC = () => {
                     <td className="py-3.5 px-4 font-bold text-slate-900">{g.skillName}</td>
                     <td className="py-3.5 px-4 text-slate-500">{g.category}</td>
                     <td className="py-3.5 px-4 text-center font-mono font-bold text-red-700">{g.industryDemandScore}%</td>
-                    <td className="py-3.5 px-4 text-center font-mono font-bold text-blue-800">{g.studentProficiencyScore}%</td>
+                    <td className="py-3.5 px-4 text-center font-mono font-bold text-indigo-800">{g.studentProficiencyScore}%</td>
                     <td className="py-3.5 px-4 text-center font-mono font-bold">
                       {g.curriculumGapScore > 0 ? (
                         <span className="text-red-600">+{g.curriculumGapScore}%</span>

@@ -226,7 +226,7 @@ export const AlumniDashboard: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading university alumni portal...</p>
       </div>
     );
@@ -263,8 +263,8 @@ export const AlumniDashboard: React.FC = () => {
                 )}
               </div>
 
-              <div className="text-sm font-semibold text-blue-700 flex items-center justify-center sm:justify-start gap-1.5">
-                <Briefcase className="w-4 h-4 text-blue-600 shrink-0" />
+              <div className="text-sm font-semibold text-indigo-700 flex items-center justify-center sm:justify-start gap-1.5">
+                <Briefcase className="w-4 h-4 text-indigo-600 shrink-0" />
                 <span>{role || 'Software Engineer'} at {company || 'Microsoft'}</span>
               </div>
 
@@ -287,7 +287,7 @@ export const AlumniDashboard: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-center">
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5"
+              className="px-4 py-2 btn-brand text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5"
             >
               <Edit3 className="w-3.5 h-3.5" />
               <span>{isEditing ? 'Cancel Edit' : 'Edit Alumni Profile'}</span>
@@ -391,7 +391,7 @@ export const AlumniDashboard: React.FC = () => {
           {isEditing ? (
             <form onSubmit={handleSaveProfile} className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-6">
               <h2 className="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-                <Edit3 className="w-4 h-4 text-blue-700" />
+                <Edit3 className="w-4 h-4 text-indigo-700" />
                 <span>Edit Alumni Credentials & Mentorship Status</span>
               </h2>
 
@@ -403,7 +403,7 @@ export const AlumniDashboard: React.FC = () => {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-semibold text-slate-900"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-semibold text-slate-900"
                   />
                 </div>
 
@@ -414,7 +414,7 @@ export const AlumniDashboard: React.FC = () => {
                     required
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-semibold text-slate-900"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-semibold text-slate-900"
                   />
                 </div>
 
@@ -426,7 +426,7 @@ export const AlumniDashboard: React.FC = () => {
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     placeholder="e.g. Software Engineer / SDE-2"
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -438,7 +438,7 @@ export const AlumniDashboard: React.FC = () => {
                     max="50"
                     value={experienceYears}
                     onChange={(e) => setExperienceYears(Number(e.target.value))}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -451,7 +451,7 @@ export const AlumniDashboard: React.FC = () => {
                       const branches = ENGINEERING_BRANCHES[e.target.value];
                       if (branches && branches.length > 0) setBranchName(branches[0]);
                     }}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 font-semibold"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 font-semibold"
                   >
                     {ENGINEERING_DEPARTMENTS.map((dept) => (
                       <option key={dept} value={dept}>{dept}</option>
@@ -467,7 +467,7 @@ export const AlumniDashboard: React.FC = () => {
                     max="2030"
                     value={graduationYear}
                     onChange={(e) => setGraduationYear(Number(e.target.value))}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -476,7 +476,7 @@ export const AlumniDashboard: React.FC = () => {
                   <select
                     value={branchName}
                     onChange={(e) => setBranchName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 font-semibold"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 font-semibold"
                   >
                     {(ENGINEERING_BRANCHES[departmentName] || [departmentName]).map((b) => (
                       <option key={b} value={b}>{b}</option>
@@ -491,7 +491,7 @@ export const AlumniDashboard: React.FC = () => {
                     value={skills}
                     onChange={(e) => setSkills(e.target.value)}
                     placeholder="e.g. Java, Distributed Systems, Azure, System Design, Spring Boot"
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -502,7 +502,7 @@ export const AlumniDashboard: React.FC = () => {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="e.g. Hyderabad / Pune / Bengaluru"
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -513,7 +513,7 @@ export const AlumniDashboard: React.FC = () => {
                     value={linkedinUrl}
                     onChange={(e) => setLinkedinUrl(e.target.value)}
                     placeholder="https://linkedin.com/in/..."
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono"
                   />
                 </div>
 
@@ -524,7 +524,7 @@ export const AlumniDashboard: React.FC = () => {
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
                     placeholder="Share a brief overview of your journey, current projects, and areas you can guide students on..."
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none leading-relaxed"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none leading-relaxed"
                   />
                 </div>
 
@@ -535,7 +535,7 @@ export const AlumniDashboard: React.FC = () => {
                     value={careerStoryQuote}
                     onChange={(e) => setCareerStoryQuote(e.target.value)}
                     placeholder="e.g. Focus on building real end-to-end systems and understanding DSA fundamentals during 3rd year!"
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none leading-relaxed italic"
+                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none leading-relaxed italic"
                   />
                 </div>
 
@@ -545,7 +545,7 @@ export const AlumniDashboard: React.FC = () => {
                       type="checkbox"
                       checked={isAvailableForMentorship}
                       onChange={(e) => setIsAvailableForMentorship(e.target.checked)}
-                      className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500"
+                      className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500"
                     />
                     <span>Available for 1:1 Student Mentorship & Mock Interviews</span>
                   </label>
@@ -563,7 +563,7 @@ export const AlumniDashboard: React.FC = () => {
                 <button
                   type="submit"
                   disabled={savingProfile}
-                  className="px-6 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl shadow-xs transition flex items-center gap-2"
+                  className="px-6 py-2 btn-brand text-white font-bold rounded-xl shadow-xs transition flex items-center gap-2"
                 >
                   {savingProfile ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                   <span>Save Profile</span>
@@ -605,7 +605,7 @@ export const AlumniDashboard: React.FC = () => {
                         href={linkedinUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs font-bold text-blue-700 hover:underline flex items-center gap-1.5"
+                        className="text-xs font-bold text-indigo-700 hover:underline flex items-center gap-1.5"
                       >
                         <Linkedin className="w-4 h-4" />
                         <span>View LinkedIn Profile</span>
@@ -624,7 +624,7 @@ export const AlumniDashboard: React.FC = () => {
                   </p>
 
                   {careerStoryQuote && (
-                    <div className="p-4 bg-blue-50/70 rounded-xl border border-blue-100 flex gap-3 text-xs text-blue-950 italic leading-relaxed">
+                    <div className="p-4 bg-indigo-50/70 rounded-xl border border-blue-100 flex gap-3 text-xs text-blue-950 italic leading-relaxed">
                       <Quote className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
                       <span>"{careerStoryQuote}"</span>
                     </div>
@@ -669,7 +669,7 @@ export const AlumniDashboard: React.FC = () => {
               <div key={post.id} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-3">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
                       {post.postType}
                     </span>
                     <h3 className="text-base font-extrabold text-slate-900 mt-2">{post.title}</h3>
@@ -705,7 +705,7 @@ export const AlumniDashboard: React.FC = () => {
                       <span>{post.likesCount} Likes</span>
                     </span>
                     <span className="flex items-center gap-1 font-semibold">
-                      <MessageSquare className="w-4 h-4 text-blue-600" />
+                      <MessageSquare className="w-4 h-4 text-indigo-600" />
                       <span>{post.commentsCount || post.comments?.length || 0} Student Inquiries</span>
                     </span>
                   </div>
@@ -775,7 +775,7 @@ export const AlumniDashboard: React.FC = () => {
                       "{req.message}"
                     </p>
                     {req.responseNotes && (
-                      <div className="text-blue-900 bg-blue-50/70 p-3 rounded-xl border border-blue-100">
+                      <div className="text-indigo-900 bg-indigo-50/70 p-3 rounded-xl border border-blue-100">
                         <strong>Your Response:</strong> {req.responseNotes}
                       </div>
                     )}
@@ -820,7 +820,7 @@ export const AlumniDashboard: React.FC = () => {
                       ) : (
                         <button
                           onClick={() => setRespondingRequestId(req.id)}
-                          className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-xs transition"
+                          className="px-4 py-2 btn-brand text-white font-bold text-xs rounded-xl shadow-xs transition"
                         >
                           Respond to Request
                         </button>
@@ -857,7 +857,7 @@ export const AlumniDashboard: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-extrabold text-sm text-slate-900">{alum.name}</div>
-                    <div className="text-xs text-blue-700 font-semibold">{alum.role} at {alum.company}</div>
+                    <div className="text-xs text-indigo-700 font-semibold">{alum.role} at {alum.company}</div>
                   </div>
                 </div>
 
@@ -896,10 +896,10 @@ export const AlumniDashboard: React.FC = () => {
             {events.map((ev) => (
               <div key={ev.id} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                  <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800">
                     {ev.type?.replace(/_/g, ' ')}
                   </span>
-                  <span className="text-xs font-mono font-bold text-blue-700">
+                  <span className="text-xs font-mono font-bold text-indigo-700">
                     {ev.attendeesCount} Registered
                   </span>
                 </div>

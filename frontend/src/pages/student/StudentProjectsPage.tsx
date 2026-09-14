@@ -138,7 +138,7 @@ export const StudentProjectsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
             <FolderGit2 className="w-4 h-4" />
             <span>Digital Project Credentials & Portfolio</span>
           </div>
@@ -152,7 +152,7 @@ export const StudentProjectsPage: React.FC = () => {
 
         <button
           onClick={openAddModal}
-          className="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2 self-start sm:self-auto shrink-0"
+          className="px-5 py-2.5 btn-brand text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2 self-start sm:self-auto shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Add Project / Cert</span>
@@ -161,7 +161,7 @@ export const StudentProjectsPage: React.FC = () => {
 
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading projects and portfolio...</p>
         </div>
       ) : (
@@ -170,7 +170,7 @@ export const StudentProjectsPage: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-sm font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
-                <FolderGit2 className="w-4 h-4 text-blue-700" />
+                <FolderGit2 className="w-4 h-4 text-indigo-700" />
                 <span>Featured Engineering Projects ({projects.length})</span>
               </h2>
             </div>
@@ -190,7 +190,7 @@ export const StudentProjectsPage: React.FC = () => {
                       <div className="flex items-start justify-between gap-2">
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                            <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
                               {item.role || 'Project Lead'}
                             </span>
                             {item.verified && (
@@ -205,7 +205,7 @@ export const StudentProjectsPage: React.FC = () => {
                         <div className="flex items-center gap-1">
                           <button
                             onClick={() => openEditModal(item)}
-                            className="p-1.5 text-slate-400 hover:text-blue-700 hover:bg-slate-50 rounded-lg transition-colors"
+                            className="p-1.5 text-slate-400 hover:text-indigo-700 hover:bg-slate-50 rounded-lg transition-colors"
                             title="Edit Project"
                           >
                             <Edit3 className="w-4 h-4" />
@@ -261,7 +261,7 @@ export const StudentProjectsPage: React.FC = () => {
                             href={item.projectUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-blue-700 hover:underline font-bold flex items-center gap-1 text-[11px]"
+                            className="text-indigo-700 hover:underline font-bold flex items-center gap-1 text-[11px]"
                           >
                             <span>Demo</span>
                             <ExternalLink className="w-3 h-3" />
@@ -348,7 +348,7 @@ export const StudentProjectsPage: React.FC = () => {
                   <select
                     value={type}
                     onChange={(e) => setType(e.target.value)}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 font-semibold"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 font-semibold"
                   >
                     <option value="project">Engineering Project</option>
                     <option value="certificate">Technical Certificate</option>
@@ -363,7 +363,7 @@ export const StudentProjectsPage: React.FC = () => {
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     placeholder="e.g. Lead Backend Engineer"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
               </div>
@@ -376,7 +376,7 @@ export const StudentProjectsPage: React.FC = () => {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. High-Throughput E-Commerce Microservices Engine"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -387,7 +387,7 @@ export const StudentProjectsPage: React.FC = () => {
                   value={technologies}
                   onChange={(e) => setTechnologies(e.target.value)}
                   placeholder="e.g. Java, Spring Boot, PostgreSQL, Docker, Redis"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -398,7 +398,7 @@ export const StudentProjectsPage: React.FC = () => {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Architected distributed backend with Spring Boot, Redis caching, and Kafka event streams..."
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -410,7 +410,7 @@ export const StudentProjectsPage: React.FC = () => {
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
                     placeholder="e.g. Aug 2025"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -421,7 +421,7 @@ export const StudentProjectsPage: React.FC = () => {
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
                     placeholder="e.g. Dec 2025 or Present"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
               </div>
@@ -434,7 +434,7 @@ export const StudentProjectsPage: React.FC = () => {
                     value={githubUrl}
                     onChange={(e) => setGithubUrl(e.target.value)}
                     placeholder="https://github.com/..."
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
 
@@ -445,7 +445,7 @@ export const StudentProjectsPage: React.FC = () => {
                     value={projectUrl}
                     onChange={(e) => setProjectUrl(e.target.value)}
                     placeholder="https://..."
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   />
                 </div>
               </div>
@@ -461,7 +461,7 @@ export const StudentProjectsPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl shadow-2xs flex items-center gap-2 disabled:opacity-50"
+                  className="px-5 py-2 btn-brand text-white font-bold rounded-xl shadow-2xs flex items-center gap-2 disabled:opacity-50"
                 >
                   {saving && <Loader2 className="w-4 h-4 animate-spin" />}
                   <span>{editingItem ? 'Save Changes' : 'Add to Portfolio'}</span>

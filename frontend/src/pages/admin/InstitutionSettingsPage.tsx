@@ -95,7 +95,7 @@ export const InstitutionSettingsPage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading institution profile...</p>
       </div>
     );
@@ -105,7 +105,7 @@ export const InstitutionSettingsPage: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <Building2 className="w-4 h-4" />
           <span>Institutional Administration</span>
         </div>
@@ -135,7 +135,7 @@ export const InstitutionSettingsPage: React.FC = () => {
         {/* Institution Logo Card */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-blue-700" />
+            <Building2 className="w-4 h-4 text-indigo-700" />
             <span>Institution Logo & Insignia</span>
           </h2>
           <div className="flex flex-col sm:flex-row items-center gap-6 pt-2">
@@ -156,7 +156,7 @@ export const InstitutionSettingsPage: React.FC = () => {
         {/* Core College Information */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-blue-700" />
+            <ShieldCheck className="w-4 h-4 text-indigo-700" />
             <span>Core College Details</span>
           </h2>
 
@@ -171,7 +171,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Audisankara University"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-semibold text-slate-900"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-semibold text-slate-900"
               />
             </div>
 
@@ -185,7 +185,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="e.g. MITAOE-PUN-01"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono text-slate-800"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono text-slate-800"
               />
             </div>
 
@@ -198,7 +198,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={type}
                 onChange={(e) => setType(e.target.value)}
                 placeholder="e.g. Autonomous Engineering College affiliated to SPPU (NAAC A+)"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -211,7 +211,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="e.g. Audisankara, Nellore, Andhra Pradesh"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -224,7 +224,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
                 placeholder="e.g. https://mitaoe.ac.in"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono"
               />
             </div>
 
@@ -237,7 +237,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder="e.g. Audisankara, Gudur, SPSR Nellore District, Andhra Pradesh"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none leading-relaxed"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none leading-relaxed"
               />
             </div>
           </div>
@@ -246,7 +246,7 @@ export const InstitutionSettingsPage: React.FC = () => {
         {/* Training & Placement Officer Details */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-            <Mail className="w-4 h-4 text-blue-700" />
+            <Mail className="w-4 h-4 text-indigo-700" />
             <span>Placement Office Contact Info</span>
           </h2>
 
@@ -260,7 +260,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={placementOfficerName}
                 onChange={(e) => setPlacementOfficerName(e.target.value)}
                 placeholder="e.g. Dr. Vivek S. Patil"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-semibold text-slate-800"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-semibold text-slate-800"
               />
             </div>
 
@@ -273,7 +273,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={placementOfficerEmail}
                 onChange={(e) => setPlacementOfficerEmail(e.target.value)}
                 placeholder="e.g. tpo@mitaoe.ac.in"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono"
               />
             </div>
 
@@ -286,7 +286,7 @@ export const InstitutionSettingsPage: React.FC = () => {
                 value={placementOfficerPhone}
                 onChange={(e) => setPlacementOfficerPhone(e.target.value)}
                 placeholder="e.g. +91 20 3025 3500"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono"
               />
             </div>
           </div>
@@ -297,7 +297,7 @@ export const InstitutionSettingsPage: React.FC = () => {
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-xs transition-colors flex items-center gap-2"
+            className="px-6 py-2.5 btn-brand text-white font-bold text-xs rounded-xl shadow-xs transition-colors flex items-center gap-2"
           >
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
             <span>{saving ? 'Saving Changes...' : 'Save Institution Profile'}</span>

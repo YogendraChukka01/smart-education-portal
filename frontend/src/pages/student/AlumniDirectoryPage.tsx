@@ -174,7 +174,7 @@ export const AlumniDirectoryPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <Users className="w-4 h-4" />
           <span>Institutional Alumni Network & Knowledge Feed</span>
         </div>
@@ -226,7 +226,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search alumni by name, role, skill (e.g. Distributed Systems)..."
-                  className="w-full pl-9 pr-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-medium"
+                  className="w-full pl-9 pr-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-medium"
                 />
               </div>
 
@@ -234,7 +234,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                 <select
                   value={selectedBranch}
                   onChange={(e) => setSelectedBranch(e.target.value)}
-                  className="w-full px-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 font-semibold"
+                  className="w-full px-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 font-semibold"
                 >
                   <option value="all">All Engineering Branches</option>
                   {ENGINEERING_BRANCHES_ALL.map((b) => (
@@ -249,7 +249,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                 <select
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}
-                  className="w-full px-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 font-semibold"
+                  className="w-full px-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 font-semibold"
                 >
                   <option value="all">All Graduation Batches</option>
                   <option value="2024">Batch 2024</option>
@@ -263,7 +263,7 @@ export const AlumniDirectoryPage: React.FC = () => {
               <div className="sm:col-span-2">
                 <button
                   type="submit"
-                  className="w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl transition-colors shadow-2xs flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 btn-brand text-white font-bold rounded-xl transition-colors shadow-2xs flex items-center justify-center gap-1.5"
                 >
                   <Search className="w-4 h-4" />
                   <span>Search Alumni</span>
@@ -275,7 +275,7 @@ export const AlumniDirectoryPage: React.FC = () => {
           {/* Alumni Directory Grid */}
           {loading ? (
             <div className="min-h-[30vh] flex flex-col items-center justify-center gap-3">
-              <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+              <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
               <p className="text-xs font-semibold text-slate-500">Searching alumni records...</p>
             </div>
           ) : alumni.length === 0 ? (
@@ -310,7 +310,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                             <span className="w-2 h-2 rounded-full bg-emerald-500" title="Open for Mentorship"></span>
                           )}
                         </div>
-                        <div className="text-xs font-semibold text-blue-700 flex items-center gap-1">
+                        <div className="text-xs font-semibold text-indigo-700 flex items-center gap-1">
                           <Briefcase className="w-3.5 h-3.5" />
                           <span>{a.role}</span>
                         </div>
@@ -331,7 +331,7 @@ export const AlumniDirectoryPage: React.FC = () => {
 
                     {/* Bio / Quote */}
                     {a.careerStoryQuote && (
-                      <div className="p-3 bg-blue-50/70 border border-blue-100 rounded-xl text-slate-700 text-[11px] italic leading-relaxed flex gap-2">
+                      <div className="p-3 bg-indigo-50/70 border border-blue-100 rounded-xl text-slate-700 text-[11px] italic leading-relaxed flex gap-2">
                         <Quote className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                         <span>"{a.careerStoryQuote}"</span>
                       </div>
@@ -360,7 +360,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                           href={a.linkedinUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="p-1.5 text-slate-400 hover:text-blue-700 hover:bg-slate-50 rounded-lg transition-colors"
+                          className="p-1.5 text-slate-400 hover:text-indigo-700 hover:bg-slate-50 rounded-lg transition-colors"
                           title="LinkedIn Profile"
                         >
                           <Linkedin className="w-4 h-4" />
@@ -381,7 +381,7 @@ export const AlumniDirectoryPage: React.FC = () => {
 
                     <button
                       onClick={() => setMentorshipModalAlum(a)}
-                      className="px-3.5 py-1.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-1.5"
+                      className="px-3.5 py-1.5 btn-brand text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-1.5"
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
                       <span>Request Mentorship</span>
@@ -427,7 +427,7 @@ export const AlumniDirectoryPage: React.FC = () => {
 
           {loadingPosts ? (
             <div className="min-h-[30vh] flex flex-col items-center justify-center gap-3">
-              <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+              <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
               <p className="text-xs font-semibold text-slate-500">Loading alumni knowledge feed...</p>
             </div>
           ) : filteredPosts.length === 0 ? (
@@ -460,7 +460,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200 shrink-0">
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 shrink-0">
                       {post.postType}
                     </span>
                   </div>
@@ -507,7 +507,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                   {/* Comments / Questions Section */}
                   <div className="bg-slate-50/80 p-4 rounded-xl space-y-3">
                     <div className="font-bold text-xs text-slate-800 flex items-center gap-1.5">
-                      <MessageSquare className="w-3.5 h-3.5 text-blue-700" />
+                      <MessageSquare className="w-3.5 h-3.5 text-indigo-700" />
                       <span>Student Inquiries & Follow-ups ({post.comments?.length || 0})</span>
                     </div>
 
@@ -539,12 +539,12 @@ export const AlumniDirectoryPage: React.FC = () => {
                           if (e.key === 'Enter') handleAddComment(post.id);
                         }}
                         placeholder="Ask a question or request advice on this topic..."
-                        className="flex-1 px-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white"
+                        className="flex-1 px-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white"
                       />
                       <button
                         onClick={() => handleAddComment(post.id)}
                         disabled={submittingCommentId === post.id}
-                        className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl transition flex items-center gap-1"
+                        className="px-4 py-2 btn-brand text-white font-bold text-xs rounded-xl transition flex items-center gap-1"
                       >
                         {submittingCommentId === post.id ? (
                           <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -567,7 +567,7 @@ export const AlumniDirectoryPage: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
           <div className="bg-white w-full max-w-md rounded-2xl shadow-xl border border-slate-200 p-6 space-y-4 animate-in fade-in zoom-in-95 duration-150">
             <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-              <Award className="w-4 h-4 text-blue-700" />
+              <Award className="w-4 h-4 text-indigo-700" />
               <span>Request 1:1 Mentorship from {mentorshipModalAlum.name}</span>
             </h2>
 
@@ -590,7 +590,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                     value={mentorshipTopic}
                     onChange={(e) => setMentorshipTopic(e.target.value)}
                     placeholder="e.g. System Design Mock Interview & Resume Review"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-bold text-slate-900"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-bold text-slate-900"
                   />
                 </div>
 
@@ -602,7 +602,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                     value={mentorshipMessage}
                     onChange={(e) => setMentorshipMessage(e.target.value)}
                     placeholder="Share your current preparation status, target company aspirations, and specific areas where you need guidance..."
-                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none leading-relaxed"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none leading-relaxed"
                   />
                 </div>
 
@@ -617,7 +617,7 @@ export const AlumniDirectoryPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={mentorshipSending}
-                    className="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl shadow-2xs flex items-center gap-2 disabled:opacity-50"
+                    className="px-5 py-2 btn-brand text-white font-bold rounded-xl shadow-2xs flex items-center gap-2 disabled:opacity-50"
                   >
                     {mentorshipSending && <Loader2 className="w-4 h-4 animate-spin" />}
                     <span>Submit Request</span>

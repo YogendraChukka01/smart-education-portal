@@ -82,7 +82,7 @@ export const MessagesPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <MessageSquare className="w-4 h-4" />
           <span>Direct Messaging & Mentorship Communication</span>
         </div>
@@ -96,7 +96,7 @@ export const MessagesPage: React.FC = () => {
 
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading messages...</p>
         </div>
       ) : (
@@ -120,7 +120,7 @@ export const MessagesPage: React.FC = () => {
                       key={c.userId}
                       onClick={() => setSelectedConversationUser(c.userId)}
                       className={`w-full text-left p-3 rounded-xl transition-colors flex items-start gap-3 ${
-                        isSelected ? 'bg-blue-50 border border-blue-200' : 'hover:bg-slate-50'
+                        isSelected ? 'bg-indigo-50 border border-indigo-200' : 'hover:bg-slate-50'
                       }`}
                     >
                       <div className="w-9 h-9 rounded-lg bg-blue-700 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-2xs">
@@ -196,12 +196,12 @@ export const MessagesPage: React.FC = () => {
                     value={newContent}
                     onChange={(e) => setNewContent(e.target.value)}
                     placeholder="Type your message or mentorship inquiry..."
-                    className="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50"
+                    className="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50"
                   />
                   <button
                     type="submit"
                     disabled={sending || !newContent.trim()}
-                    className="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs shadow-2xs flex items-center gap-1.5 disabled:opacity-50"
+                    className="px-5 py-2.5 btn-brand text-white font-bold rounded-xl text-xs shadow-2xs flex items-center gap-1.5 disabled:opacity-50"
                   >
                     {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                     <span>Send</span>

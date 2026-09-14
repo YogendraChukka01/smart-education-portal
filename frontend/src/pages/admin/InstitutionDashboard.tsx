@@ -49,7 +49,7 @@ export const InstitutionDashboard: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading placement & curriculum analytics...</p>
       </div>
     );
@@ -73,7 +73,7 @@ export const InstitutionDashboard: React.FC = () => {
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-1.5">
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
             <Building2 className="w-4 h-4" />
             <span>Institution Placement & Curriculum Administration</span>
           </div>
@@ -88,7 +88,7 @@ export const InstitutionDashboard: React.FC = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/admin/curriculum-gap"
-            className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
+            className="px-4 py-2 btn-brand text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
           >
             <Radar className="w-4 h-4" />
             <span>Curriculum Gap Radar</span>
@@ -113,7 +113,7 @@ export const InstitutionDashboard: React.FC = () => {
 
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Assessment Rate</span>
-          <div className="text-3xl font-black text-blue-700 mt-1">{assessmentCompletionPct}%</div>
+          <div className="text-3xl font-black text-indigo-700 mt-1">{assessmentCompletionPct}%</div>
           <p className="text-[11px] text-slate-400 mt-1">Verified skill benchmarks</p>
         </div>
 
@@ -141,7 +141,7 @@ export const InstitutionDashboard: React.FC = () => {
           </div>
           <Link
             to="/admin/curriculum-gap"
-            className="text-xs font-bold text-blue-700 hover:underline flex items-center gap-1"
+            className="text-xs font-bold text-indigo-700 hover:underline flex items-center gap-1"
           >
             <span>View Department Gaps</span>
             <ArrowRight className="w-3.5 h-3.5" />

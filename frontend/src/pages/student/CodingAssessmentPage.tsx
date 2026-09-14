@@ -455,7 +455,7 @@ export const CodingAssessmentPage: React.FC = () => {
                 </div>
                 <div className="w-full bg-slate-800 rounded-full h-1.5 mt-2 overflow-hidden">
                   <div
-                    className="bg-blue-500 h-full rounded-full transition-all duration-500"
+                    className="bg-indigo-500 h-full rounded-full transition-all duration-500"
                     style={{ width: `${(solvedCount / totalProblems) * 100}%` }}
                   />
                 </div>
@@ -571,7 +571,7 @@ export const CodingAssessmentPage: React.FC = () => {
                     onClick={() => setSelectedCategory(cat)}
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                       isSelected
-                        ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                        ? 'bg-indigo-600 text-white shadow-md shadow-blue-500/20'
                         : 'bg-slate-800/90 text-slate-300 hover:bg-slate-700 border border-slate-700/60'
                     }`}
                   >
@@ -655,7 +655,7 @@ export const CodingAssessmentPage: React.FC = () => {
                         {prob.difficulty}
                       </span>
 
-                      <button className="px-3.5 py-1.5 bg-blue-600 group-hover:bg-blue-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
+                      <button className="px-3.5 py-1.5 bg-indigo-600 group-hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
                         <span>Solve</span>
                         <ChevronRight className="w-3.5 h-3.5" />
                       </button>
@@ -872,7 +872,7 @@ export const CodingAssessmentPage: React.FC = () => {
                 <div className="p-6 space-y-6 text-slate-300 text-xs sm:text-sm leading-relaxed">
                   {/* Category & Tags */}
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold">
+                    <span className="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold">
                       {selectedProblem.category}
                     </span>
                     {selectedProblem.companies?.map((c) => (
@@ -1040,7 +1040,7 @@ export const CodingAssessmentPage: React.FC = () => {
                   onChange={(e) => setCode(e.target.value)}
                   onKeyDown={handleKeyDown}
                   spellCheck={false}
-                  className="flex-1 w-full bg-slate-950 text-slate-100 font-mono text-xs sm:text-sm p-4 focus:outline-none resize-none leading-relaxed selection:bg-blue-600 selection:text-white"
+                  className="flex-1 w-full bg-slate-950 text-slate-100 font-mono text-xs sm:text-sm p-4 focus:outline-none resize-none leading-relaxed selection:bg-indigo-600 selection:text-white"
                   placeholder="// Write your code solution here..."
                 />
               </div>

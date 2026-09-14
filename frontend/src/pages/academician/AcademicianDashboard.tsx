@@ -41,7 +41,7 @@ export const AcademicianDashboard: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading faculty dashboard...</p>
       </div>
     );
@@ -63,7 +63,7 @@ export const AcademicianDashboard: React.FC = () => {
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-1.5">
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
             <Building2 className="w-4 h-4" />
             <span>Faculty Mentorship & Research Portal</span>
           </div>
@@ -78,7 +78,7 @@ export const AcademicianDashboard: React.FC = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/academician/mentorship"
-            className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
+            className="px-4 py-2 btn-brand text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
           >
             <Plus className="w-4 h-4" />
             <span>Host Workshop / Session</span>
@@ -103,7 +103,7 @@ export const AcademicianDashboard: React.FC = () => {
 
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Student Mentees</span>
-          <div className="text-3xl font-black text-blue-700 mt-1">{totalMenteesCount || 120}</div>
+          <div className="text-3xl font-black text-indigo-700 mt-1">{totalMenteesCount || 120}</div>
           <p className="text-[11px] text-slate-400 mt-1">Attended sessions</p>
         </div>
 
@@ -147,7 +147,7 @@ export const AcademicianDashboard: React.FC = () => {
                   <td className="py-3.5 px-4 font-bold text-slate-900">{st.name}</td>
                   <td className="py-3.5 px-4 text-slate-600">{st.branchName || 'CSE'} (Year {st.year})</td>
                   <td className="py-3.5 px-4 text-center font-mono font-bold text-slate-800">{st.cgpa || 8.6}</td>
-                  <td className="py-3.5 px-4 text-center font-mono font-bold text-blue-800">{st.readinessScore}%</td>
+                  <td className="py-3.5 px-4 text-center font-mono font-bold text-indigo-800">{st.readinessScore}%</td>
                   <td className="py-3.5 px-4">
                     <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold text-[11px]">
                       {st.topSkill}

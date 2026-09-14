@@ -152,20 +152,20 @@ export const Navbar: React.FC = () => {
         ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-indigo-100 shadow-[0_1px_20px_-8px_rgba(79,70,229,0.25)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3 h-16">
           {/* Left Brand */}
           <div className="flex items-center gap-8 min-w-0 flex-1">
             <Link to="/" className="flex items-center gap-3 group shrink-0">
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200 shadow-xs group-hover:border-blue-300 transition-colors">
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-200 shadow-xs group-hover:border-indigo-300 transition-colors">
                 <img src="/setu-logo.png" alt="Setu logo" className="w-full h-full object-cover object-top" />
               </div>
               <div>
                 <div className="font-extrabold text-base tracking-tight text-slate-900 leading-tight">
                   Setu
                 </div>
-                <div className="text-[10px] font-semibold text-slate-500 tracking-wider">
+                <div className="text-[10px] font-semibold text-indigo-500 tracking-wider">
                   Connect • Learn • Grow
                 </div>
               </div>
@@ -180,7 +180,7 @@ export const Navbar: React.FC = () => {
                       to="/student/dashboard"
                       className={`px-3 py-2 rounded-xl transition-all ${
                         isActive('/student/dashboard')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -192,7 +192,7 @@ export const Navbar: React.FC = () => {
                       to="/student/career-gaps"
                       className={`px-3 py-2 rounded-xl transition-all ${
                         isActive('/student/career-gaps')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -204,7 +204,7 @@ export const Navbar: React.FC = () => {
                       to="/student/opportunities"
                       className={`px-3 py-2 rounded-xl transition-all ${
                         isActive('/student/opportunities')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -216,7 +216,7 @@ export const Navbar: React.FC = () => {
                       to="/student/applications"
                       className={`px-3 py-2 rounded-xl transition-all ${
                         isActive('/student/applications')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -228,7 +228,7 @@ export const Navbar: React.FC = () => {
                       to="/student/coding"
                       className={`px-3 py-2 rounded-xl transition-all flex items-center gap-1 ${
                         isActive('/student/coding')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -241,7 +241,7 @@ export const Navbar: React.FC = () => {
                       to="/student/projects"
                       className={`px-3 py-2 rounded-xl transition-all ${
                         isActive('/student/projects')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -253,7 +253,7 @@ export const Navbar: React.FC = () => {
                       to="/student/events"
                       className={`px-3 py-2 rounded-xl transition-all ${
                         isActive('/student/events')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -265,7 +265,7 @@ export const Navbar: React.FC = () => {
                       to="/student/alumni"
                       className={`px-3 py-2 rounded-xl transition-all ${
                         isActive('/student/alumni')
-                          ? 'bg-blue-50 text-blue-800'
+                          ? 'bg-indigo-50 text-indigo-800'
                           : 'hover:bg-slate-100 text-slate-700'
                       }`}
                     >
@@ -279,7 +279,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/academician/dashboard"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/academician/dashboard') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/academician/dashboard') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Dashboard
@@ -287,7 +287,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/academician/mentorship"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/academician/mentorship') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/academician/mentorship') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Mentorship & Workshops
@@ -295,7 +295,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/academician/opportunities"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/academician/opportunities') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/academician/opportunities') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       FDPs & Grants
@@ -303,7 +303,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/academician/profile"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/academician/profile') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/academician/profile') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Faculty Profile
@@ -316,7 +316,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/industry/dashboard"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/industry/dashboard') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/industry/dashboard') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Dashboard
@@ -324,7 +324,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/industry/post"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/industry/post') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/industry/post') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Post Opportunity
@@ -332,7 +332,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/industry/applicants"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/industry/applicants') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/industry/applicants') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Candidate Ranker
@@ -340,7 +340,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/industry/company-profile"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/industry/company-profile') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/industry/company-profile') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Company Profile
@@ -353,7 +353,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/admin/dashboard"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/admin/dashboard') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/admin/dashboard') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Dashboard
@@ -361,7 +361,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/admin/placement-stats"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/admin/placement-stats') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/admin/placement-stats') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Placement Statistics
@@ -369,7 +369,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/admin/curriculum-gap"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/admin/curriculum-gap') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/admin/curriculum-gap') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Curriculum Gap Radar
@@ -385,7 +385,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/admin/roster"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/admin/roster') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/admin/roster') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Roster & Directory
@@ -393,7 +393,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/admin/settings"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/admin/settings') ? 'bg-blue-50 text-blue-800' : 'hover:bg-slate-100'
+                        isActive('/admin/settings') ? 'bg-indigo-50 text-indigo-800' : 'hover:bg-slate-100'
                       }`}
                     >
                       Institution Settings
@@ -406,7 +406,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/alumni/dashboard"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/alumni/dashboard') ? 'bg-blue-50 text-blue-800 font-bold' : 'hover:bg-slate-100'
+                        isActive('/alumni/dashboard') ? 'bg-indigo-50 text-indigo-800 font-bold' : 'hover:bg-slate-100'
                       }`}
                     >
                       Dashboard & Portal
@@ -414,7 +414,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/student/alumni"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/student/alumni') ? 'bg-blue-50 text-blue-800 font-bold' : 'hover:bg-slate-100'
+                        isActive('/student/alumni') ? 'bg-indigo-50 text-indigo-800 font-bold' : 'hover:bg-slate-100'
                       }`}
                     >
                       Alumni Network & Knowledge
@@ -422,7 +422,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/student/events"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/student/events') ? 'bg-blue-50 text-blue-800 font-bold' : 'hover:bg-slate-100'
+                        isActive('/student/events') ? 'bg-indigo-50 text-indigo-800 font-bold' : 'hover:bg-slate-100'
                       }`}
                     >
                       Masterclasses & Events
@@ -430,7 +430,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/messages"
                       className={`px-3 py-2 rounded-xl transition-all ${
-                        isActive('/messages') ? 'bg-blue-50 text-blue-800 font-bold' : 'hover:bg-slate-100'
+                        isActive('/messages') ? 'bg-indigo-50 text-indigo-800 font-bold' : 'hover:bg-slate-100'
                       }`}
                     >
                       Mentorship Inquiries
@@ -469,14 +469,14 @@ export const Navbar: React.FC = () => {
                         <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
                           <span>Notifications</span>
                           {unreadCount > 0 && (
-                            <span className="px-1.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px]">
+                            <span className="px-1.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-md text-[10px]">
                               {unreadCount} new
                             </span>
                           )}
                         </div>
                         <button
                           onClick={handleMarkAllRead}
-                          className="text-[11px] font-bold text-blue-700 hover:underline"
+                          className="text-[11px] font-bold text-indigo-700 hover:underline"
                         >
                           Mark all as read
                         </button>
@@ -492,7 +492,7 @@ export const Navbar: React.FC = () => {
                             <div
                               key={n.id}
                               className={`p-3 text-xs transition-colors hover:bg-slate-50 ${
-                                !n.read ? 'bg-blue-50/50' : ''
+                                !n.read ? 'bg-indigo-50/50' : ''
                               }`}
                             >
                               <div className="font-bold text-slate-900">{n.title}</div>
@@ -578,7 +578,7 @@ export const Navbar: React.FC = () => {
                             onClick={() => setProfileDropdownOpen(false)}
                             className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                           >
-                            <User className="w-4 h-4 text-blue-700" />
+                            <User className="w-4 h-4 text-indigo-700" />
                             <span>Edit Academic Profile</span>
                           </Link>
                           {student?.portfolioSlug && (
@@ -604,7 +604,7 @@ export const Navbar: React.FC = () => {
                           onClick={() => setProfileDropdownOpen(false)}
                           className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                         >
-                          <User className="w-4 h-4 text-blue-700" />
+                          <User className="w-4 h-4 text-indigo-700" />
                           <span>Edit Faculty Profile</span>
                         </Link>
                       )}
@@ -615,7 +615,7 @@ export const Navbar: React.FC = () => {
                           onClick={() => setProfileDropdownOpen(false)}
                           className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                         >
-                          <Building2 className="w-4 h-4 text-blue-700" />
+                          <Building2 className="w-4 h-4 text-indigo-700" />
                           <span>Edit Company Profile</span>
                         </Link>
                       )}
@@ -626,7 +626,7 @@ export const Navbar: React.FC = () => {
                           onClick={() => setProfileDropdownOpen(false)}
                           className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                         >
-                          <Settings className="w-4 h-4 text-blue-700" />
+                          <Settings className="w-4 h-4 text-indigo-700" />
                           <span>Institution Settings</span>
                         </Link>
                       )}
@@ -637,7 +637,7 @@ export const Navbar: React.FC = () => {
                           onClick={() => setProfileDropdownOpen(false)}
                           className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                         >
-                          <Award className="w-4 h-4 text-blue-700" />
+                          <Award className="w-4 h-4 text-indigo-700" />
                           <span>Edit Alumni Profile</span>
                         </Link>
                       )}
@@ -704,7 +704,7 @@ export const Navbar: React.FC = () => {
                 </Link>
                 <Link
                   to="/register"
-                  className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition-colors shadow-2xs"
+                  className="px-4 py-2 btn-brand text-white rounded-xl text-xs font-bold transition-colors shadow-2xs"
                 >
                   Register
                 </Link>
@@ -721,7 +721,7 @@ export const Navbar: React.FC = () => {
                   to={path}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`rounded-xl px-3 py-2.5 text-xs font-bold transition-colors ${
-                    isActive(path) ? 'bg-blue-50 text-blue-800' : 'text-slate-700 hover:bg-slate-100'
+                    isActive(path) ? 'bg-indigo-50 text-indigo-800' : 'text-slate-700 hover:bg-slate-100'
                   }`}
                 >
                   {label}

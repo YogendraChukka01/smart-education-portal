@@ -86,7 +86,7 @@ export const SkillAssessmentPage: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-3">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <FileCheck2 className="w-4 h-4" />
           <span>Standardized Skill Assessment</span>
         </div>
@@ -127,7 +127,7 @@ export const SkillAssessmentPage: React.FC = () => {
 
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading assessment questions...</p>
         </div>
       ) : completedResult ? (
@@ -145,7 +145,7 @@ export const SkillAssessmentPage: React.FC = () => {
           </div>
 
           <div className="max-w-xs mx-auto p-4 bg-slate-50 rounded-xl border border-slate-200">
-            <div className="text-3xl font-black text-blue-700">{completedResult.score}%</div>
+            <div className="text-3xl font-black text-indigo-700">{completedResult.score}%</div>
             <div className="text-xs font-medium text-slate-500 mt-0.5">Overall Assessment Score</div>
           </div>
 
@@ -178,7 +178,7 @@ export const SkillAssessmentPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-slate-100">
             <button
               onClick={() => navigate('/student/career-gaps')}
-              className="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-2xs transition-colors flex items-center gap-1.5"
+              className="px-5 py-2.5 btn-brand text-white font-bold text-xs rounded-xl shadow-2xs transition-colors flex items-center gap-1.5"
             >
               <span>View Updated Skill Radar & Gaps</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -199,13 +199,13 @@ export const SkillAssessmentPage: React.FC = () => {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-bold text-slate-500">
               <span>
-                Question {currentIndex + 1} of {questions.length} • <strong className="text-blue-700">{currentQ.skillName}</strong>
+                Question {currentIndex + 1} of {questions.length} • <strong className="text-indigo-700">{currentQ.skillName}</strong>
               </span>
               <span>{progressPct}% Completed</span>
             </div>
             <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
               <div
-                className="bg-blue-600 h-full rounded-full transition-all duration-300"
+                className="bg-indigo-600 h-full rounded-full transition-all duration-300"
                 style={{ width: `${progressPct}%` }}
               ></div>
             </div>
@@ -213,7 +213,7 @@ export const SkillAssessmentPage: React.FC = () => {
 
           {/* Scenario / Context */}
           {currentQ.scenarioText && (
-            <div className="p-3.5 bg-blue-50/70 rounded-xl border border-blue-100 text-xs text-blue-900 font-medium leading-relaxed">
+            <div className="p-3.5 bg-indigo-50/70 rounded-xl border border-blue-100 text-xs text-indigo-900 font-medium leading-relaxed">
               <strong>Scenario Context:</strong> {currentQ.scenarioText}
             </div>
           )}
@@ -236,13 +236,13 @@ export const SkillAssessmentPage: React.FC = () => {
                   onClick={() => handleSelectOption(currentQ.skillId, opt.score)}
                   className={`w-full text-left p-4 rounded-xl text-xs font-medium transition-all flex items-start gap-3 border ${
                     isSelected
-                      ? 'bg-blue-50 border-blue-500 text-blue-950 font-bold shadow-2xs'
+                      ? 'bg-indigo-50 border-blue-500 text-blue-950 font-bold shadow-2xs'
                       : 'bg-slate-50/60 border-slate-200 hover:bg-slate-100 text-slate-800'
                   }`}
                 >
                   <div
                     className={`w-4 h-4 rounded-full border mt-0.5 flex items-center justify-center flex-shrink-0 ${
-                      isSelected ? 'border-blue-600 bg-blue-600 text-white' : 'border-slate-400 bg-white'
+                      isSelected ? 'border-blue-600 bg-indigo-600 text-white' : 'border-slate-400 bg-white'
                     }`}
                   >
                     {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white"></div>}
@@ -275,7 +275,7 @@ export const SkillAssessmentPage: React.FC = () => {
             ) : (
               <button
                 onClick={() => setCurrentIndex(currentIndex + 1)}
-                className="px-5 py-2 text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 rounded-xl shadow-2xs transition-colors flex items-center gap-1.5"
+                className="px-5 py-2 text-xs font-bold text-white btn-brand rounded-xl shadow-2xs transition-colors flex items-center gap-1.5"
               >
                 <span>Next Question</span>
                 <ArrowRight className="w-3.5 h-3.5" />

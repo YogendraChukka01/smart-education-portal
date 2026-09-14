@@ -54,7 +54,7 @@ export const AcademicianOpportunitiesPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <BookOpen className="w-4 h-4" />
           <span>Faculty Enrichment & Research Portal</span>
         </div>
@@ -69,7 +69,7 @@ export const AcademicianOpportunitiesPage: React.FC = () => {
       {/* List */}
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading faculty opportunities...</p>
         </div>
       ) : opportunities.length === 0 ? (
@@ -89,7 +89,7 @@ export const AcademicianOpportunitiesPage: React.FC = () => {
             >
               <div className="space-y-3">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
                     {opp.type}
                   </span>
                   <h2 className="text-base font-bold text-slate-900 mt-1.5 leading-snug">{opp.title}</h2>
@@ -125,7 +125,7 @@ export const AcademicianOpportunitiesPage: React.FC = () => {
                   <button
                     onClick={() => handleApply(opp.id)}
                     disabled={applyingId === opp.id}
-                    className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
+                    className="px-4 py-2 btn-brand text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
                   >
                     {applyingId === opp.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
                     <span>Express Interest</span>

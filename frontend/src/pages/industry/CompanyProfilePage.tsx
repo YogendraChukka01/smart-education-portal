@@ -103,7 +103,7 @@ export const CompanyProfilePage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading company profile...</p>
       </div>
     );
@@ -113,7 +113,7 @@ export const CompanyProfilePage: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <Building2 className="w-4 h-4" />
           <span>Industry Partner Profile</span>
         </div>
@@ -143,7 +143,7 @@ export const CompanyProfilePage: React.FC = () => {
         {/* Company Logo Card */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-blue-700" />
+            <Building2 className="w-4 h-4 text-indigo-700" />
             <span>Company Logo</span>
           </h2>
           <div className="flex flex-col sm:flex-row items-center gap-6 pt-2">
@@ -164,7 +164,7 @@ export const CompanyProfilePage: React.FC = () => {
         {/* Company Details Card */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-            <Briefcase className="w-4 h-4 text-blue-700" />
+            <Briefcase className="w-4 h-4 text-indigo-700" />
             <span>Corporate Details</span>
           </h2>
 
@@ -179,7 +179,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Tata Consultancy Services (TCS Digital Labs)"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-semibold text-slate-900"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-semibold text-slate-900"
               />
             </div>
 
@@ -192,7 +192,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={industryType}
                 onChange={(e) => setIndustryType(e.target.value)}
                 placeholder="e.g. Enterprise Software & Cloud Solutions"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -205,7 +205,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={companySize}
                 onChange={(e) => setCompanySize(e.target.value)}
                 placeholder="e.g. 100,000+ employees"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -218,7 +218,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="e.g. Pune, Bengaluru, Hyderabad, India"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -231,7 +231,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
                 placeholder="e.g. https://www.tcs.com"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono"
               />
             </div>
 
@@ -244,7 +244,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Describe your company, technical engineering culture, and work environment..."
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none leading-relaxed"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none leading-relaxed"
               />
             </div>
 
@@ -257,7 +257,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={hiringDomains}
                 onChange={(e) => setHiringDomains(e.target.value)}
                 placeholder="e.g. Cloud Architecture, Java Microservices, Full Stack, AI/ML, Embedded Systems"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
           </div>
@@ -266,7 +266,7 @@ export const CompanyProfilePage: React.FC = () => {
         {/* Recruiter Contact Information */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
           <h2 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-            <User className="w-4 h-4 text-blue-700" />
+            <User className="w-4 h-4 text-indigo-700" />
             <span>Campus Talent Acquisition Lead</span>
           </h2>
 
@@ -280,7 +280,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={recruiterName}
                 onChange={(e) => setRecruiterName(e.target.value)}
                 placeholder="e.g. Anand Kulkarni"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-semibold text-slate-800"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-semibold text-slate-800"
               />
             </div>
 
@@ -293,7 +293,7 @@ export const CompanyProfilePage: React.FC = () => {
                 value={recruiterEmail}
                 onChange={(e) => setRecruiterEmail(e.target.value)}
                 placeholder="e.g. university.hiring@tcs.com"
-                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono"
               />
             </div>
           </div>
@@ -304,7 +304,7 @@ export const CompanyProfilePage: React.FC = () => {
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-xs transition-colors flex items-center gap-2"
+            className="px-6 py-2.5 btn-brand text-white font-bold text-xs rounded-xl shadow-xs transition-colors flex items-center gap-2"
           >
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
             <span>{saving ? 'Saving Profile...' : 'Save Company Profile'}</span>

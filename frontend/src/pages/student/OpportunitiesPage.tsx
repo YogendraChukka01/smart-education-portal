@@ -92,7 +92,7 @@ export const OpportunitiesPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <Briefcase className="w-4 h-4" />
           <span>Industry Opportunities Marketplace</span>
         </div>
@@ -114,7 +114,7 @@ export const OpportunitiesPage: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by role, company, skills..."
-            className="w-full pl-9 pr-3 py-2 text-xs font-medium border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 focus:bg-white"
+            className="w-full pl-9 pr-3 py-2 text-xs font-medium border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 focus:bg-white"
           />
         </div>
 
@@ -147,7 +147,7 @@ export const OpportunitiesPage: React.FC = () => {
       {/* Opportunities List */}
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Matching opportunities for your skill profile...</p>
         </div>
       ) : opportunities.length === 0 ? (
@@ -163,13 +163,13 @@ export const OpportunitiesPage: React.FC = () => {
           {opportunities.map((opp) => (
             <div
               key={opp.id}
-              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all shadow-2xs flex flex-col justify-between space-y-4"
+              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-indigo-300 transition-all shadow-2xs flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 {/* Header Strip */}
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
                       {opp.type}
                     </span>
                     <h2 className="text-base font-bold text-slate-900 mt-1.5 leading-snug">
@@ -235,7 +235,7 @@ export const OpportunitiesPage: React.FC = () => {
                     setApplySuccess(null);
                     setApplyError(null);
                   }}
-                  className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition-colors shadow-2xs"
+                  className="px-4 py-2 btn-brand text-white rounded-xl text-xs font-bold transition-colors shadow-2xs"
                 >
                   View Details & Apply
                 </button>
@@ -251,7 +251,7 @@ export const OpportunitiesPage: React.FC = () => {
           <div className="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-xl border border-slate-200 space-y-5 my-8">
             <div className="flex items-start justify-between border-b border-slate-100 pb-3">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
                   {selectedOpp.type}
                 </span>
                 <h3 className="font-bold text-lg text-slate-900 mt-1">{selectedOpp.title}</h3>
@@ -273,7 +273,7 @@ export const OpportunitiesPage: React.FC = () => {
 
               <div className="grid grid-cols-3 gap-2 text-center text-xs">
                 <div className="p-2 bg-white rounded-lg border border-slate-200">
-                  <div className="font-bold text-blue-700">
+                  <div className="font-bold text-indigo-700">
                     {selectedOpp.matchExplanation?.skillMatchPct ?? selectedOpp.matchScorePct}%
                   </div>
                   <div className="text-[10px] text-slate-500 font-medium">Skill Overlap</div>
@@ -309,7 +309,7 @@ export const OpportunitiesPage: React.FC = () => {
                 value={coverNote}
                 onChange={(e) => setCoverNote(e.target.value)}
                 placeholder="Highlight your technical strengths and relevant project links..."
-                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 outline-none"
               ></textarea>
             </div>
 
@@ -338,7 +338,7 @@ export const OpportunitiesPage: React.FC = () => {
               <button
                 onClick={handleApply}
                 disabled={applying || !!applySuccess}
-                className="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5 disabled:opacity-60"
+                className="px-5 py-2 btn-brand text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5 disabled:opacity-60"
               >
                 {applying ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 <span>Submit Application</span>

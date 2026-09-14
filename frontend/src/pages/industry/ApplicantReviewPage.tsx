@@ -131,7 +131,7 @@ export const ApplicantReviewPage: React.FC = () => {
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-1.5">
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
             <Users className="w-4 h-4" />
             <span>Candidate Compatibility Ranker</span>
           </div>
@@ -149,7 +149,7 @@ export const ApplicantReviewPage: React.FC = () => {
           <select
             value={selectedOppId}
             onChange={(e) => setSelectedOppId(e.target.value)}
-            className="w-full md:w-80 px-3 py-2 bg-slate-50 hover:bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-900 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full md:w-80 px-3 py-2 bg-slate-50 hover:bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {opportunities.map((opp) => (
               <option key={opp.id} value={opp.id}>
@@ -162,14 +162,14 @@ export const ApplicantReviewPage: React.FC = () => {
 
       {/* Selected Opportunity Info Strip */}
       {activeOpp && (
-        <div className="bg-blue-50/70 p-4 rounded-xl border border-blue-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="bg-indigo-50/70 p-4 rounded-xl border border-indigo-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
           <div className="space-y-0.5">
-            <span className="font-bold text-blue-900">{activeOpp.title}</span>
+            <span className="font-bold text-indigo-900">{activeOpp.title}</span>
             <div className="text-slate-600">
               Location: {activeOpp.location} ({activeOpp.workMode}) • Stipend: {activeOpp.stipendOrSalary} • Min CGPA: {activeOpp.minCgpa || 6.0}
             </div>
           </div>
-          <div className="font-bold text-blue-800 bg-white px-3 py-1 rounded-lg border border-blue-200 shadow-2xs">
+          <div className="font-bold text-indigo-800 bg-white px-3 py-1 rounded-lg border border-indigo-200 shadow-2xs">
             {applicants.length} Total Applicants
           </div>
         </div>
@@ -178,7 +178,7 @@ export const ApplicantReviewPage: React.FC = () => {
       {/* Applicants Table */}
       {loadingApplicants ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Ranking candidates by compatibility...</p>
         </div>
       ) : applicants.length === 0 ? (
@@ -248,7 +248,7 @@ export const ApplicantReviewPage: React.FC = () => {
                           setNewStatus(app.status);
                           setNotes('');
                         }}
-                        className="inline-flex items-center gap-1 px-3 py-1 text-[11px] font-bold bg-blue-700 hover:bg-blue-800 text-white rounded-lg transition-colors shadow-2xs"
+                        className="inline-flex items-center gap-1 px-3 py-1 text-[11px] font-bold btn-brand text-white rounded-lg transition-colors shadow-2xs"
                       >
                         <span>Review & Advance</span>
                       </button>
@@ -289,7 +289,7 @@ export const ApplicantReviewPage: React.FC = () => {
               <select
                 value={newStatus}
                 onChange={(e) => setNewStatus(e.target.value)}
-                className="w-full p-2.5 border border-slate-300 rounded-xl text-xs font-bold bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full p-2.5 border border-slate-300 rounded-xl text-xs font-bold bg-white focus:ring-2 focus:ring-indigo-500 outline-none"
               >
                 <option value={APPLICATION_STATUS.APPLIED}>Applied (Screening)</option>
                 <option value={APPLICATION_STATUS.SHORTLISTED}>Shortlisted for Assessment</option>
@@ -308,7 +308,7 @@ export const ApplicantReviewPage: React.FC = () => {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="e.g. Strong in Java & SQL, schedule Round 1 Technical Interview for Thursday."
-                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 outline-none"
               ></textarea>
             </div>
 
@@ -323,7 +323,7 @@ export const ApplicantReviewPage: React.FC = () => {
               <button
                 onClick={handleUpdateStatus}
                 disabled={updating}
-                className="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5"
+                className="px-5 py-2 btn-brand text-white text-xs font-bold rounded-xl transition-colors shadow-2xs flex items-center gap-1.5"
               >
                 {updating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 <span>Update Hiring Stage</span>

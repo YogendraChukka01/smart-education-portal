@@ -78,7 +78,7 @@ export const PortfolioPage: React.FC = () => {
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-1.5">
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
             <Award className="w-4 h-4" />
             <span>Digital Credential Portfolio</span>
           </div>
@@ -93,7 +93,7 @@ export const PortfolioPage: React.FC = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setModalOpen(true)}
-            className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
+            className="px-4 py-2 btn-brand text-white rounded-xl text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5"
           >
             <Plus className="w-4 h-4" />
             <span>Add Project / Credential</span>
@@ -115,9 +115,9 @@ export const PortfolioPage: React.FC = () => {
 
       {/* Shareable Link Banner */}
       {student?.portfolioSlug && (
-        <div className="bg-blue-50/70 border border-blue-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="bg-indigo-50/70 border border-indigo-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
           <div className="space-y-0.5">
-            <span className="font-bold text-blue-900">Your Shareable Public Digital Portfolio:</span>
+            <span className="font-bold text-indigo-900">Your Shareable Public Digital Portfolio:</span>
             <div className="text-slate-600 font-mono">
               {window.location.origin}/portfolio/{student.portfolioSlug}
             </div>
@@ -126,7 +126,7 @@ export const PortfolioPage: React.FC = () => {
             href={`/portfolio/${student.portfolioSlug}`}
             target="_blank"
             rel="noreferrer"
-            className="px-3.5 py-1.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-lg text-xs transition-colors whitespace-nowrap"
+            className="px-3.5 py-1.5 btn-brand text-white font-bold rounded-lg text-xs transition-colors whitespace-nowrap"
           >
             Open Public View
           </a>
@@ -136,7 +136,7 @@ export const PortfolioPage: React.FC = () => {
       {/* Portfolio Items Grid */}
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading portfolio items...</p>
         </div>
       ) : items.length === 0 ? (
@@ -156,7 +156,7 @@ export const PortfolioPage: React.FC = () => {
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
                     {item.type}
                   </span>
                   {item.verified && (
@@ -183,7 +183,7 @@ export const PortfolioPage: React.FC = () => {
                     href={item.fileUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blue-700 font-bold hover:underline flex items-center gap-1"
+                    className="text-indigo-700 font-bold hover:underline flex items-center gap-1"
                   >
                     View Document <ExternalLink className="w-3 h-3" />
                   </a>
@@ -211,7 +211,7 @@ export const PortfolioPage: React.FC = () => {
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   <option value={PORTFOLIO_ITEM_TYPES.PROJECT}>Engineering Project / Capstone</option>
                   <option value={PORTFOLIO_ITEM_TYPES.CERTIFICATE}>Technical Certification (AWS, Oracle, etc.)</option>
@@ -228,7 +228,7 @@ export const PortfolioPage: React.FC = () => {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. Distributed E-Commerce Microservices Engine"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -240,7 +240,7 @@ export const PortfolioPage: React.FC = () => {
                   value={issuer}
                   onChange={(e) => setIssuer(e.target.value)}
                   placeholder="e.g. Amazon Web Services / MITAOE / TCS"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -251,7 +251,7 @@ export const PortfolioPage: React.FC = () => {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Briefly describe the key technical deliverables and architecture..."
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 ></textarea>
               </div>
 
@@ -262,7 +262,7 @@ export const PortfolioPage: React.FC = () => {
                   value={fileUrl}
                   onChange={(e) => setFileUrl(e.target.value)}
                   placeholder="https://github.com/project or certificate link"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -277,7 +277,7 @@ export const PortfolioPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl transition-colors flex items-center gap-1.5"
+                  className="px-5 py-2 btn-brand text-white font-bold rounded-xl transition-colors flex items-center gap-1.5"
                 >
                   {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                   <span>Save to Portfolio</span>

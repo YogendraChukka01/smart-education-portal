@@ -134,7 +134,7 @@ export const FacultyProfilePage: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
       {/* Header */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
-        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
           <BookOpen className="w-4 h-4" />
           <span>Faculty Academic & Research Profile</span>
         </div>
@@ -148,7 +148,7 @@ export const FacultyProfilePage: React.FC = () => {
 
       {loading ? (
         <div className="min-h-[30vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading faculty profile...</p>
         </div>
       ) : (
@@ -182,7 +182,7 @@ export const FacultyProfilePage: React.FC = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Dr. Anjali Joshi"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -194,7 +194,7 @@ export const FacultyProfilePage: React.FC = () => {
                   value={designation}
                   onChange={(e) => setDesignation(e.target.value)}
                   placeholder="e.g. Professor & Head of Department"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -203,7 +203,7 @@ export const FacultyProfilePage: React.FC = () => {
                 <select
                   value={department}
                   onChange={(e) => setDepartment(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 font-semibold"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 font-semibold"
                 >
                   {ENGINEERING_DEPARTMENTS.map((d) => (
                     <option key={d} value={d}>{d}</option>
@@ -216,7 +216,7 @@ export const FacultyProfilePage: React.FC = () => {
                 <select
                   value={branch}
                   onChange={(e) => setBranch(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 font-semibold"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-slate-50 font-semibold"
                 >
                   {ENGINEERING_BRANCHES_ALL.map((b) => (
                     <option key={b} value={b}>{b}</option>
@@ -230,7 +230,7 @@ export const FacultyProfilePage: React.FC = () => {
                   type="number"
                   value={experienceYears}
                   onChange={(e) => setExperienceYears(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -266,7 +266,7 @@ export const FacultyProfilePage: React.FC = () => {
                 value={specialization}
                 onChange={(e) => setSpecialization(e.target.value)}
                 placeholder="e.g. Distributed Cloud Architecture, Fault-Tolerant Microservices"
-                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -277,7 +277,7 @@ export const FacultyProfilePage: React.FC = () => {
                 value={publications}
                 onChange={(e) => setPublications(e.target.value)}
                 placeholder="Scalable Transaction Management in Multi-Cloud Microservices (IEEE Trans. 2024)..."
-                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-mono text-[11px]"
+                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none font-mono text-[11px]"
               />
             </div>
 
@@ -288,7 +288,7 @@ export const FacultyProfilePage: React.FC = () => {
                 value={labExpertise}
                 onChange={(e) => setLabExpertise(e.target.value)}
                 placeholder="e.g. High Performance Computing Lab, Cloud & IoT Research Center"
-                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -299,7 +299,7 @@ export const FacultyProfilePage: React.FC = () => {
                 value={expertiseTags}
                 onChange={(e) => setExpertiseTags(e.target.value)}
                 placeholder="e.g. Distributed Systems, Cloud Architecture, Java Microservices"
-                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
 
@@ -310,7 +310,7 @@ export const FacultyProfilePage: React.FC = () => {
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
                 placeholder="Senior Professor & HOD of Computer Engineering. Guiding undergraduate scholars in distributed cloud systems..."
-                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
           </div>
@@ -329,7 +329,7 @@ export const FacultyProfilePage: React.FC = () => {
                   value={linkedinUrl}
                   onChange={(e) => setLinkedinUrl(e.target.value)}
                   placeholder="https://linkedin.com/in/..."
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -340,7 +340,7 @@ export const FacultyProfilePage: React.FC = () => {
                   value={orcidUrl}
                   onChange={(e) => setOrcidUrl(e.target.value)}
                   placeholder="https://orcid.org/..."
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -351,7 +351,7 @@ export const FacultyProfilePage: React.FC = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 20 2550 7000"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -361,7 +361,7 @@ export const FacultyProfilePage: React.FC = () => {
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-2.5 btn-brand text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2 disabled:opacity-50"
             >
               {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
               <span>Save Faculty Profile</span>

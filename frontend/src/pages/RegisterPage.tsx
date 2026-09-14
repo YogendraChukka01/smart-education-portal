@@ -174,7 +174,7 @@ export const RegisterPage: React.FC = () => {
                 }}
                 className={`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-xs font-bold transition-all ${
                   isSelected
-                    ? 'bg-white text-blue-900 shadow-2xs'
+                    ? 'bg-white text-indigo-900 shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -204,7 +204,7 @@ export const RegisterPage: React.FC = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -219,7 +219,7 @@ export const RegisterPage: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@organization.com"
-                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -236,7 +236,7 @@ export const RegisterPage: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="At least 6 characters"
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
           </div>
@@ -254,7 +254,7 @@ export const RegisterPage: React.FC = () => {
                     setDepartmentName(d);
                     setBranchName(b[0]);
                   }}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   {ENGINEERING_DEPARTMENTS.map((dept) => (
                     <option key={dept} value={dept}>
@@ -269,7 +269,7 @@ export const RegisterPage: React.FC = () => {
                 <select
                   value={branchName}
                   onChange={(e) => setBranchName(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   {(ENGINEERING_BRANCHES[departmentName] || [departmentName]).map((b) => (
                     <option key={b} value={b}>
@@ -284,7 +284,7 @@ export const RegisterPage: React.FC = () => {
                 <select
                   value={year}
                   onChange={(e) => setYear(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   <option value={1}>1st Year (Junior)</option>
                   <option value={2}>2nd Year</option>
@@ -301,7 +301,7 @@ export const RegisterPage: React.FC = () => {
                   max="8"
                   value={semester}
                   onChange={(e) => setSemester(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -314,7 +314,7 @@ export const RegisterPage: React.FC = () => {
                   max="10"
                   value={cgpa}
                   onChange={(e) => setCgpa(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
 
@@ -326,7 +326,7 @@ export const RegisterPage: React.FC = () => {
                   max="2030"
                   value={graduationYear}
                   onChange={(e) => setGraduationYear(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -340,7 +340,7 @@ export const RegisterPage: React.FC = () => {
                 <select
                   value={facultyDepartment}
                   onChange={(e) => setFacultyDepartment(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   {ENGINEERING_DEPARTMENTS.map((dept) => (
                     <option key={dept} value={dept}>
@@ -355,7 +355,7 @@ export const RegisterPage: React.FC = () => {
                 <select
                   value={designation}
                   onChange={(e) => setDesignation(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   <option value="Professor & HOD">Professor & HOD</option>
                   <option value="Professor">Professor</option>
@@ -373,7 +373,7 @@ export const RegisterPage: React.FC = () => {
                   value={specialization}
                   onChange={(e) => setSpecialization(e.target.value)}
                   placeholder="e.g. Distributed Systems, Robotics & AI, Structural Dynamics"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -390,7 +390,7 @@ export const RegisterPage: React.FC = () => {
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
                   placeholder="e.g. Tata Consultancy Services"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
               <div>
@@ -400,7 +400,7 @@ export const RegisterPage: React.FC = () => {
                   value={industryType}
                   onChange={(e) => setIndustryType(e.target.value)}
                   placeholder="e.g. Enterprise Software & Cloud"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -417,7 +417,7 @@ export const RegisterPage: React.FC = () => {
                   value={institutionName}
                   onChange={(e) => setInstitutionName(e.target.value)}
                   placeholder="e.g. Audisankara University"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
               <div>
@@ -427,7 +427,7 @@ export const RegisterPage: React.FC = () => {
                   value={institutionType}
                   onChange={(e) => setInstitutionType(e.target.value)}
                   placeholder="e.g. Autonomous Engineering College"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -444,7 +444,7 @@ export const RegisterPage: React.FC = () => {
                   value={alumniCompany}
                   onChange={(e) => setAlumniCompany(e.target.value)}
                   placeholder="e.g. Microsoft India, Google, TCS"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
               <div>
@@ -455,7 +455,7 @@ export const RegisterPage: React.FC = () => {
                   value={alumniRole}
                   onChange={(e) => setAlumniRole(e.target.value)}
                   placeholder="e.g. Senior Software Engineer"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
               <div>
@@ -468,7 +468,7 @@ export const RegisterPage: React.FC = () => {
                     setAlumniDepartment(d);
                     setAlumniBranch(b[0]);
                   }}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-white font-medium"
                 >
                   {ENGINEERING_DEPARTMENTS.map((dept) => (
                     <option key={dept} value={dept}>
@@ -485,7 +485,7 @@ export const RegisterPage: React.FC = () => {
                   max="2025"
                   value={alumniGradYear}
                   onChange={(e) => setAlumniGradYear(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
               <div>
@@ -496,7 +496,7 @@ export const RegisterPage: React.FC = () => {
                   max="40"
                   value={experienceYears}
                   onChange={(e) => setExperienceYears(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                 />
               </div>
             </div>
@@ -505,7 +505,7 @@ export const RegisterPage: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 px-4 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs shadow-2xs transition-all flex items-center justify-center gap-2"
+            className="w-full py-2.5 px-4 btn-brand text-white font-bold rounded-xl text-xs shadow-2xs transition-all flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
@@ -520,7 +520,7 @@ export const RegisterPage: React.FC = () => {
 
           <p className="text-center text-xs text-slate-500 pt-1">
             Already registered?{' '}
-            <Link to="/login" className="font-bold text-blue-700 hover:underline">
+            <Link to="/login" className="font-bold text-indigo-700 hover:underline">
               Sign in
             </Link>
           </p>

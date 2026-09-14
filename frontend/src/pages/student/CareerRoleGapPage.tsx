@@ -53,7 +53,7 @@ export const CareerRoleGapPage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
         <p className="text-xs font-semibold text-slate-500">Loading career role mapping and gap analysis...</p>
       </div>
     );
@@ -78,7 +78,7 @@ export const CareerRoleGapPage: React.FC = () => {
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">
+            <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider">
               Target Career Role Mapping
             </span>
           </div>
@@ -96,7 +96,7 @@ export const CareerRoleGapPage: React.FC = () => {
           <select
             value={selectedRoleId}
             onChange={(e) => setSelectedRoleId(e.target.value)}
-            className="px-3.5 py-2.5 bg-slate-50 hover:bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none shadow-2xs"
+            className="px-3.5 py-2.5 bg-slate-50 hover:bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-900 focus:ring-2 focus:ring-indigo-500 outline-none shadow-2xs"
           >
             {availableRoles.map((role: any) => (
               <option key={role.id} value={role.id}>
@@ -117,7 +117,7 @@ export const CareerRoleGapPage: React.FC = () => {
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">
-                <div className="text-2xl font-black text-blue-700">{overallReadinessPct}%</div>
+                <div className="text-2xl font-black text-indigo-700">{overallReadinessPct}%</div>
                 <div className="text-[10px] text-slate-500 font-medium">Role Compatibility</div>
               </div>
             </div>
@@ -127,7 +127,7 @@ export const CareerRoleGapPage: React.FC = () => {
           {targetRole.recommendedProjects?.length > 0 && (
             <div className="space-y-2">
               <div className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                <BookOpen className="w-3.5 h-3.5 text-blue-700" />
+                <BookOpen className="w-3.5 h-3.5 text-indigo-700" />
                 <span>Recommended Projects for Resume Building:</span>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -282,7 +282,7 @@ export const CareerRoleGapPage: React.FC = () => {
                 return (
                   <tr key={g.skillName} className="hover:bg-slate-50 transition-colors">
                     <td className="py-3.5 px-4 font-bold text-slate-900">{g.skillName}</td>
-                    <td className="py-3.5 px-4 text-center font-mono font-bold text-blue-800">{g.studentScore}%</td>
+                    <td className="py-3.5 px-4 text-center font-mono font-bold text-indigo-800">{g.studentScore}%</td>
                     <td className="py-3.5 px-4 text-center font-mono font-bold text-slate-600">{g.benchmarkScore}%</td>
                     <td className="py-3.5 px-4 text-center font-mono font-bold">
                       {g.gap > 0 ? (

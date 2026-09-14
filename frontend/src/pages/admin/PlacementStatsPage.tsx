@@ -67,7 +67,7 @@ export const PlacementStatsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-2xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider">
             <TrendingUp className="w-4 h-4" />
             <span>Institutional Placement Cell Governance</span>
           </div>
@@ -81,7 +81,7 @@ export const PlacementStatsPage: React.FC = () => {
 
         <button
           onClick={handleOpenNaacReport}
-          className="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2 self-start sm:self-auto shrink-0"
+          className="px-5 py-2.5 btn-brand text-white font-bold rounded-xl text-xs transition-colors shadow-2xs flex items-center gap-2 self-start sm:self-auto shrink-0"
         >
           <FileSpreadsheet className="w-4 h-4" />
           <span>Export NAAC / NIRF Report</span>
@@ -90,7 +90,7 @@ export const PlacementStatsPage: React.FC = () => {
 
       {loading ? (
         <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Loading placement records...</p>
         </div>
       ) : (
@@ -109,7 +109,7 @@ export const PlacementStatsPage: React.FC = () => {
 
             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-1">
               <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Highest CTC Offered</div>
-              <div className="text-2xl font-black text-blue-700 font-mono">
+              <div className="text-2xl font-black text-indigo-700 font-mono">
                 ₹{data?.highestPackageLpa || 28.0} LPA
               </div>
               <div className="text-[11px] text-slate-500">Amazon Web Services (AWS)</div>
@@ -137,7 +137,7 @@ export const PlacementStatsPage: React.FC = () => {
             <div className="p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-blue-700" />
+                  <Building2 className="w-4 h-4 text-indigo-700" />
                   <span>Company-Wise Campus Recruitment Drives (AY 2025-26)</span>
                 </h2>
                 <p className="text-xs text-slate-500 mt-0.5">
@@ -168,7 +168,7 @@ export const PlacementStatsPage: React.FC = () => {
                       <td className="px-4 py-4 text-slate-500">{c.industryType}</td>
                       <td className="px-4 py-4 text-center font-mono">{c.eligibleStudentsCount}</td>
                       <td className="px-4 py-4 text-center font-mono">{c.appearedCount}</td>
-                      <td className="px-4 py-4 text-center font-mono text-blue-700">{c.shortlistedCount}</td>
+                      <td className="px-4 py-4 text-center font-mono text-indigo-700">{c.shortlistedCount}</td>
                       <td className="px-4 py-4 text-center font-mono font-bold text-emerald-700">
                         {c.offersMadeCount}
                       </td>
@@ -193,7 +193,7 @@ export const PlacementStatsPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
               <div>
                 <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                  <Award className="w-4 h-4 text-blue-700" />
+                  <Award className="w-4 h-4 text-indigo-700" />
                   <span>Placed Students Directory ("Where Our Students Are Placed")</span>
                 </h2>
                 <p className="text-xs text-slate-500 mt-0.5">
@@ -245,7 +245,7 @@ export const PlacementStatsPage: React.FC = () => {
 
                     <div className="p-2.5 bg-white rounded-xl border border-slate-200 text-xs space-y-0.5">
                       <div className="font-bold text-slate-900">{st.companyName}</div>
-                      <div className="text-[11px] text-blue-700 font-semibold">{st.role}</div>
+                      <div className="text-[11px] text-indigo-700 font-semibold">{st.role}</div>
                       <div className="text-[10px] text-slate-400">{st.placementType} • AY {st.academicYear}</div>
                     </div>
 
@@ -331,7 +331,7 @@ export const PlacementStatsPage: React.FC = () => {
             <div className="flex items-center justify-end pt-3 border-t border-slate-100">
               <button
                 onClick={() => setNaacModalOpen(false)}
-                className="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl text-xs shadow-2xs"
+                className="px-5 py-2 btn-brand text-white font-bold rounded-xl text-xs shadow-2xs"
               >
                 Close Report
               </button>
